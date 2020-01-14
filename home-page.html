@@ -8,58 +8,167 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script> src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"</script>
-    <title>Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Home</title>
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-light navbar-expand-md bg-light">
-        <div class="container-fluid">
-            <h1 class="navbar-brand" href="#">Unitickets</h1>
-        </div>
-        <button class="navbar-login" type="button">Accedi</button>
-        <hr>
-        <button class="navbar-register" type="button">Registrazione</button>
-    </nav>
-    <div class="container-fluid padding">
-    <div class="row padding">
-        <!--qui metto tutte le categorie dei vari eventi-->
-        <div class="col-lg-6">
-            <h3>Categorie</h3>
-            <div class="categories">
-               <a href="#">Teatro</a></br>
-               <a href="#">Cinema</a></br>
-               <a href="#">Concerto</a></br> 
-            </div>
-
-
-        </div>
-        <!--qui faccio un carosello dei vari eventi-->
-        <div id="slides" class="col-lg-6" data-ride="carousel">
-            <!--indicators-->
-            <ul class="carousel-indicators">
-                <li data-target="#slides" data-slide-to="0" class="active"></li>
+    <nav class="navbar navbar-light navbar-expand-sm bg-light sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Unitickets</a>
+        <div>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">Accedi</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Registrati</a>
+                </li>
             </ul>
-            <!--slideshow-->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="" alt="">
-                </div>
+        </div>
+    </div>    
+    </div>
+    </nav>
+    <!--qui faccio un carosello dei vari eventi-->
+    <div id="slides" class="carousel slide" data-ride="carousel">
+        <!--indicators-->
+        <ul class="carousel-indicators">
+            <li data-target="#slides" data-slide-to="0" class="active"></li>
+            <li data-target="#slides" data-slide-to="1"></li>
+            <li data-target="#slides" data-slide-to="2"></li>
+            <li data-target="#slides" data-slide-to="3"></li>
+            <li data-target="#slides" data-slide-to="4"></li>
+            <li data-target="#slides" data-slide-to="5"></li>
+        </ul>
+        <!--slideshow-->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/cinema.jpg" alt="Cinema">
             </div>
-            <!--left and right controls-->
-            <a href="slides" class="carousel-control-prev" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a href="slides" class="carousel-control-next" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
+            <div class="carousel-item">
+                <img src="img/mostra.jpg" alt="Mostra">
+            </div>
+            <div class="carousel-item">
+                <img src="img/teatro.jpg" alt="Teatro">
+            </div>
+            <div class="carousel-item">
+                <img src="img/party.jpg" alt="Party">
+            </div>
+            <div class="carousel-item">
+                <img src="img/museo.jpg" alt="Museo">
+            </div>
+            <div class="carousel-item">
+                <img src="img/concerto.jpg" alt="Concerto">
+            </div>
+        </div>
+        <!--left and right controls-->
+        <a href="slides" class="carousel-control-prev" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a href="slides" class="carousel-control-next" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
+<!--/!div-->
+<!--Creo le categorie di eventi-->
+<hr>
+<div id="titoloCat" class="container-fluid padding">
+<div class="row welcome text-center">
+    <div class="col-md-12">
+        <h1 class="display-4">Categorie</h1>
+    </div>
+</div>    
+</div>
+<!--creo le "carte"delle categorie-->
+<div class="container-fluid padding">
+<div class="row padding">
+    <div class="col-md-4">
+        <div class="card">
+            <img src="img/cinema.jpg" alt="Categoria Cinema" class="card-imd-top">
+            <div class="card-body">
+                <a href="#" class="card-category">Cinema</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img src="img/concerto.jpg" alt="Categoria Concerto" class="card-imd-top">
+            <div class="card-body">
+                <a href="#" class="card-category">Concerto</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img src="img/party.jpg" alt="Categoria Party" class="card-imd-top">
+            <div class="card-body">
+                <a href="#" class="card-category">Party</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img src="img/teatro.jpg" alt="Categoria Teatro" class="card-imd-top">
+            <div class="card-body">
+                <a href="#" class="card-category">Teatro</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img src="img/museo.jpg" alt="Categoria Museo" class="card-imd-top">
+            <div class="card-body">
+                <a href="#" class="card-category">Museo</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img src="img/mostra.jpg" alt="Categoria Mostra" class="card-imd-top">
+            <div class="card-body">
+                <a href="#" class="card-category">Mostra</a>
+            </div>
+        </div>
+    </div>
+</div>    
+</div>
+<hr>
+<!--Contatti-->
+<footer>
+    <div class="container-fluid padding">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h5 class="display-4 contacts">Contatti</h5>   
+            <hr>
+            <p>leonardo.delvecchio@studio.unibo.it</p>
+            <p>leonardo.vincenzi@studio.unibo.it</p>
+            <p>filippo.tartagni@studio.unibo.it</p>
+        </div>
+        <div class="col-md-4">
+            <h5 class="display-4 social">Social</h5>
+            <hr>
+            <div class="display-3 social-padding">
+                <a href="#"><i class="fa fa-facebook-official" style="color:blue;"></i></a>
+                <a href="#"><i class="fa fa-instagram" style="color:darkviolet;"></i></a>
+                <a href="#"><i class="fa fa-twitter" style="color: cyan;"></i></a>
+                <a href="#"><i class="fa fa-google-plus" style="color: red;"></i></a>
+                <a href="#"><i class="fa fa-youtube" style="color:red;"></i></a>
+                <a href="#"><i class="fa fa-pinterest" style="color: darkred;"></i></a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h5 class="display-4 pay">Metodi di pagamento</h5>
+            <hr>
+            <div class="display-3 payments-padding">
+                <a href="#"><i class="fa fa-cc-visa" style="color: yellow white;"></i></a>
+                <a href="#"><i class="fa fa-cc-paypal" style="color: cyan;"></i></a>
+                <a href="#"><i class="fa fa-cc-amex" style="color: blue;"></i></a>
+                <a href="#"><i class="fa fa-cc-mastercard" style="color:darkred;"></i></a>
+            </div>
         </div>
     </div>
     </div>
-
-    
-    
-    
-
-
+</footer>
 </body>
 </html>

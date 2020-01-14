@@ -1,0 +1,41 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+    color: #222;
+}
+
+.navbar{
+    padding: .8rem;
+}
+
+.navbar-nav{
+    padding-right: 20px;
+}
+
+.navbar-brand{
+    font-size: 2rem !important;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important; 
+    /*font-weight: bold !important;*/
+}
+
+.nav-link{
+    font-size: 1.1rem !important;
+}
+
+#slides{
+    margin: 50px 150px;
+}
+
+.carousel-inner img{
+    width: 100%;
+    height: 100%;
+}
+
+#titoloCat{
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+
+
