@@ -8,8 +8,8 @@ class DatabaseHelper{
             die("Connection failed: " . $db->connect_error);
         }        
     }
-
-
+    
+    //funzione per ottenere tutte le categorie
     public function getCategories(){
         $stmt = $this->db->prepare("SELECT * FROM category");
         $stmt->execute();
@@ -17,7 +17,7 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-
+    //funzione per ottenere la categoria in base all'id di questa sul db
     public function getCategoryById($idcategory){
         $stmt = $this->db->prepare("SELECT category_name FROM category WHERE category_id=?");
         $stmt->bind_param('i',$idcategory);
@@ -26,7 +26,7 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-
+    //funzione per ottenere l'immagine della categoria in base all'id di questa sul db
     public function getImgCategoriesById($idcategory){
         $stmt = $this->db->prepare("SELECT image_url FROM category WHERE category_id=?");
         $stmt->bind_param('i',$idcategory);
@@ -35,3 +35,5 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    
