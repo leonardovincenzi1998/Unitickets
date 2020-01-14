@@ -24,7 +24,10 @@ html, body {
 }
 
 #slides{
-    margin: 50px 150px;
+    height: 100%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 5%;
 }
 
 .carousel-inner img{
@@ -32,10 +35,23 @@ html, body {
     height: 100%;
 }
 
-#titoloCat{
-    margin-top: 50px;
-    margin-bottom: 40px;
+.carousel-caption{
+    top: 50%;
+    position: absolute;
 }
 
+.carousel-indicators{
+    background-color: grey;
+    /*transform: translateY(+10px);*/
+}
+
+#titoloCat{
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.btn-primary{
+    background-color: lightgrey;
+}
 
 
