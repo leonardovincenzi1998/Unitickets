@@ -9,7 +9,7 @@ class DatabaseHelper{
         }        
     }
     
-    //funzione per ottenere tutte le categorie
+/*    //funzione per ottenere tutte le categorie
     public function getCategories(){
         $stmt = $this->db->prepare("SELECT * FROM category");
         $stmt->execute();
@@ -35,5 +35,5 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-
-    
+*/
+}
