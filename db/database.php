@@ -9,15 +9,15 @@ class DatabaseHelper{
         }        
     }
     
-/*    //funzione per ottenere tutte le categorie
+    //funzione per ottenere tutte le categorie
     public function getCategories(){
         $stmt = $this->db->prepare("SELECT * FROM category");
         $stmt->execute();
         $result = $stmt->get_result();
-
+        
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    //funzione per ottenere la categoria in base all'id di questa sul db
+ /*   //funzione per ottenere la categoria in base all'id di questa sul db
     public function getCategoryById($idcategory){
         $stmt = $this->db->prepare("SELECT category_name FROM category WHERE category_id=?");
         $stmt->bind_param('i',$idcategory);
