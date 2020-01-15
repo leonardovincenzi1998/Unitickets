@@ -1,60 +1,26 @@
 <!--qui faccio un carosello dei vari eventi-->
-<div id="slides" class="carousel slide" data-ride="carousel">
+<div id="slides" class="carousel slide carousel-fade" data-ride="carousel">
         <!--indicators-->
-        <ul class="carousel-indicators">
+        <ol class="carousel-indicators">
             <li data-target="#slides" data-slide-to="0" class="active"></li>
             <li data-target="#slides" data-slide-to="1"></li>
             <li data-target="#slides" data-slide-to="2"></li>
             <li data-target="#slides" data-slide-to="3"></li>
             <li data-target="#slides" data-slide-to="4"></li>
             <li data-target="#slides" data-slide-to="5"></li>
-        </ul>
+          </ol>
         <!--slideshow-->
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="upload/cinema.jpg" alt="Cinema">
-                <div class="carousel-caption">
-                    <button type="button" class="btn btn-primary btn-lg">Vai all'evento</button>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="upload/mostra.jpg" alt="Mostra">
-                <div class="carousel-caption">
-                    <button type="button" class="btn btn-primary btn-lg">Vai all'evento</button>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="upload/teatro.jpg" alt="Teatro">
-                <div class="carousel-caption">
-                    <button type="button" class="btn btn-primary btn-lg">Vai all'evento</button>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="upload/party.jpg" alt="Party">
-                <div class="carousel-caption">
-                    <button type="button" class="btn btn-primary btn-lg">Vai all'evento</button>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="upload/museo.jpg" alt="Museo">
-                <div class="carousel-caption">
-                    <button type="button" class="btn btn-primary btn-lg">Vai all'evento</button>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="upload/concerto.jpg" alt="Concerto">
-                <div class="carousel-caption">
-                    <button type="button" class="btn btn-primary btn-lg">Vai all'evento</button>
-                </div>
-            </div>
-        </div>
-        <!--left and right controls
-        <a href="slides" class="carousel-control-prev" data-slide="prev">
+        <?php echo $templateParams["carosello"];?>
+</div>
+    
+        <!--left and right controls-->
+        <a href="#slides" class="carousel-control-prev" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
         </a>
-        <a href="slides" class="carousel-control-next" data-slide="next">
+        <a href="#slides" class="carousel-control-next" data-slide="next">
             <span class="carousel-control-next-icon"></span>
-        </a>-->
+        </a>
     </div>
      <!--Creo le categorie di eventi-->
     <div id="titoloCat" class="container-fluid padding">
@@ -73,7 +39,7 @@
                 <img src="<?php echo $categoria["image_url"] ?>" alt="Categoria <?php echo $categoria["category_name"]; ?> " class="card-imd-top">
                 <div class="card-body">
                     <h4 class="card-title"><?php echo $categoria["category_name"]; ?></h4>
-                    <p class="card-text">Acquista il tuo biglietto premendo il bottone</p>
+                    <p class="card-text"><?php echo $categoria["description"]; ?></p>
                     <button type="button" class="btn btn-outline-secondary">Vai alla categoria</button>
                 </div>
             </div>
