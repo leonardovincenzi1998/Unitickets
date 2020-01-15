@@ -12,6 +12,7 @@
         <!--slideshow-->
         <div class="carousel-inner">
         <?php echo $templateParams["carosello"];?>
+</div>
     
         <!--left and right controls-->
         <a href="#slides" class="carousel-control-prev" data-slide="prev">
