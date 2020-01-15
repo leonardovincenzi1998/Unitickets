@@ -26,10 +26,18 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function n_inEvidence(){
+        $stmt = $this->db->prepare("SELECT * FROM events ");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return (count($result->fetch_all(MYSQLI_ASSOC)) -1);
+    }
+
     public function getEventsInEvidence(){
         $output='';
         $count=0;
-        $stmt = $this->db->prepare("SELECT * FROM events WHERE in_evidence='1'");
+        $stmt = $this->db->prepare("SELECT * FROM events ");
         $stmt->execute();
         $result = $stmt->get_result();
 

@@ -1,14 +1,24 @@
 <!--qui faccio un carosello dei vari eventi-->
 <div id="slides" class="carousel slide carousel-fade" data-ride="carousel">
         <!--indicators-->
-        <ol class="carousel-indicators">
-            <li data-target="#slides" data-slide-to="0" class="active"></li>
-            <li data-target="#slides" data-slide-to="1"></li>
-            <li data-target="#slides" data-slide-to="2"></li>
-            <li data-target="#slides" data-slide-to="3"></li>
-            <li data-target="#slides" data-slide-to="4"></li>
-            <li data-target="#slides" data-slide-to="5"></li>
-          </ol>
+        <!--<ol class="carousel-indicators">
+        <//?php 
+        $cont=0;
+        for($i=0; $i<=$templateParams["n_evidenza"]; $i++){
+            if($i == 0) {
+                ?>
+                <li data-target="#slides" data-slide-to="<//?php $cont ?>" class="active"></li>
+                <//?php 
+            } else {
+                ?>
+                <li data-target="#slides" data-slide-to="<//?php $cont ?>"></li>
+                <//?php 
+            }
+            echo($cont);
+            $cont++;
+        }
+        ?>
+          </ol> -->
         <!--slideshow-->
         <div class="carousel-inner">
         <?php echo $templateParams["carosello"];?>
