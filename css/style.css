@@ -33,10 +33,6 @@ html, body {
     height: 100%;
 }
 
-/*.carousel-caption{
-    top: 50%;
-}*/
-
 .btn-primary{
     background-color: lightgrey;
     color: #3f3f3f;
@@ -54,9 +50,14 @@ html, body {
     margin-bottom: 5%;
 }
 
+.upCat, .downCat{
+    border-top: 1px solid #3f3f3f;
+    width: 75%;
+}
+
 #categories{
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 8%;
+    padding-right: 8%;
 }
 
 
