@@ -15,8 +15,7 @@ html, body {
 
 .navbar-brand{
     font-size: 2rem !important;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important; 
-    /*font-weight: bold !important;*/
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
 }
 
 .nav-link{
@@ -37,12 +36,10 @@ html, body {
 
 .carousel-caption{
     top: 50%;
-    position: absolute;
 }
 
 .carousel-indicators{
-    background-color: grey;
-    /*transform: translateY(+10px);*/
+    top: 90%;
 }
 
 #titoloCat{
@@ -53,5 +50,36 @@ html, body {
 .btn-primary{
     background-color: lightgrey;
 }
+
+footer{
+    margin-top: 5%;
+    background-color: #3f3f3f;
+    color: #d5d5d5;
+    padding-top: 2rem;
+}
+
+footer div.col-md-12{
+    margin-top: 2rem;
+}
+
+hr.light{
+    border-top: 1px solid #d5d5d5;
+    width: 75%;
+    margin-top: .8rem;
+    margin-bottom: 1rem;
+}
+
+hr.light-100{
+    border-top: 1px solid #d5d5d5;
+    width: 100%;
+    margin-top: .8rem;
+    margin-bottom: 1rem;
+}
+
+#socials a, #payments a{
+    font-size: .4em;
+}
+
+
 
 
