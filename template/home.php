@@ -38,7 +38,7 @@
                 <img src="<?php echo $categoria["image_url"] ?>" alt="Categoria <?php echo $categoria["category_name"]; ?> " class="card-imd-top">
                 <div class="card-body">
                     <h4 class="card-title"><?php echo $categoria["category_name"]; ?></h4>
-                    <p class="card-text">Acquista il tuo biglietto premendo il bottone</p>
+                    <p class="card-text"><?php echo $categoria["description"]; ?></p>
                     <button type="button" class="btn btn-outline-secondary">Vai alla categoria</button>
                 </div>
             </div>
