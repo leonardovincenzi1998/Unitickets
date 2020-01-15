@@ -18,7 +18,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    /*public function getEvents(){
+    public function getEvents(){
         $stmt = $this->db->prepare("SELECT * FROM events");
         $stmt->execute();
         $result = $stmt->get_result();
@@ -27,31 +27,37 @@ class DatabaseHelper{
     }
 
     public function getEventsInEvidence(){
-        $stmt = $this->db->prepare("SELECT * FROM events WHERE in_evidence='1'");
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-        
-    }
-
-    public function carousel($result){
         $output='';
         $count=0;
+        $stmt = $this->db->prepare("SELECT * FROM events ");
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         while($row = mysqli_fetch_array($result)) {
             if($count == 0) {
                 $output .= '
                 <div class="carousel-item active">
-                <img src="upload/cinema.jpg" alt="Cinema">
+                <img src='.$row["img"].' alt='.$row["event_name"].'>
                 <div class="carousel-caption">
                     <button type="button" class="btn btn-primary btn-lg">Vai all evento</button>
                 </div>
             </div>
-                '
+                ';
             }
+            else {
+            $output .= '
+                <div class="carousel-item">
+                <img src='.$row["img"].' alt='.$row["event_name"].'>
+                    <div class="carousel-caption">
+                        <button type="button" class="btn btn-primary btn-lg">Vai all evento</button>
+                    </div>
+                </div>
+            ';
+            }
+            $count = $count + 1;
         }
-    }*/
+        return $output;
+    }
 
  /*   //funzione per ottenere la categoria in base all'id di questa sul db
     public function getCategoryById($idcategory){

@@ -11,43 +11,8 @@
           </ol>
         <!--slideshow-->
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="upload/cinema.jpg" class="d-block w-100" alt="Cinema">
-                <div class="carousel-caption">
-                    <button type="button" class="btn btn-primary btn-lg">Vai all'evento</button>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="upload/mostra.jpg" class="d-block w-100" alt="Mostra">
-                <div class="carousel-caption">
-                    <button type="button" class="btn btn-primary btn-lg">Vai all'evento</button>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="upload/teatro.jpg" class="d-block w-100" alt="Teatro">
-                <div class="carousel-caption">
-                    <button type="button" class="btn btn-primary btn-lg">Vai all'evento</button>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="upload/party.jpg" class="d-block w-100" alt="Party">
-                <div class="carousel-caption">
-                    <button type="button" class="btn btn-primary btn-lg">Vai all'evento</button>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="upload/museo.jpg" class="d-block w-100" alt="Museo">
-                <div class="carousel-caption">
-                    <button type="button" class="btn btn-primary btn-lg">Vai all'evento</button>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="upload/concerto.jpg" class="d-block w-100" alt="Concerto">
-                <div class="carousel-caption">
-                    <button type="button" class="btn btn-primary btn-lg">Vai all'evento</button>
-                </div>
-            </div>
-        </div>
+        <?php echo $templateParams["carosello"];?>
+    
         <!--left and right controls-->
         <a href="#slides" class="carousel-control-prev" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
