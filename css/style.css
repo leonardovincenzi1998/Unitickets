@@ -23,7 +23,6 @@ html, body {
 }
 
 #slides{
-    height: 100%;
     margin-left: 15%;
     margin-right: 15%;
     margin-top: 5%;
@@ -34,12 +33,20 @@ html, body {
     height: 100%;
 }
 
-.carousel-caption{
+/*.carousel-caption{
     top: 50%;
+}*/
+
+.btn-primary{
+    background-color: lightgrey;
+    color: #3f3f3f;
+    border: 1px solid #3f3f3f;
 }
 
-.carousel-indicators{
-    top: 90%;
+.btn-primary:hover{
+    background-color: #3f3f3f;
+    color: #d5d5d5;
+    border: 1px solid #3f3f3f;
 }
 
 #titoloCat{
@@ -47,9 +54,11 @@ html, body {
     margin-bottom: 5%;
 }
 
-.btn-primary{
-    background-color: lightgrey;
+#categories{
+    padding-left: 5%;
+    padding-right: 5%;
 }
+
 
 footer{
     margin-top: 5%;
@@ -60,6 +69,11 @@ footer{
 
 footer div.col-md-12{
     margin-top: 2rem;
+}
+
+#socials, #payments{
+    margin-top: .1em;
+    margin-bottom: .5em;
 }
 
 hr.light{
