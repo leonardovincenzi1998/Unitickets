@@ -69,14 +69,20 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    /*public function getCategoryById($idcategory){
-        $stmt = $this->db->prepare("SELECT * FROM category WHERE category_id=?");
+    public function getCategoryNameById($idcategory){
+        $stmt = $this->db->prepare("SELECT category_name FROM category WHERE category_id=?");
         $stmt->bind_param('i',$idcategory);
         $stmt->execute();
         $result = $stmt->get_result();
+        $output='';
 
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }*/
+        while($row = mysqli_fetch_array($result)) {
+            $output .= '
+                <li class="breadcrumb-item active" aria-current="page">Categoria:'.$row["category_name"].'</li>
+            ';
+        }
+        return $output;
+    }
 
 
     //funzione per ottenere l'immagine della categoria in base all'id di questa sul db
