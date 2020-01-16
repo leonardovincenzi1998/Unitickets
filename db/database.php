@@ -26,14 +26,6 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function n_inEvidence(){
-        $stmt = $this->db->prepare("SELECT * FROM events ");
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return (count($result->fetch_all(MYSQLI_ASSOC)) -1);
-    }
-
     public function getEventsInEvidence(){
         $output='';
         $count=0;
@@ -67,17 +59,28 @@ class DatabaseHelper{
         return $output;
     }
 
- /*   //funzione per ottenere la categoria in base all'id di questa sul db
-    public function getCategoryById($idcategory){
-        $stmt = $this->db->prepare("SELECT category_name FROM category WHERE category_id=?");
+    //funzione per ottenere gli eventi in base all'id della categoria
+    public function getEventsByCategoryId($idcategory){
+        $stmt = $this->db->prepare("SELECT * FROM events,category WHERE category.category_id = events.category AND events.category=?");
         $stmt->bind_param('i',$idcategory);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getCategoryById($idcategory){
+        $stmt = $this->db->prepare("SELECT * FROM category WHERE category_id=?");
+        $stmt->bind_param('i',$idcategory);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
     //funzione per ottenere l'immagine della categoria in base all'id di questa sul db
-    public function getImgCategoriesById($idcategory){
+    /*public function getImgCategoriesById($idcategory){
         $stmt = $this->db->prepare("SELECT image_url FROM category WHERE category_id=?");
         $stmt->bind_param('i',$idcategory);
         $stmt->execute();
