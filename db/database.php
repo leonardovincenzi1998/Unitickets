@@ -69,14 +69,14 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getCategoryById($idcategory){
+    /*public function getCategoryById($idcategory){
         $stmt = $this->db->prepare("SELECT * FROM category WHERE category_id=?");
         $stmt->bind_param('i',$idcategory);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
-    }
+    }*/
 
 
     //funzione per ottenere l'immagine della categoria in base all'id di questa sul db
