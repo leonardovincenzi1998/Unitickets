@@ -29,7 +29,7 @@ class DatabaseHelper{
     public function getEventsInEvidence(){
         $output='';
         $count=0;
-        $stmt = $this->db->prepare("SELECT * FROM events ");
+        $stmt = $this->db->prepare("SELECT * FROM events");
         $stmt->execute();
         $result = $stmt->get_result();
 
