@@ -28,10 +28,10 @@ html, body {
     margin-top: 5%;
 }
 
-.carousel-inner img{
+/*.carousel-inner img{
     width: 100%;
     height: 100%;
-}
+}*/
 
 .btn-primary{
     background-color: lightgrey;
@@ -125,6 +125,10 @@ hr.light-100{
 #orgEvent{
     margin-top: 5%;
 }
+
+
+
+
 
 
 

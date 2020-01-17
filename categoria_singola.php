@@ -25,11 +25,7 @@
                         </tr>
                         <tr>
                             <th scope="row">Organizzatore</th>
-                            <td id="nomeOrg"><?php echo $templateParams["nomeOrganizzatore"] ?></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Posti disponibili</th>
-                            <td id="numPosti">100</td>
+                            <td id="nomeOrg"><?php echo $categoria["organizer_name"]; echo ' ';echo $categoria["organizer_surname"] ?></td>
                         </tr>
                         <tr>
                             <th scope="row">Prezzo</th>

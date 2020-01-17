@@ -61,7 +61,7 @@ if (!empty($_POST['p']) && !empty($_POST['email']) && !empty($_POST['name']) &&
   			 									$password, $random_salt, $_POST['birthdate'], $_POST['tel']);
       	$stmt->execute();
       	// echo 'You have successfully registered, you can now login!';
-        header("location: ../index.php?error=regok");
+        header("location: ./login.php?error=regok");
       }
     }
   	// $stmt->close(); //else

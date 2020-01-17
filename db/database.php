@@ -19,7 +19,7 @@ class DatabaseHelper{
     }
 
     public function getEvents(){
-        $stmt = $this->db->prepare("SELECT * FROM events");
+        $stmt = $this->db->prepare("SELECT * FROM events WHERE in_evidence=1");
         $stmt->execute();
         $result = $stmt->get_result();
         
@@ -29,30 +29,28 @@ class DatabaseHelper{
     public function getEventsInEvidence(){
         $output='';
         $count=0;
-        $stmt = $this->db->prepare("SELECT * FROM events");
+        $stmt = $this->db->prepare("SELECT * FROM events WHERE in_evidence=1");
         $stmt->execute();
         $result = $stmt->get_result();
 
         while($row = mysqli_fetch_array($result)) {
             if($count == 0) {
-                $output .= '
-                <div class="carousel-item active">
-                <img src='.$row["img"].' alt='.$row["event_name"].'>
+                $output .= '<div class="carousel-item active">
+                <img src="'.$row["img"].'" alt="'.$row["event_name"].'" class="d-block w-100">
                 <div class="carousel-caption">
                     <button type="button" class="btn btn-primary btn-lg">Vai all evento</button>
                 </div>
             </div>
-                ';
+            ';
             }
             else {
-            $output .= '
-                <div class="carousel-item">
-                <img src='.$row["img"].' alt='.$row["event_name"].'>
+            $output .= '<div class="carousel-item">
+                <img src="'.$row["img"].'" alt="'.$row["event_name"].'" class="d-block w-100">
                     <div class="carousel-caption">
                         <button type="button" class="btn btn-primary btn-lg">Vai all evento</button>
                     </div>
                 </div>
-            ';
+                ';
             }
             $count = $count + 1;
         }
@@ -61,7 +59,7 @@ class DatabaseHelper{
 
     //funzione per ottenere gli eventi in base all'id della categoria
     public function getEventsByCategoryId($idcategory){
-        $stmt = $this->db->prepare("SELECT * FROM events,category WHERE category.category_id = events.category AND events.category=?");
+        $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category AND events.organizer_id = organizer.organizer_id AND events.category=?");
         $stmt->bind_param('i',$idcategory);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -69,7 +67,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getOrganizerNameByEvents($idevent){
+    /*public function getOrganizerNameByEvents($idevent){
         $stmt = $this->db->prepare("SELECT organizer_name, organizer_surname FROM events,organizer WHERE organizer.organizer_id=events.organizer_id AND events.event_id=?");
         $stmt->bind_param('i',$idevent);
         $stmt->execute();
@@ -78,7 +76,7 @@ class DatabaseHelper{
         $stmt->fetch();
         $nome_intero= $nome.' '.$cognome;
         return $nome_intero;
-    }
+    }*/
 
     public function getCategoryNameById($idcategory){
         $stmt = $this->db->prepare("SELECT category_name FROM category WHERE category_id=?");
