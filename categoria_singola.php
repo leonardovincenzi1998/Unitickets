@@ -2,7 +2,7 @@
 <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <?php echo $templateParams["nome_categoria"];?>
+          <li class="breadcrumb-item active" aria-current="page">Categoria:<?php echo $templateParams["nome_categoria"];?></li>
         </ol>
     </nav>
     <!--Eventi-->
@@ -25,7 +25,7 @@
                         </tr>
                         <tr>
                             <th scope="row">Organizzatore</th>
-                            <td id="nomeOrg">Leonardo vincenzi</td>
+                            <td id="nomeOrg"><?php echo $templateParams["nomeOrganizzatore"] ?></td>
                         </tr>
                         <tr>
                             <th scope="row">Posti disponibili</th>
