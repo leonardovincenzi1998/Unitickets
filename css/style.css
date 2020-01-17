@@ -47,12 +47,16 @@ html, body {
 
 #titoloCat{
     margin-top: 10%;
-    margin-bottom: 5%;
+   /* margin-bottom: 5%; */
 }
 
 .upCat, .downCat{
     border-top: 1px solid #3f3f3f;
     width: 75%;
+}
+
+#cardPadding{
+    margin-top: 5%;
 }
 
 #categories, #events{
@@ -104,11 +108,7 @@ hr.light-100{
     border-top: 1px solid #3f3f3f;
 }
 
-/*.breadcrumb{
-    background-color: whitesmoke !important;
-}*/
-
-#btn-event{
+#btn-event, #btn-info{
     margin-top: 2em;
 }
 
@@ -116,6 +116,11 @@ hr.light-100{
     margin-top: 5%;
 }
 
+@media only screen and (max-width: 600px){
+    #titoloCat h4{
+        font-size: 1.5em;
+    }
+}
 
 
 

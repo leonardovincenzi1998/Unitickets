@@ -10,7 +10,7 @@
     <script> src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Eventi</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-light navbar-expand-sm bg-light sticky-top">
@@ -66,6 +66,25 @@
                         </tr>                        
                     </table>
                     <button id="btn-event" type="button" class="btn btn-primary">Aggiungi al carrello</button>
+                    <button id="btn-info" type="button" class="btn btn-primary" data-toggle="modal" data-target="#infoModal">+info</button>
+                    <div id="infoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="infoModalLabel">Info relative all'evento</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Qua bisogna scrivere la descrizione dell'evento
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
