@@ -1,5 +1,6 @@
 <?php
 require_once("bootstrap.php");
+require 'access/errore.php';
 
 $templateParams["titolo"] = "Unitickets - Home";
 $templateParams["nome"] = "home.php";
