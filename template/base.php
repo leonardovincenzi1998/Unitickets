@@ -19,10 +19,10 @@
         <div>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a href="#" class="nav-link">Accedi</a>
+                    <a href="access/login.php" class="nav-link">Accedi</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Registrati</a>
+                    <a href="access/register.php" class="nav-link">Registrati</a>
                 </li>
             </ul>
         </div>
