@@ -28,10 +28,6 @@
                             <td id="nomeOrg"><?php echo $categoria["organizer_name"]; echo ' ';echo $categoria["organizer_surname"] ?></td>
                         </tr>
                         <tr>
-                            <th scope="row">Posti disponibili</th>
-                            <td id="numPosti">100</td>
-                        </tr>
-                        <tr>
                             <th scope="row">Prezzo</th>
                             <td id="costoBiglietto"><?php echo $categoria["ticket_price"]; ?> <i class="fa fa-euro"></i></td>
                         </tr>                        
