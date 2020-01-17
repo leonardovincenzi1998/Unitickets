@@ -36,19 +36,21 @@ class DatabaseHelper{
         while($row = mysqli_fetch_array($result)) {
             if($count == 0) {
                 $output .= '<div class="carousel-item active">
-                <img src='.$row["img"].' alt='.$row["event_name"].'class="d-block w-100">
+                <img src="'.$row["img"].'" alt="'.$row["event_name"].'" class="d-block w-100">
                 <div class="carousel-caption">
                     <button type="button" class="btn btn-primary btn-lg">Vai all evento</button>
                 </div>
-            </div>';
+            </div>
+            ';
             }
             else {
             $output .= '<div class="carousel-item">
-                <img src='.$row["img"].' alt='.$row["event_name"].' class="d-block w-100">
+                <img src="'.$row["img"].'" alt="'.$row["event_name"].'" class="d-block w-100">
                     <div class="carousel-caption">
                         <button type="button" class="btn btn-primary btn-lg">Vai all evento</button>
                     </div>
-                </div>';
+                </div>
+                ';
             }
             $count = $count + 1;
         }

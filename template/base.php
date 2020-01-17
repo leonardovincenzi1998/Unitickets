@@ -28,9 +28,7 @@
         </div>
     </div>    
     </nav>
-    <?php
-        require($templateParams["nome"]);
-    ?>
+    <?php require($templateParams["nome"]); ?>
     <!--Contatti-->
     <footer>
         <div class="container-fluid padding">
