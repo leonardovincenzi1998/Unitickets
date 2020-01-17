@@ -18,6 +18,16 @@ if(!empty($_GET['error'])){
      </button>
    </div>
  <?php }
+
+ else if($_GET['error']=="regok") { ?>
+   <div class="alert alert-success alert-dismissible fade show" role="alert">
+     <p class="text-md-center"> <strong>Ci siamo!</strong> Ti sei registrato correttamente</p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+ <?php }
+
  else if($_GET['error']=="log") { ?>
    <div class="alert alert-warning alert-dismissible fade show" role="alert">
      <p class="text-md-center"> <strong>Errore!</strong> Password sbagliata.</p>

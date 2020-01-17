@@ -60,7 +60,8 @@ if (!empty($_POST['p']) && !empty($_POST['email']) && !empty($_POST['name']) &&
       	$stmt->bind_param('sssssss', $_POST['name'], $_POST['surname'], $_POST['email'],
   			 									$password, $random_salt, $_POST['birthdate'], $_POST['tel']);
       	$stmt->execute();
-      	echo 'You have successfully registered, you can now login!';
+      	// echo 'You have successfully registered, you can now login!';
+        header("location: ../index.php?error=regok");
       }
     }
   	// $stmt->close(); //else
