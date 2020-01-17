@@ -10,7 +10,7 @@
     <script> src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title><?php echo $templateParams["titolo"];?></title>
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-light navbar-expand-sm bg-light sticky-top">
