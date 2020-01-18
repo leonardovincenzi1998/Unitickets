@@ -98,6 +98,16 @@ class DatabaseHelper{
         return $output;*/
     }
 
+    public function getEventsById($idevent){
+        $stmt = $this->db->prepare("SELECT event_name FROM events WHERE event_id=?");
+        $stmt->bind_param('i',$idcategory);
+        $stmt->execute();
+        $stmt->store_result();
+        $stmt->bind_result($event_name);
+        $stmt->fetch();
+        return $event_name;
+    }
+
 
     //funzione per ottenere l'immagine della categoria in base all'id di questa sul db
     /*public function getImgCategoriesById($idcategory){
