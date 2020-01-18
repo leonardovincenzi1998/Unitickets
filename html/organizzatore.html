@@ -63,10 +63,10 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
+                                    <form class="was-validated" novalidate>
                                         <div class="form-group">
                                             <label for="catFormControlSelect1">Categoria</label>
-                                            <select class="form-control" id="catFormControlSelect1">
+                                            <select class="form-control" id="catFormControlSelect1" required>
                                                 <option>Concerto</option>
                                                 <option>Cinema</option>
                                                 <option>Museo</option>
@@ -77,33 +77,51 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="titleFormControlInput1">Titolo</label>
-                                            <input type="text" class="form-control" id="titleFormControlInput1">
+                                            <input type="text" class="form-control" id="titleFormControlInput1" required>
+                                            <div class="valid-feedback">
+                                                OK!
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="locationFormControlInput2">Luogo</label>
-                                            <input type="text" class="form-control" id="locationFormControlInput2">
+                                            <input type="text" class="form-control" id="locationFormControlInput2" required>
+                                            <div class="valid-feedback">
+                                                OK!
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="dateFormControlInput2">Data e orario inizio</label>
-                                            <input type="datetime-local" class="form-control" id="dateFormControlInput2">
+                                            <label for="dateFormControlInput3">Data e orario inizio</label>
+                                            <input type="datetime-local" class="form-control" id="dateFormControlInput3" required>
+                                            <div class="valid-feedback">
+                                                OK!
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="locationFormControlInput2">Posti disponibili</label>
-                                            <input type="text" class="form-control" id="locationFormControlInput2">
+                                            <label for="seatsFormControlInpu4">Posti disponibili</label>
+                                            <input type="number" class="form-control" id="seatsFormControlInput4" required>
+                                            <div class="valid-feedback">
+                                                OK!
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="locationFormControlInput2">Prezzo <i class="fa fa-euro"></i></label>
-                                            <input type="" class="form-control" id="locationFormControlInput2">
+                                            <label for="priceFormControlInput5">Prezzo <i class="fa fa-euro"></i></label>
+                                            <input type="number" class="form-control" id="priceFormControlInput5" required>
+                                            <div class="valid-feedback">
+                                                OK!
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleFormControlTextarea1">Descrizione</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <label for="descrizFormControlTextarea1">Descrizione</label>
+                                            <textarea class="form-control" id="descrizFormControlTextarea1" rows="3" required></textarea>
+                                            <div class="valid-feedback">
+                                                OK!
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Crea evento</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                                    <button type="submit" class="btn btn-primary">Crea evento</button>
                                 </div>
                             </div>
                         </div>
@@ -161,8 +179,81 @@
                             <td id="costoBiglietto">6 <i class="fa fa-euro"></i></td>
                         </tr>                        
                     </table>
-                    <button id="btn-event" type="button" class="btn btn-primary">Aggiungi al carrello</button>
-                    <button id="btn-info" type="button" class="btn btn-primary" data-toggle="modal" data-target="#infoModal">+info</button>
+                    <button id="btn-event" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modifyEventModal">Modifica evento</button>
+                    <div class="modal fade" id="modifyEventModal" tabindex="-1" role="dialog" aria-labelledby="modifyEventModalTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modifyEventModalTitle">Modifica Evento</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="was-validated" novalidate>
+                                        <div class="form-group">
+                                            <label for="catModifFormControlSelect1">Categoria</label>
+                                            <select class="form-control" id="catModifFormControlSelect1" required>
+                                                <option>Concerto</option>
+                                                <option>Cinema</option>
+                                                <option>Museo</option>
+                                                <option>Mostra</option>
+                                                <option>Party</option>
+                                                <option>Teatro</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="titleModifFormControlInput1">Titolo</label>
+                                            <input type="text" class="form-control" id="titleModifFormControlInput1" required>
+                                            <div class="valid-feedback">
+                                                OK!
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="locationModifFormControlInput2">Luogo</label>
+                                            <input type="text" class="form-control" id="locationModifFormControlInput2" required>
+                                            <div class="valid-feedback">
+                                                OK!
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="dateModifFormControlInput3">Data e orario inizio</label>
+                                            <input type="datetime-local" class="form-control" id="dateModifFormControlInput3" required>
+                                            <div class="valid-feedback">
+                                                OK!
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="locationModifFormControlInput4">Posti disponibili</label>
+                                            <input type="number" class="form-control" id="locationModifFormControlInput4" required>
+                                            <div class="valid-feedback">
+                                                OK!
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="priceModifFormControlInput5">Prezzo <i class="fa fa-euro"></i></label>
+                                            <input type="number" class="form-control" id="priceModifFormControlInput5" required>
+                                            <div class="valid-feedback">
+                                                OK!
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="descrizFormControlTextarea1">Descrizione</label>
+                                            <textarea class="form-control" id="descrizFormControlTextarea1" rows="3" required></textarea>
+                                            <div class="valid-feedback">
+                                                OK!
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                                    <button type="button" class="btn btn-primary">Modifica evento</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<button id="btn-info" type="button" class="btn btn-primary" data-toggle="modal" data-target="#infoModal">+info</button>
                     <div id="infoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
@@ -180,11 +271,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
-        <div  id="orgEvent" class="col-md-4">
+        <!--<div  id="orgEvent" class="col-md-4">
             <div class="card text-center">
                 <div class="card-body">
                     <h4 class="card-title">Nome dell'evento</h4>
@@ -214,7 +305,7 @@
                     <button id="btn-event" type="button" class="btn btn-primary">Aggiungi al carrello</button>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
     </div>
     <!--Footer-->
