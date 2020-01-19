@@ -8,8 +8,13 @@
     <!--Eventi-->
     <div class="container-fluid padding">
     <div class="row padding">
-    <?php foreach($templateParams["categorie"] as $categoria): 
-        var_dump($categoria);?>
+    <?php 
+    //$cont = 0;
+    $infomodal= 0;
+    foreach($templateParams["categorie"] as $categoria): 
+        //var_dump($categoria);
+        $infomodal++;
+        ?>
         <div class="col-md-4">
             <div class="card text-center">
                 <div class="card-body">
@@ -34,8 +39,8 @@
                         </tr>                        
                     </table>
                     <button id="btn-event" type="button" class="btn btn-primary">Aggiungi al carrello</button>
-                    <button id="btn-info" type="button" class="btn btn-primary" data-toggle="modal" data-target="#infoModal">Dettagli</button>
-                    <div id="infoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+                    <button id="btn-info" type="button" class="btn btn-primary" data-toggle="modal" data-target="#<?php echo $infomodal; ?>">Dettagli</button>
+                    <div id="<?php echo $infomodal; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
