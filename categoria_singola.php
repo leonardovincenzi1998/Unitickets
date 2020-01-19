@@ -6,7 +6,7 @@
         </ol>
     </nav>
     <!--Eventi-->
-    <div class="container-fluid padding">
+    <div id="events" class="container-fluid padding">
     <div class="row padding">
     <?php 
     //$cont = 0;
@@ -38,8 +38,8 @@
                             <td id="costoBiglietto"><?php echo $categoria["ticket_price"]; ?> <i class="fa fa-euro"></i></td>
                         </tr>                        
                     </table>
-                    <button id="btn-event" type="button" class="btn btn-primary">Aggiungi al carrello</button>
-                    <button id="btn-info" type="button" class="btn btn-primary" data-toggle="modal" data-target="#<?php echo $infomodal; ?>">Dettagli</button>
+                    <button id="btn-event" type="button" class="btn btn-outline-secondary">Aggiungi al carrello</button>
+                    <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $infomodal; ?>">Dettagli</button>
                     <div id="<?php echo $infomodal; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
