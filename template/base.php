@@ -13,7 +13,8 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-light navbar-expand-sm bg-light sticky-top">
+  <?php require_once 'include_navbar.php'; ?>
+    <!-- <nav class="navbar navbar-light navbar-expand-sm bg-light sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">Unitickets</a>
         <div>
@@ -26,8 +27,8 @@
                 </li>
             </ul>
         </div>
-    </div>    
-    </nav>
+    </div>
+    </nav> -->
     <?php require($templateParams["nome"]); ?>
     <!--Contatti-->
     <footer>
@@ -35,7 +36,7 @@
         <div class="row text-center">
             <div class="col-md-4">
                 <hr class="light">
-                <h5>Contatti</h5>   
+                <h5>Contatti</h5>
                 <hr class="light">
                 <p>leonardo.delvecchio@studio.unibo.it</p>
                 <p>leonardo.vincenzi@studio.unibo.it</p>
@@ -72,6 +73,6 @@
         </div>
         </div>
     </footer>
-    
+
 </body>
 </html>
