@@ -31,10 +31,11 @@
       <label for="password">Password</label>
       <input type="password" class="form-control" name="p" id="password" placeholder="Password" maxlength="16" required>
       
-      <button type="submit" class="btn btn-primary" onclick="formhash(this.form, this.form.password)">Entra</button>
+      <button type="submit" class="btn btn-outline-secondary" onclick="formhash(this.form, this.form.password)">Entra</button>
     </form>
-  </div>
+    <p class="text-center" id="downLoginForm">Non sei ancora registrato? <a href="#">Registrati!</a></br>
+    Non sei un cliente? Accedi come <a href="#">organizzatore</a></p>
+  </div> 
 </div>
-
 </body>
 </html>
