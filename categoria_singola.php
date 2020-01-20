@@ -1,6 +1,6 @@
 <!--inserisco gli eventi divisi per categoria-->
 <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
+        <ol class="breadcrumb bg-light">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item active" aria-current="page">Categoria:<?php echo $templateParams["nome_categoria"];?></li>
         </ol>
@@ -28,20 +28,20 @@
                     <hr class="tab-event">
                     <table class="table-borderless-responsive">
                         <tr>
-                            <th scope="row">Luogo</th>
-                            <td id="nomeLuogo"><?php echo $categoria["event_place"]; ?></td>
+                            <th id="Luogo" scope="row">Luogo</th>
+                            <td headers="Luogo" id="nomeLuogo" class="text-center"><?php echo $categoria["event_place"]; ?></td>
                         </tr>
                         <tr>
-                            <th scope="row">Data</th>
-                            <td id="dataEv"><?php echo $categoria["event_date"]; ?></td>
+                            <th id="Data" scope="row">Data</th>
+                            <td headers="Data" id="dataEv" class="text-center"><?php echo $categoria["event_date"]; ?></td>
                         </tr>
                         <tr>
-                            <th scope="row">Organizzatore</th>
-                            <td id="nomeOrg"><?php echo $categoria["organizer_name"]; echo ' ';echo $categoria["organizer_surname"] ?></td>
+                            <th id="Organizzatore" scope="row">Organizzatore</th>
+                            <td headers="Organizzatore" id="nomeOrg" class="text-center"><?php echo $categoria["organizer_name"]; echo ' ';echo $categoria["organizer_surname"] ?></td>
                         </tr>
                         <tr>
-                            <th scope="row">Prezzo</th>
-                            <td id="costoBiglietto"><?php echo $categoria["ticket_price"]; ?> <i class="fa fa-euro"></i></td>
+                            <th id="Prezzo" scope="row">Prezzo</th>
+                            <td headers="Prezzo" id="costoBiglietto" class="text-center"><?php echo $categoria["ticket_price"]; ?> <i class="fa fa-euro"></i></td>
                         </tr>                        
                     </table>
                     <button id="btn-event" type="button" class="btn btn-outline-secondary">Aggiungi al carrello</button>

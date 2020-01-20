@@ -15,27 +15,38 @@
   // if(isset($_GET['error'])) {
   //    echo 'Error Logging In!';
   // }
+  $atype = $_GET['atype'];
   include 'errore.php';
   ?>
   <!-- <form action="process_login.php" method="post" name="login_form"> -->
 <body>
 <div class="container justify-content-center col-md-4">
   <hr class="upRegister">
-  <h2 class="text-center">Login</h2>
+  <!-- <h2 class="text-center">Login</h2> -->
+
+  <?php if($_GET['atype']=="cli"){
+    ?> <h2 class="text-center">Login Clienti </h2> <?php
+  }
+  else{
+    ?> <h2 class="text-center">Login Organizzatori </h2> <?php
+  }
+  ?>
+
   <hr class="downRegister">
   <div class="form-group">
-    <form id="form-login" action="process_login.php" method="post">
+    <form id="form-login" action="process_login.php?atype=<?php echo $atype ;?>" method="post">
       <label for="email">E-mail</label>
       <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" maxlength="55" required>
 
       <label for="password">Password</label>
       <input type="password" class="form-control" name="p" id="password" placeholder="Password" maxlength="16" required>
-      
+
       <button type="submit" class="btn btn-outline-secondary" onclick="formhash(this.form, this.form.password)">Entra</button>
     </form>
-    <p class="text-center" id="downLoginForm">Non sei ancora registrato? <a href="#">Registrati!</a></br>
-    Non sei un cliente? Accedi come <a href="#">organizzatore</a></p>
-  </div> 
+    <!-- <p class="text-center" id="downLoginForm">Non sei ancora registrato? <a href="#">Registrati!</a></br>
+    Non sei un cliente? Accedi come <a href="#">organizzatore</a></p> -->
+    <?php  require 'atype.php';?>
+  </div>
 </div>
 </body>
 </html>

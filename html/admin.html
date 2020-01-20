@@ -28,13 +28,11 @@
         </div>
     </div>    
     </nav>
-    <!--inserisco gli eventi divisi per categoria-->
-    <nav id="breadcrumb" aria-label="breadcrumb">
-        <ol class="breadcrumb bg-light">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Eventi della categoria:</li>
-        </ol>
-    </nav>
+    <div class="text-center">
+        <hr class="upCat">
+        <h2>Tutti gli Eventi</h2>
+        <hr class="downCat">
+    </div>
     <!--Eventi-->
     <div id="events" class="container-fluid padding">
     <div class="row padding">
@@ -42,87 +40,6 @@
             <div class="card text-center">
                 <div class="card-body">
                     <h4 class="card-title">Cado dalle nubi</h4>
-                    <hr class="tab-event">
-                    <table class="table-borderless-responsive">
-                        <tr>
-                            <th scope="row">Luogo</th>
-                            <td id="nomeLuogo">Uci Romagna Center</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Data</th>
-                            <td id="dataEv">02-10-98</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Organizzatore</th>
-                            <td id="nomeOrg">Leonardo vincenzi</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Posti disponibili</th>
-                            <td id="numPosti">100</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Prezzo</th>
-                            <td id="costoBiglietto">6 <i class="fa fa-euro"></i></td>
-                        </tr>                        
-                    </table>
-                    <button id="btn-event" type="button" class="btn btn-outline-secondary">Aggiungi al carrello</button>
-                    <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#infoModal">+info</button>
-                    <div id="infoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="infoModalLabel">Info relative all'evento</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    Qua bisogna scrivere la descrizione dell'evento
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h4 class="card-title">Nome dell'evento</h4>
-                    <hr class="tab-event">
-                    <table class="table-borderless-responsive">
-                        <tr>
-                            <th scope="row">Luogo</th>
-                            <td id="nomeLuogo">Uci Romagna Center</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Data</th>
-                            <td id="dataEv">02-10-98</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Organizzatore</th>
-                            <td id="nomeOrg">Leonardo vincenzi</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Posti disponibili</th>
-                            <td id="numPosti">100</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Prezzo</th>
-                            <td id="costoBiglietto">6 <i class="fa fa-euro"></i></td>
-                        </tr>                        
-                    </table>
-                    <button id="btn-event" type="button" class="btn btn-outline-secondary">Aggiungi al carrello</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h4 class="card-title">Nome dell'evento</h4>
                     <hr class="tab-event">
                     <table class="table-borderless-responsive">
                         <tr>
@@ -144,6 +61,91 @@
                         <tr>
                             <th id="Prezzo" scope="row">Prezzo</th>
                             <td headers="Prezzo" id="costoBiglietto">6 <i class="fa fa-euro"></i></td>
+                        </tr>                        
+                    </table>
+                    <button id="btn-event" type="button" class="btn btn-success">Accetta evento</button>
+                    <button id="btn-event" type="button" class="btn btn-danger">Rifiuta evento</button>
+                    <button id="btn-event" type="button" class="btn btn-primary">Accetta evento e metti in evidenza</button>
+
+
+                    <!--<button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#infoModal">+info</button>
+                    <div id="infoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="infoModalLabel">Info relative all'evento</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Qua bisogna scrivere la descrizione dell'evento
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h4 class="card-title">Nome dell'evento</h4>
+                    <hr class="tab-event">
+                    <table class="table-borderless-responsive">
+                        <tr>
+                            <th scope="row">Luogo</th>
+                            <td id="nomeLuogo">Uci Romagna Center</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Data</th>
+                            <td id="dataEv">02-10-98</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Organizzatore</th>
+                            <td id="nomeOrg">Leonardo vincenzi</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Posti disponibili</th>
+                            <td id="numPosti">100</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Prezzo</th>
+                            <td id="costoBiglietto">6 <i class="fa fa-euro"></i></td>
+                        </tr>                        
+                    </table>
+                    <button id="btn-event" type="button" class="btn btn-outline-secondary">Aggiungi al carrello</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h4 class="card-title">Nome dell'evento</h4>
+                    <hr class="tab-event">
+                    <table class="table-borderless-responsive">
+                        <tr>
+                            <th scope="row">Luogo</th>
+                            <td id="nomeLuogo">Uci Romagna Center</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Data</th>
+                            <td id="dataEv">02-10-98</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Organizzatore</th>
+                            <td id="nomeOrg">Leonardo vincenzi</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Posti disponibili</th>
+                            <td id="numPosti">100</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Prezzo</th>
+                            <td id="costoBiglietto">6 <i class="fa fa-euro"></i></td>
                         </tr>                        
                     </table>
                     <button id="btn-event" type="button" class="btn btn-outline-secondary">Aggiungi al carrello</i></button>

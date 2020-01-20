@@ -2,6 +2,9 @@
 // include 'db_connect.php'; commentato perchè incluso in functions.php
 include 'functions.php';
 sec_session_start(); // usiamo la nostra funzione per avviare una sessione php sicura
+
+$atype = $_GET['atype'];
+
 if(isset($_POST['email'], $_POST['p'])) {
    $email = $_POST['email'];
    $password = $_POST['p']; // Recupero la password criptata.
@@ -15,11 +18,12 @@ if(isset($_POST['email'], $_POST['p'])) {
       // Login fallito
       //
       if(empty($email) || empty($password)){
-        header('Location: ./login.php?error=log1');
+
+        header('Location: ./login.php?atype='.$atype.'&error=log1');
       }
       else{
       //
-      header('Location: ./login.php?error=log');
+      header('Location: ./login.php?atype='.$atype.'&error=log');
       }
    }
 } else {

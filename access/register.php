@@ -17,7 +17,16 @@
   <?php include 'errore.php'; ?>
   <div class="container justify-content-center col-md-4">
     <hr class="upRegister">
-    <h2 class="text-center">Registrazione</h2>
+    <!-- <h2 class="text-center">Registrazione</h2> -->
+
+    <?php if($_GET['atype']=="cli"){
+      ?> <h2 class="text-center">Registrazione Clienti </h2> <?php
+    }
+    else{
+      ?> <h2 class="text-center">Registrazione Organizzatori </h2> <?php
+    }
+    ?>
+
     <hr class="downRegister">
     <div class="form-group">
       <form id="form-registrazione" action="register_function.php" method="post">
@@ -38,11 +47,12 @@
 
         <label for="date">Data di nascita</label>
         <input type="date" class="form-control" name="birthdate" id="birthdate" placeholder="Data di nascita" required>
-        
+
         <button type="submit" class="btn btn-outline-secondary" onclick="formhash(this.form, this.form.password)">Conferma</button>
       </form>
-      <p class="text-center" id="downRegForm">Sei già registrato? <a href="#">Accedi!</a></br>
-      Non sei un cliente? Registrati come <a href="#">organizzatore</a></p>
+      <!-- <p class="text-center" id="downRegForm">Sei già registrato? <a href="#">Accedi!</a></br>
+      Non sei un cliente? Registrati come <a href="#">organizzatore</a></p> -->
+      <?php require_once 'rtype.php' ?>
     </div>
   </div>
 </body>
