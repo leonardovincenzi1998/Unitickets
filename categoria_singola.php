@@ -11,6 +11,12 @@
     <?php 
     //$cont = 0;
     $infomodal= 0;
+    if(sizeof($templateParams["categorie"])==0){
+        ?> <div class="container justify-content-center col-md-4">
+        <hr class="upRegister">
+        <h4 class="text-center">Non sono presenti eventi nella categoria <?php echo $templateParams["nome_categoria"];?></h4>
+        <hr class="downRegister"> <?php
+    } else {
     foreach($templateParams["categorie"] as $categoria): 
         //var_dump($categoria);
         $infomodal++;
@@ -61,6 +67,7 @@
                 </div>
             </div>
         </div>
-        <?php endforeach;?>  
+        <?php endforeach;
+        } ?>
     </div>
     </div>
