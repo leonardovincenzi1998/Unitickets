@@ -16,7 +16,7 @@
 <div id="titoloCat" class="container-fluid padding">
     <div class="row welcome text-center">
         <div class="col-md-12">
-            <hr class="upCat">
+            <hr class="downCat">
             <h4 class="display-4">Categorie</h4>
             <hr class="downCat">
         </div>

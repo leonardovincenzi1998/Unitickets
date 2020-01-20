@@ -68,17 +68,6 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    /*public function getOrganizerNameByEvents($idevent){
-        $stmt = $this->db->prepare("SELECT organizer_name, organizer_surname FROM events,organizer WHERE organizer.organizer_id=events.organizer_id AND events.event_id=?");
-        $stmt->bind_param('i',$idevent);
-        $stmt->execute();
-        $stmt->store_result();
-        $stmt->bind_result($nome, $cognome);
-        $stmt->fetch();
-        $nome_intero= $nome.' '.$cognome;
-        return $nome_intero;
-    }*/
-
     public function getCategoryNameById($idcategory){
         $stmt = $this->db->prepare("SELECT category_name FROM category WHERE category_id=?");
         $stmt->bind_param('i',$idcategory);
@@ -88,36 +77,16 @@ class DatabaseHelper{
         $stmt->fetch();
         return $nome_categoria;
 
-        /*$result = $stmt->get_result();
-        $output='';
-
-        while($row = mysqli_fetch_array($result)) {
-            $output .= '
-                <li class="breadcrumb-item active" aria-current="page">Categoria:'.$row["category_name"].'</li>
-            ';
-        }
-        return $output;*/
     }
 
-    /*public function getEventsById($idevent){
-        $stmt = $this->db->prepare("SELECT event_name FROM events WHERE event_id=?");
-        $stmt->bind_param('i',$idcategory);
-        $stmt->execute();
-        $stmt->store_result();
-        $stmt->bind_result($event_name);
-        $stmt->fetch();
-        return $event_name;
-    }*/
-
-
-    //funzione per ottenere l'immagine della categoria in base all'id di questa sul db
-    /*public function getImgCategoriesById($idcategory){
-        $stmt = $this->db->prepare("SELECT image_url FROM category WHERE category_id=?");
-        $stmt->bind_param('i',$idcategory);
+    public function getEventsByIdOrganizer($idorganizer){
+        $stmt = $this->db->prepare("SELECT * FROM events WHERE organizer_id=?");
+        $stmt->bind_param('i',$idorganizer);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-*/
+
+    
 }
