@@ -23,10 +23,10 @@
     </div>    
 </div>
 <!--creo le "carte" delle categorie-->
-<div class="container-fluid padding">
+<div id="categories" class="container-fluid padding">
     <div class="row padding"> 
         <?php foreach($templateParams["categorie"] as $categoria): ?> 
-        <div class="col-md-4">
+        <div id="cardPadding" class="col-md-4">
             <div class="card">
                 <img src="<?php echo $categoria["image_url"]?>" alt="Categoria <?php echo $categoria["category_name"];?>" class="card-imd-top">
                 <div class="card-body">

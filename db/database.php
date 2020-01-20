@@ -63,6 +63,7 @@ class DatabaseHelper{
         $stmt->bind_param('i',$idcategory);
         $stmt->execute();
         $result = $stmt->get_result();
+        //var_dump($result->fetch_all(MYSQLI_ASSOC));
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
@@ -97,6 +98,16 @@ class DatabaseHelper{
         }
         return $output;*/
     }
+
+    /*public function getEventsById($idevent){
+        $stmt = $this->db->prepare("SELECT event_name FROM events WHERE event_id=?");
+        $stmt->bind_param('i',$idcategory);
+        $stmt->execute();
+        $stmt->store_result();
+        $stmt->bind_result($event_name);
+        $stmt->fetch();
+        return $event_name;
+    }*/
 
 
     //funzione per ottenere l'immagine della categoria in base all'id di questa sul db
