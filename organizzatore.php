@@ -154,6 +154,7 @@
         <?php endforeach ?> 
     </div>
     </div>
+    
     <script>
 $(document).ready(function(){
  $('#insert_form').on("submit", function(event){  
