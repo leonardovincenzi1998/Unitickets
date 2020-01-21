@@ -38,7 +38,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="data">Data</label>
-                                            <input type="date" class="form-control" name="data" id="data" required>
+                                            <input type="datetime-local" class="form-control" name="data" id="data" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="seats">Posti disponibili</label>
