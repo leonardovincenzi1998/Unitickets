@@ -25,7 +25,10 @@ html, body {
 #slides{
     margin-left: 15%;
     margin-right: 15%;
-    margin-top: 5%;
+    margin-top: 10%;
+    /*margin-bottom: 5%;*/
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
 
 /*.carousel-inner img{
@@ -33,21 +36,9 @@ html, body {
     height: 100%;
 }*/
 
-/*.btn-primary{
-    background-color: lightgrey;
-    color: #3f3f3f;
-    border: 1px solid #3f3f3f;
-}
-
-.btn-primary:hover{
-    background-color: #3f3f3f;
-    color: #d5d5d5;
-    border: 1px solid #3f3f3f;
+/*#titoloCat{
+    margin-top: 5%;
 }*/
-
-#titoloCat{
-    margin-top: 10%;
-}
 
 .upCat, .downCat{
     border: 1px solid #3f3f3f;

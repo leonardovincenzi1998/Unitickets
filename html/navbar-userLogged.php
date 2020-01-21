@@ -20,8 +20,10 @@
                 <a href="#" id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
                     <p class="dropdown-item-text">Notifica</p>
-                    <p class="dropdown-item">Notifica bella lunga per vedere se fa dropdown</p>
-                    <p class="dropdown-item">Notifica</p>
+                    <p class="dropdown-item-text">Notifica bella lunga per vedere se fa dropdown</p>
+                    <p class="dropdown-item-text">Notifica</p>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">Vedi tutte le notifiche</a>
                 </div>
             </li>
         </ul>
