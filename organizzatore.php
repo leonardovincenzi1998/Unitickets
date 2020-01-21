@@ -10,57 +10,59 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="createEventModalTitle">Creazione Evento</h5>
+                                    <h4 class="modal-title" id="createEventModalTitle">Creazione Evento</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="was-validated" novalidate>
+                                    <form class="was-validated" novalidate method="post" id="insert_form">
                                         <div class="form-group">
-                                            <label for="catFormControlSelect1">Categoria</label>
-                                            <select class="form-control" id="catFormControlSelect1" required>
+                                            <label for="cat">Categoria</label>
+                                            <select class="form-control" name="cat" id="cat" required>
                                             <?php foreach($templateParams["categorie"] as $categoria): ?> 
                                                 <option><?php echo $categoria["category_name"];?></option>
                                             <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="titleFormControlInput1">Titolo</label>
-                                            <input type="text" class="form-control" id="titleFormControlInput1" required>
+                                            <label for="name">Titolo</label>
+                                            <input type="text" class="form-control" name="name" id="name" required />
                                         </div>
                                         <div class="form-group">
-                                            <label for="locationFormControlInput2">Luogo</label>
-                                            <input type="text" class="form-control" id="locationFormControlInput2" required>
+                                            <label for="place">Luogo</label>
+                                            <input type="text" class="form-control" name="place" id="place" required>
                                             <!-- <div class="valid-feedback">
                                                 OK!
                                             </div> -->
                                         </div>
                                         <div class="form-group">
-                                            <label for="dateFormControlInput3">Data e orario inizio</label>
-                                            <input type="datetime-local" class="form-control" id="dateFormControlInput3" required>
+                                            <label for="data">Data</label>
+                                            <input type="datetime-local" class="form-control" name="data" id="data" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="seatsFormControlInpu4">Posti disponibili</label>
-                                            <input type="number" class="form-control" id="seatsFormControlInput4" required>
+                                            <label for="seats">Posti disponibili</label>
+                                            <input type="number" class="form-control" name="seats" id="seats" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="priceFormControlInput5">Prezzo <i class="fa fa-euro"></i></label>
-                                            <input type="number" class="form-control" id="priceFormControlInput5" required>
+                                            <label for="price">Prezzo <i class="fa fa-euro"></i></label>
+                                            <input type="number" class="form-control" name="price" id="price" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="descrizFormControlTextarea1">Descrizione</label>
-                                            <textarea class="form-control" id="descrizFormControlTextarea1" rows="3" required></textarea>
+                                            <label for="desc">Descrizione</label>
+                                            <textarea class="form-control" name="desc" id="desc" rows="3" required></textarea>
                                         </div>
+                                        <input type="submit" name="insert" id="insert" value="Crea evento" class="btn btn-success" />
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                                    <button type="submit" class="btn btn-outline-secondary">Crea evento</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
                                 </div>
                             </div>
                         </div>
-                    </div>    
+                    </div>
+
+                    <!-- Fine modale creazione evento -->
                     <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#createEventModal">Crea evento</button>
                 </div>
             </div>
@@ -152,3 +154,53 @@
         <?php endforeach ?> 
     </div>
     </div>
+    
+    <script>
+$(document).ready(function(){
+ $('#insert_form').on("submit", function(event){  
+  event.preventDefault();  
+  if($('#name').val() == "")  
+  {  
+   alert("Inserire titolo dell'evento");  
+  }  
+  else if($('#place').val() == "")  
+  {  
+   alert("Inserire luogo dell'evento");  
+  }
+  else if($('#data').val() == "")
+  {
+    alert("Inserire la data dell'evento")
+  }  
+  else if($('#seats').val() == "")
+  {
+    alert("Inserire i posti disponibili")
+  } 
+  else if($('#price').val() == "")
+  {
+    alert("Inserire il costo del biglietto")
+  } 
+  else if($('#desc').val() == '')
+  {  
+   alert("Inserire una descrizione dell'evento");  
+  }
+   
+  else  
+  {    
+    
+   $.ajax({  
+    url:"insert.php",  
+    method:"POST",  
+    data:$('#insert_form').serialize(),  
+    beforeSend:function(){  
+     $('#insert').val("Inserting");  
+    },  
+    success:function(data){  
+     $('#insert_form')[0].reset();  
+     $('#createEventModal').modal('hide');  
+     //$('#employee_table').html(data);  
+    }  
+   });  
+  }  
+ });
+ });    
+ </script>
