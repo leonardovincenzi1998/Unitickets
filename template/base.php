@@ -14,7 +14,7 @@
 </head>
 <body>
   <?php require_once 'include_navbar.php'; ?>
-    <!-- <nav class="navbar navbar-light navbar-expand-sm bg-light sticky-top">
+    <!-- <nav class="navbar navbar-light navbar-expand bg-light sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">Unitickets</a>
         <div>
