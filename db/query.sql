@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS `organizer` (
 	`organizer_password` varchar(512) NOT NULL,
 	`organizer_tel` tinyint(10) NOT NULL,
 	`organizer_salt` CHAR(128) NOT NULL,
+	`organizer_iva` BIGINT(11) ZEROFILL NOT NULL,
   PRIMARY KEY (`organizer_id`)
 ) ENGINE=InnoDB;
 

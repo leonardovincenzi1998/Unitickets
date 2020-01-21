@@ -1,4 +1,4 @@
-<form id="form-registrazione" action="register_function.php" method="post">
+<form id="form-registrazione" action="register_function_org.php" method="post">
   <label for="name">Nome</label>
   <input type="text" class="form-control" name="name" id="name" placeholder="Nome" maxlength="30" required>
 

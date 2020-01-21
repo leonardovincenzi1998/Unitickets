@@ -27,8 +27,9 @@
     }
     ?>
 
-    <hr class="downRegister">
-    <div class="form-group">
+     <hr class="downRegister">
+     
+    <!-- <div class="form-group">
       <form id="form-registrazione" action="register_function.php" method="post">
         <label for="name">Nome</label>
         <input type="text" class="form-control" name="name" id="name" placeholder="Nome" maxlength="30" required>
@@ -49,7 +50,7 @@
         <input type="date" class="form-control" name="birthdate" id="birthdate" placeholder="Data di nascita" required>
 
         <button type="submit" class="btn btn-outline-secondary" onclick="formhash(this.form, this.form.password)">Conferma</button>
-      </form>
+      </form>  -->
       <!-- <p class="text-center" id="downRegForm">Sei già registrato? <a href="#">Accedi!</a></br>
       Non sei un cliente? Registrati come <a href="#">organizzatore</a></p> -->
       <?php require_once 'rtype.php' ?>
