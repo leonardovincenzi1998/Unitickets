@@ -1,5 +1,7 @@
 <?php
 //insert.php  
+require_once 'access/functions.php';
+sec_session_start();
 $connect = mysqli_connect("localhost", "root", "", "unitickets");
 if(!empty($_POST))
 {
@@ -25,10 +27,10 @@ if(!empty($_POST))
     $seats = mysqli_real_escape_string($connect, $_POST["seats"]);
     $price = mysqli_real_escape_string($connect, $_POST["price"]);
     $description = mysqli_real_escape_string($connect, $_POST["desc"]);
-    $organizer = mysqli_real_escape_string($connect, $_GET['idorganizer']);
+    $organizer = mysqli_real_escape_string($connect, $_SESSION['organizer_id']);
     $query = "
     INSERT INTO events(event_name, event_date, event_place, ticket_price, organizer_id, category, in_evidence, img, descriptions, Stato, ticket_available)  
-     VALUES('$name', '$data', '$place', '$price', '1', '$category2', '0', '', '$description', '0', '$seats')
+     VALUES('$name', '$data', '$place', '$price', '$organizer', '$category2', '0', '', '$description', '0', '$seats')
     ";
     if(mysqli_query($connect, $query))
     {
