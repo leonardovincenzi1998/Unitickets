@@ -5,7 +5,8 @@ require_once 'access/functions_org.php';
 // sec_session_start();
 
 if(login_check($mysqli)){
-  require_once './html/navbar-userLogged.php';  //cambiare percorso
+  // require_once './html/navbar-userLogged.php';  //cambiare percorso
+  require_once './html/navbar_loggedOrg.php';
 }
 else {
   require_once './html/navbar-toLog.php';      //cambiare percorso
