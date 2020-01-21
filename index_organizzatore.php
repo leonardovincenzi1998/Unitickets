@@ -1,5 +1,6 @@
 <?php
 require_once("bootstrap.php");
+require_once "access/db_connect.php";
 
 $templateParams["titolo"] = "Unitickets - Organizzatore";
 $templateParams["nome"] = "organizzatore.php";
