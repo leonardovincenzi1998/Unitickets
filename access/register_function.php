@@ -44,7 +44,7 @@ if (!empty($_POST['p']) && !empty($_POST['email']) && !empty($_POST['name']) &&
     if ($stmt->num_rows > 0) {
     	// Email already exists
     	// echo 'Email exists, please choose another!';
-      header("location: ./register.php?error=reg1");
+      header("location: ./register.php?atype=cli&error=reg1");
     }
     else {
       //Email doesnt exists, insert new account
@@ -61,12 +61,12 @@ if (!empty($_POST['p']) && !empty($_POST['email']) && !empty($_POST['name']) &&
   			 									$password, $random_salt, $_POST['birthdate'], $_POST['tel']);
       	$stmt->execute();
       	// echo 'You have successfully registered, you can now login!';
-        header("location: ./login.php?error=regok");
+        header("location: ./login.php?atype=cli&error=regok");
       }
     }
   	// $stmt->close(); //else
 }} else {
-  header("location: ./register.php?error=reg");
+  header("location: ./register.php?atype=cli&error=reg");
 }
   //else
 
