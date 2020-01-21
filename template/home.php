@@ -42,4 +42,3 @@
         <?php endforeach; ?>    
     </div>        
 </div>
-<hr>
