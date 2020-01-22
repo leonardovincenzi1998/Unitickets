@@ -27,7 +27,10 @@ CREATE TABLE IF NOT EXISTS `organizer` (
 
 CREATE TABLE IF NOT EXISTS `admin` (
 	`admin_email` varchar(100) NOT NULL,
-	`admin_password` varchar(512) NOT NULL
+	`admin_password` varchar(512) NOT NULL,
+	`admin_salt` char(128) NOT NULL,
+	`admin_id` int(11) NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (`admin_id`)
 ) ENGINE=InnoDB;
 
 
@@ -104,6 +107,16 @@ CREATE TABLE IF NOT EXISTS `notifies` (
 	PRIMARY KEY (`notifies_id`),
 	FOREIGN KEY(`user_id`)
 		REFERENCES `user`(`user_id`)
+) ENGINE=InnoDB
+
+CREATE TABLE IF NOT EXISTS `notifies_org` (
+	`notifies_id` int(11) NOT NULL AUTO_INCREMENT,
+	`description` varchar(255) NOT NULL,
+	`notify_date` date NOT NULL,
+	`organizer_id` int(11) NOT NULL,
+	PRIMARY KEY (`notifies_id`),
+	FOREIGN KEY(`organizer_id`)
+		REFERENCES `organizer`(`organizer_id`)
 ) ENGINE=InnoDB
 
 

@@ -6,15 +6,15 @@ class DatabaseHelper{
         $this->db = new mysqli($servername, $username, $password, $dbname);
         if ($this->db->connect_error) {
             die("Connection failed: " . $db->connect_error);
-        }        
+        }
     }
-    
+
     //funzione per ottenere tutte le categorie
     public function getCategories(){
         $stmt = $this->db->prepare("SELECT * FROM category");
         $stmt->execute();
         $result = $stmt->get_result();
-        
+
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -22,7 +22,7 @@ class DatabaseHelper{
         $stmt = $this->db->prepare("SELECT * FROM events WHERE in_evidence=1");
         $stmt->execute();
         $result = $stmt->get_result();
-        
+
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -88,5 +88,59 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    
+                                //gli passo $_SESSION['user_id']
+    public function getAllNotifies($id_utente){  //non lo chiamo user_id per paura di conflitti
+       $stmt = $this->db->prepare("SELECT * FROM notifies WHERE user_id=?
+                                  ORDER BY notifies_id DESC");
+       $stmt->bind_param('i', $id_utente);
+       $stmt->execute();
+       $result = $stmt->get_result();
+
+       return $result->fetch_all(MYSQLI_ASSOC);
+
+     }
+
+     public function getNotifiesNavbar($id_utente){  //non lo chiamo user_id per paura di conflitti
+        $stmt = $this->db->prepare("SELECT * FROM notifies WHERE user_id=?
+                                    ORDER BY notifies_id DESC LIMIT 3");
+        $stmt->bind_param('i', $id_utente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+
+      }
+
+      public function getNotifiesNavbarOrg($organizer_id){  //non lo chiamo user_id per paura di conflitti
+         $stmt = $this->db->prepare("SELECT * FROM notifies_org WHERE organizer_id=?
+                                    ORDER BY notifies_id DESC LIMIT 3");
+         $stmt->bind_param('i', $organizer_id);
+         $stmt->execute();
+         $result = $stmt->get_result();
+
+         return $result->fetch_all(MYSQLI_ASSOC);
+
+       }
+
+       public function getAllOrgNotifies($organizer_id){  //non lo chiamo user_id per paura di conflitti
+          $stmt = $this->db->prepare("SELECT * FROM notifies_org WHERE organizer_id=?
+                                     ORDER BY notifies_id DESC");
+          $stmt->bind_param('i', $organizer_id);
+          $stmt->execute();
+          $result = $stmt->get_result();
+
+          return $result->fetch_all(MYSQLI_ASSOC);
+
+        }
+
+        // ERA UN ESEMPIO PER PROVARE STRINGHE
+        // public function getAllNotifies($id_utente){  //non lo chiamo user_id per paura di conflitti
+        //    $stmt = $this->db->prepare("SELECT * FROM notifies WHERE description=?");
+        //    $stmt->bind_param('s', $id_utente);
+        //    $stmt->execute();
+        //    $result = $stmt->get_result();
+        //
+        //    return $result->fetch_all(MYSQLI_ASSOC);
+        //
+        //  }
 }
