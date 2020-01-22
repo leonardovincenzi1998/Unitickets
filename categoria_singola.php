@@ -55,7 +55,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="#">
+                                    <form action="#" class="was-validated" novalidate method="post">
                                         <p>Seleziona il metodo di pagamento:</p>
                                             <input type="radio" name="pagamento" value="Paypal"> <i class="fa fa-cc-paypal"></i>  <input id="email_pp" type="email" name="pagamento" placeholder="Email" required></br>
                                             <input type="radio" name="pagamento" value="other cards"> <i class="fa fa-cc-mastercard"></i> <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-amex"></i> <input id="n_carta" type="tel" name="pagamento" placeholder="Numero della carta" maxlength="16" required> <input type="number" name="pagamento" min="1" max="12"> <input type="number" name="pagamento" min="21" max="29"></br>
