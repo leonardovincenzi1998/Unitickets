@@ -29,15 +29,15 @@ if(!empty($_POST))
     $description = mysqli_real_escape_string($connect, $_POST["desc"]);
     $organizer = mysqli_real_escape_string($connect, $_SESSION['organizer_id']);
     $query = "
-    INSERT INTO events(event_name, event_date, event_place, ticket_price, organizer_id, category, in_evidence, img, descriptions, Stato, ticket_available)  
-     VALUES('$name', '$data', '$place', '$price', '$organizer', '$category2', '0', '', '$description', '0', '$seats')
+    INSERT INTO events(event_name, event_date, event_place, ticket_price, organizer_id, category, in_evidence, img, descriptions, Stato, ticket_available, total_ticket)  
+     VALUES('$name', '$data', '$place', '$price', '$organizer', '$category2', '0', '', '$description', 'In approvazione', '$seats','$seats')
     ";
     if(mysqli_query($connect, $query))
     {
-     alert("Cazzo si");
+     alert("ok");
     } else{
-     alert("merda no");
+     alert("ok");
     }
 }
-alert("Sono fottuto");
+alert("ok");
 ?>
