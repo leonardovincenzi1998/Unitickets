@@ -1,5 +1,5 @@
 <?php
-//insert.php  
+//insert.php
 require_once 'access/functions.php';
 sec_session_start();
 $connect = mysqli_connect("localhost", "root", "", "unitickets");
@@ -21,9 +21,9 @@ if(!empty($_POST))
         $stmt->bind_result($id_categoria);
         $stmt->fetch();
        $category = $id_categoria; */
-    $name = mysqli_real_escape_string($connect, $_POST["name"]);  
-    $place = mysqli_real_escape_string($connect, $_POST["place"]);  
-    $data = mysqli_real_escape_string($connect, $_POST["data"]);  
+    $name = mysqli_real_escape_string($connect, $_POST["name"]);
+    $place = mysqli_real_escape_string($connect, $_POST["place"]);
+    $data = mysqli_real_escape_string($connect, $_POST["data"]);
     $seats = mysqli_real_escape_string($connect, $_POST["seats"]);
     $price = mysqli_real_escape_string($connect, $_POST["price"]);
     $description = mysqli_real_escape_string($connect, $_POST["desc"]);
