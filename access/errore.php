@@ -1,5 +1,5 @@
 <?php
-include 'functions.php';
+require_once 'functions.php'; //add push 23/01 ft
 sec_session_start();
 if(!empty($_GET['error'])){
   if($_GET['error']=="reg") {?>

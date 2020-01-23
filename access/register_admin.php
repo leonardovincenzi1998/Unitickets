@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -10,27 +11,27 @@
   <link href="../css/style.css" type="text/css" rel="stylesheet">
   <script type="text/javascript" src="sha512.js"></script>
   <script type="text/javascript" src="forms.js"></script>
-  </head>
-  <body>
-
+  <title>Registrazione</title>
+</head>
+<body>
+  <?php include 'errore.php'; ?>
   <div class="container justify-content-center col-md-4">
-      <hr class="upRegister">
-       <h2 class="text-center">Login Admin </h2>
-      <hr class="downRegister">
+    <hr class="upRegister">
+      <h2 class="text-center">Registrazione Admin</h2>
+    <hr class="downRegister">
 
     <div class="form-group">
-      <form id="form-login" action="process_login_admin.php" method="post">
+      <form id="form-registrazione" action="register_function_admin.php" method="post">
+
         <label for="email">E-mail</label>
         <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" maxlength="55" required>
 
         <label for="password">Password</label>
         <input type="password" class="form-control" name="p" id="password" placeholder="Password" maxlength="16" required>
 
-        <button type="submit" class="btn btn-outline-secondary" onclick="formhash(this.form, this.form.password)">Entra</button>
+        <button type="submit" class="btn btn-outline-secondary" onclick="formhash(this.form, this.form.password)">Conferma</button>
       </form>
 
-
     </div>
-  </div>
-  </body>
-  </html>
+</body>
+</html>
