@@ -13,21 +13,64 @@
     <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
+  <?php require_once '../access/errore.php';
+  function login_check_admin($mysqli) {
+     // Verifica che tutte le variabili di sessione siano impostate correttamente
+     if(isset($_SESSION['admin_id'], $_SESSION['login_string'])) {
+       $admin_id = $_SESSION['admin_id'];
+       $login_string = $_SESSION['login_string'];
+       // $username = $_SESSION['username'];
+       $user_browser = $_SERVER['HTTP_USER_AGENT']; // reperisce la stringa 'user-agent' dell'utente.
+       if ($stmt = $mysqli->prepare("SELECT admin_password FROM admin WHERE admin_id = ? LIMIT 1")) {
+          $stmt->bind_param('i', $admin_id); // esegue il bind del parametro '$admin_id'.
+          $stmt->execute(); // Esegue la query creata.
+          $stmt->store_result();
+
+          if($stmt->num_rows == 1) { // se l'utente esiste
+             $stmt->bind_result($password); // recupera le variabili dal risultato ottenuto.
+             $stmt->fetch();
+             $login_check = hash('sha512', $password.$user_browser);
+             if($login_check == $login_string) {
+                // Login eseguito!!!!
+                return true;
+             } else {
+                //  Login non eseguito
+                return false;
+             }
+          } else {
+              // Login non eseguito
+              return false;
+          }
+       } else {
+          // Login non eseguito
+          return false;
+       }
+     } else {
+       // Login non eseguito
+       return false;
+     }
+  }
+        // require_once '../access/functions_admin.php ';
+   if(login_check_admin($mysqli)){ ?>
+
     <nav class="navbar navbar-light navbar-expand-sm bg-light sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Unitickets</a>
         <div>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a href="#" class="nav-link">Accedi</a>
+                    <a href="../access/logout.php" class="nav-link">Logout</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link">Registrati</a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
     </nav>
+  <?php }
+
+    //var_dump($_SESSION); //ME LO STAMPA CMQ UNA VOLTA PERCHè C'è IN ERRORE.PHP ?>
     <div class="text-center">
         <hr class="upCat">
         <h2>Tutti gli eventi in sospeso</h2>

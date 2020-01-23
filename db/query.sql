@@ -26,10 +26,10 @@ CREATE TABLE IF NOT EXISTS `organizer` (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `admin` (
+	`admin_id` int(11) NOT NULL AUTO_INCREMENT,
 	`admin_email` varchar(100) NOT NULL,
 	`admin_password` varchar(512) NOT NULL,
 	`admin_salt` char(128) NOT NULL,
-	`admin_id` int(11) NOT NULL AUTO_INCREMENT,
 	PRIMARY KEY (`admin_id`)
 ) ENGINE=InnoDB;
 

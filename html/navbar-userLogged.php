@@ -23,7 +23,7 @@
                     <p class="dropdown-item-text">Notifica bella lunga per vedere se fa dropdown</p>
                     <p class="dropdown-item-text">Notifica</p>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">Vedi tutte le notifiche</a>
+                    <a href="./notifies.php" class="dropdown-item">Vedi tutte le notifiche</a>
                 </div>
             </li>
         </ul>
