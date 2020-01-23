@@ -85,16 +85,24 @@
                             <td id="dataEv"><?php echo $evento["event_date"]; ?></td>
                         </tr>
                         <tr>
-                            <th scope="row">Posti disponibili</th>
+                            <th scope="row">Biglietti rimasti</th>
                             <td id="numPosti"><?php echo $evento["ticket_available"]; ?></td>
                         </tr>
                         <tr>
                             <th scope="row">Prezzo</th>
                             <td id="costoBiglietto"><?php echo $evento["ticket_price"]; ?><i class="fa fa-euro"></i></td>
-                        </tr>                        
+                        </tr>
+                        <tr>
+                            <th scope="row">Descrizione</th>
+                            <td id="descrizione"><?php echo $evento["descriptions"]; ?></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Stato</th>
+                            <td id="Stato"><?php echo $evento["Stato"]; ?></td>
+                        </tr>                    
                     </table>
-                    <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $modifyEventModal; ?>">Modifica evento</button>
-                    <div class="modal fade" id="<?php echo $modifyEventModal; ?>" tabindex="-1" role="dialog" aria-labelledby="modifyEventModalTitle" aria-hidden="true">
+                    <!-- <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<//?php echo $modifyEventModal; ?>">Modifica evento</button>
+                    <div class="modal fade" id="<//?php echo $modifyEventModal; ?>" tabindex="-1" role="dialog" aria-labelledby="modifyEventModalTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -104,50 +112,56 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="was-validated" novalidate>
+                                    <form class="was-validated" novalidate method="post" id="modify-form" >
+                                        
+                                            <label for="id1" hidden>Id</label>
+                                            <input type="number" class="form-control" id="id1" value="<//?php echo $evento["event_id"]; ?>" hidden>
+                                            
+                                        
                                         <div class="form-group">
-                                            <label for="catModifFormControlSelect1">Categoria</label>
-                                            <select class="form-control" id="catModifFormControlSelect1" required>
-                                            <option selected disabled hidden>Scegli categoria</option>
-                                            <?php foreach($templateParams["categorie"] as $categoria): ?> 
-                                                <option><?php echo $categoria["category_name"];?></option>
-                                            <?php endforeach; ?>
+                                            <label for="cat2">Categoria</label>
+                                            <select class="form-control" id="cat2" required>
+                                            <option selected disabled>Non è possibile modificare la categoria dell'evento</option>
+                                            <//?php foreach($templateParams["categorie"] as $categoria): ?> 
+                                                <option disabled><//?php echo $categoria["category_name"];?></option>
+                                            <//?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="titleModifFormControlInput1">Nome evento</label>
-                                            <input type="text" class="form-control" id="titleModifFormControlInput1" value="<?php echo $evento["event_name"]; ?>" required>
+                                            <label for="name2">Nome evento</label>
+                                            <input type="text" class="form-control" id="name2"  required />
                                             
                                         </div>
                                         <div class="form-group">
-                                            <label for="locationModifFormControlInput2">Luogo</label>
-                                            <input type="text" class="form-control" id="locationModifFormControlInput2" value= "<?php echo $evento["event_place"]; ?>" required>
+                                            <label for="place2">Luogo</label>
+                                            <input type="text" class="form-control" id="place2"  required />
                                         </div>
                                         <div class="form-group">
-                                            <label for="dateModifFormControlInput3">Data e orario inizio</label>
-                                            <input type="datetime-local" class="form-control" id="dateModifFormControlInput3" required>
+                                            <label for="data2">Data e orario inizio</label>
+                                            <input type="datetime-local" class="form-control" id="data2" required />
                                         </div>
                                         <div class="form-group">
-                                            <label for="locationModifFormControlInput4">Posti disponibili</label>
-                                            <input type="number" class="form-control" id="locationModifFormControlInput4" value= "<?php echo $evento["ticket_available"]; ?>" required>
+                                            <label for="seats2">Posti disponibili</label>
+                                            <input type="number" class="form-control" id="seats2" required />
                                         </div>
                                         <div class="form-group">
-                                            <label for="priceModifFormControlInput5">Prezzo <i class="fa fa-euro"></i></label>
-                                            <input type="number" class="form-control" id="priceModifFormControlInput5" value= "<?php echo $evento["ticket_price"]; ?>" required>
+                                            <label for="price2">Prezzo <i class="fa fa-euro"></i></label>
+                                            <input type="number" class="form-control" id="price2" required />
                                         </div>
                                         <div class="form-group">
-                                            <label for="descrizFormControlTextarea1">Descrizione</label>
-                                            <textarea class="form-control" id="descrizFormControlTextarea1" rows="3" required><?php echo $evento["descriptions"]; ?></textarea>
+                                            <label for="desc2">Descrizione</label>
+                                            <textarea class="form-control" id="desc2" rows="3" required></textarea>
                                         </div>
+                                        <input type="submit" name="modify" id="modify" class="btn btn-success" value="Modifica evento" />
                                     </form>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
-                                    <button type="button" class="btn btn-success">Modifica evento</button>
+                                    
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>   
         </div>
@@ -202,5 +216,57 @@ $(document).ready(function(){
    });  
   }  
  });
- });    
+ });  
+
+
+ /*$(document).ready(function(){
+ $('#modify-form').on("submit", function(event){  
+  event.preventDefault();  
+  if($('#name2').val() == "")  
+  {  
+   alert("Inserire titolo dell'evento");  
+  }  
+  else if($('#place2').val() == "")  
+  {  
+   alert("Inserire luogo dell'evento");  
+  }
+  else if($('#data2').val() == "")
+  {
+    alert("Inserire la data dell'evento")
+  }  
+  else if($('#seats2').val() == "")
+  {
+    alert("Inserire i posti disponibili")
+  } 
+  else if($('#price2').val() == "")
+  {
+    alert("Inserire il costo del biglietto")
+  } 
+  else if($('#desc2').val() == '')
+  {  
+   alert("Inserire una descrizione dell'evento");  
+  }
+   
+  else  
+  {    
+      alert($('#id1').val());
+    
+   $.ajax({  
+    url:"update.php",  
+    method:"POST",  
+    data:$('#modify-form').serialize(),  
+    beforeSend:function(){  
+     $('#modify').val("Inserting");  
+    },  
+    success:function(data){  
+     $('#modify-form')[0].reset();  
+     $('#<//?php echo $modifyEventModal; ?>').modal('hide');  
+     //$('#employee_table').html(data);  
+    }  
+   });  
+  }  
+ });
+ });  */
+
+
  </script>
