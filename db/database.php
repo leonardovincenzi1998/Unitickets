@@ -38,7 +38,7 @@ class DatabaseHelper{
                 $output .= '<div class="carousel-item active">
                 <img src="'.$row["img"].'" alt="'.$row["event_name"].'" class="d-block w-100">
                 <div class="carousel-caption">
-                    <button type="button" class="btn btn-primary btn-lg">Vai all evento</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Eventi in evidenza</button>
                 </div>
             </div>
             ';
@@ -47,7 +47,7 @@ class DatabaseHelper{
             $output .= '<div class="carousel-item">
                 <img src="'.$row["img"].'" alt="'.$row["event_name"].'" class="d-block w-100">
                     <div class="carousel-caption">
-                        <button type="button" class="btn btn-primary btn-lg">Vai all evento</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Eventi in evidenza</button>
                     </div>
                 </div>
                 ';
@@ -130,6 +130,26 @@ class DatabaseHelper{
           $result = $stmt->get_result();
 
           return $result->fetch_all(MYSQLI_ASSOC);
+
+        }
+
+        public function getInEvidenceInfo(){
+            $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category AND events.organizer_id = organizer.organizer_id AND in_evidence=1");
+            $stmt->execute();
+            $result = $stmt->get_result();
+            //var_dump($result->fetch_all(MYSQLI_ASSOC));
+    
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function getUserInfo($id_utente){
+            $stmt = $this->db->prepare("SELECT name,surname,user_email,user_tel,birthdate FROM user WHERE user_id=?");
+            $stmt->bind_param('i',$id_utente);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            //var_dump($result->fetch_all(MYSQLI_ASSOC));
+    
+            return $result->fetch_all(MYSQLI_ASSOC);
 
         }
 
