@@ -130,3 +130,14 @@ hr.orders{
 #div_table_riepilogo{
     margin: 2%;
 }
+
+/* qui sotto aggiunte da tarta 23/01 */
+
+#n_carta{
+  margin-top: 3%;
+}
+
+.navbar-nav>li>.dropdown-menu {
+  min-width: 250px;
+  max-width: 500px;
+}
