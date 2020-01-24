@@ -141,3 +141,7 @@ hr.orders{
   min-width: 250px;
   max-width: 500px;
 }
+
+#submit_dati{
+  margin-top: 5%;
+}
