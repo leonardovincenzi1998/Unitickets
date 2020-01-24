@@ -1,3 +1,7 @@
+<?php 
+$templateParams["notifica"] = $dbh->getNotifiesNavbarOrg($_SESSION["organizer_id"]);
+?>
+
 <nav class="navbar navbar-light navbar-expand bg-light sticky-top">
 <div class="container-fluid">
     <a class="navbar-brand" href="#">Unitickets</a>
@@ -19,9 +23,9 @@
             <li class="nav-item dropdown">
                 <a href="#" id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
-                    <p class="dropdown-item-text">Notifica</p>
-                    <p class="dropdown-item-text">Notifica bella lunga per vedere se fa dropdown</p>
-                    <p class="dropdown-item-text">Notifica</p>
+                    <?php foreach($templateParams["notifica"] as $notifica): ?>
+                    <p class="dropdown-item-text"><?php echo $notifica["description"] ?></p>
+                    <?php endforeach; ?>
                     <div class="dropdown-divider"></div>
                     <a href="../index.php" class="dropdown-item">Vedi tutte le notifiche</a>
                     <!-- messo index per provare redirect -> funziona  -->

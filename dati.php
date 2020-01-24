@@ -23,7 +23,7 @@
       <label for="date">Data di nascita</label>
       <input type="date" class="form-control" name="birthdate" id="birthdate" value="<?php echo $user["birthdate"] ?>" disabled>
 
-      <button type="submit" class="btn btn-outline-secondary" onclick="">Modifica dati</button>
+      <button type="submit" class="btn btn-outline-secondary" >Modifica dati</button>
     </form>
 <?php endforeach; ?>
 </div>

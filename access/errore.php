@@ -51,7 +51,7 @@ if(!empty($_GET['error'])){
    //   echo "$username";
    //   echo "prova";
      // }
-  var_dump($_SESSION);
+  //var_dump($_SESSION);
   if(login_check($mysqli)){
     echo "DAJE!";
   }
