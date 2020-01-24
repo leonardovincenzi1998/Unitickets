@@ -44,29 +44,47 @@
                             <td headers="Prezzo" id="costoBiglietto" class="text-center"><?php echo $categoria["ticket_price"]; ?> <i class="fa fa-euro"></i></td>
                         </tr>                        
                     </table>
-                    <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cartModalLabel">Aggiungi al carrello</button>
-                    <div id="cartModalLabel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cartModalLabelTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Metodo di pagamento</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="#" class="was-validated" novalidate method="post">
-                                        <p>Seleziona il metodo di pagamento:</p>
-                                            <input type="radio" name="pagamento" value="Paypal"> <i class="fa fa-cc-paypal"></i>  <input id="email_pp" type="email" name="pagamento" placeholder="Email" required></br>
-                                            <input type="radio" name="pagamento" value="other cards"> <i class="fa fa-cc-mastercard"></i> <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-amex"></i> <input id="n_carta" type="tel" name="pagamento" placeholder="Numero della carta" maxlength="16" required> <input type="number" name="pagamento" min="1" max="12"> <input type="number" name="pagamento" min="21" max="29"></br>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                                    <button type="submit" class="btn btn-outline-secondary">Aggiungi al carrello</button>
+
+                    <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#shoppingchartModalCenter">Aggiungi al carrello</button>
+                    <div class="modal fade" id="shoppingchartModalCenter" tabindex="-1" role="dialog" aria-labelledby="shoppingchartModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="shoppingchartModalCenterTitle">Carrello</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="div_table_chart"class="table-responsive-sm">
+                                    <table id="tableChart" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th id="id_evento" scope="col">id</th>
+                                                <th id="event_name" scope="col">Nome dell'evento</th>
+                                                <th id="qtà_bigl" scope="col">Q.tà biglietti</th>
+                                                <th id="totale" scope="col">Totale €</th>
+                                                <th id="btn_remove" scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th headers="code_event" scope="row">1</th>
+                                                <td headers="event_name">Cremonini 2C2C</td>
+                                                <td headers="qtà_bigl">1000</td>
+                                                <td headers="totale">8000000000€</td>
+                                                <td headers="btn_remove"><button class="btn btn-danger">Rimuovi</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Chiudi</button>
+                                <button type="submit" class="btn btn-secondary">Checkout</button>
+                            </div>
                         </div>
+                    </div>
                     </div>
 
                     <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $infomodal; ?>">Dettagli</button>
@@ -83,7 +101,7 @@
                                 <?php echo $categoria["descriptions"]; ?>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
                                 </div>
                             </div>
                         </div>
