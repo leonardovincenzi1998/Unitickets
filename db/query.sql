@@ -119,6 +119,16 @@ CREATE TABLE IF NOT EXISTS `notifies_org` (
 		REFERENCES `organizer`(`organizer_id`)
 ) ENGINE=InnoDB
 
+CREATE TABLE IF NOT EXISTS `notifies_org` (
+	`notifies_id` int(11) NOT NULL AUTO_INCREMENT,
+	`description` varchar(255) NOT NULL,
+	`notify_date` date NOT NULL,
+	`organizer_id` int(11) NOT NULL,
+	PRIMARY KEY (`notifies_id`),
+	FOREIGN KEY(`organizer_id`)
+		REFERENCES `organizer`(`organizer_id`)
+) ENGINE=InnoDB
+
 
 CREATE TABLE IF NOT EXISTS `login_attempts` (   --tarta non so cosa vuoi farci con questa per il login, lascio a te
 	`time` TIME,

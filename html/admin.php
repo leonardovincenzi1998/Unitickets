@@ -14,6 +14,8 @@
 </head>
 <body>
   <?php require_once '../access/errore.php';
+        require_once("../bootstrap.php");
+        
   function login_check_admin($mysqli) {
      // Verifica che tutte le variabili di sessione siano impostate correttamente
      if(isset($_SESSION['admin_id'], $_SESSION['login_string'])) {
@@ -71,130 +73,71 @@
   <?php }
 
     //var_dump($_SESSION); //ME LO STAMPA CMQ UNA VOLTA PERCHè C'è IN ERRORE.PHP ?>
+    <?php 
+
+
+$templateParams["eventi"]= $dbh->getAdminEvents();
+//var_dump($templateParams["eventi"]);
+?>
+
     <div class="text-center">
         <hr class="upCat">
-        <h2>Tutti gli eventi in sospeso</h2>
+        <h2>Eventi in sospeso</h2>
         <hr class="downCat">
     </div>
     <!--Eventi-->
     <div id="events" class="container-fluid padding">
     <div class="row padding">
+    <?php $cont=-1; ?>
+    <?php foreach($templateParams["eventi"] as $evento): 
+        $cont++; ?>
         <div class="col-md-4">
             <div class="card text-center">
                 <div class="card-body">
-                    <h4 class="card-title">Cado dalle nubi</h4>
+                    <h4 class="card-title"><?php echo $evento["event_name"] ?></h4>
                     <hr class="tab-event">
                     <table class="table-borderless-responsive">
+                    <tr>
+                            <th id="Prezzo" scope="row">Categoria</th>
+                            <td headers="Prezzo" id="costoBiglietto"><?php echo $evento["category_name"] ?></td>
+                        </tr>
                         <tr>
                             <th id="Luogo" scope="row">Luogo</th>
-                            <td headers="Luogo" id="nomeLuogo">Uci Romagna Center</td>
+                            <td headers="Luogo" id="nomeLuogo"><?php echo $evento["event_place"] ?></td>
                         </tr>
                         <tr>
                             <th id="Data" scope="row">Data</th>
-                            <td headers="Data" id="dataEv">02-10-98</td>
+                            <td headers="Data" id="dataEv"><?php echo $evento["event_date"] ?></td>
                         </tr>
                         <tr>
                             <th id="Organizzatore" scope="row">Organizzatore</th>
-                            <td headers="Organizzatore" id="nomeOrg">Leonardo vincenzi</td>
+                            <td headers="Organizzatore" id="nomeOrg"><?php echo $evento["organizer_name"]; echo ' ';echo $evento["organizer_surname"] ?></td>
                         </tr>
                         <tr>
                             <th id="Posti disponibili" scope="row">Posti disponibili</th>
-                            <td headers="Posti disponibili" id="numPosti">100</td>
+                            <td headers="Posti disponibili" id="numPosti"><?php echo $evento["total_ticket"] ?></td>
                         </tr>
                         <tr>
                             <th id="Prezzo" scope="row">Prezzo</th>
-                            <td headers="Prezzo" id="costoBiglietto">6 <i class="fa fa-euro"></i></td>
+                            <td headers="Prezzo" id="costoBiglietto"><?php echo $evento["ticket_price"] ?><i class="fa fa-euro"></i></td>
                         </tr>
+                        <tr>
+                            <th id="Prezzo" scope="row">Descrizione</th>
+                            <td headers="Prezzo" id="costoBiglietto"><?php echo $evento["descriptions"] ?></td>
+                        </tr>
+                        <form action="../evento_admin.php" method="POST">
+                        <input type="hidden" id="idevento" name="idevento" value="<?php echo $evento["event_id"] ?>" />
+                        <input type="hidden" id="idorganizzatore" name="idorganizzatore" value="<?php echo $evento["organizer_id"] ?>" />
                     </table>
-                    <button id="btn-event" type="button" class="btn btn-success">Accetta evento</button>
-                    <button id="btn-event" type="button" class="btn btn-danger">Rifiuta evento</button>
-                    <button id="btn-event" type="button" class="btn btn-primary">Accetta evento e metti in evidenza</button>
-
-
-                    <!--<button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#infoModal">+info</button>
-                    <div id="infoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="infoModalLabel">Info relative all'evento</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    Qua bisogna scrivere la descrizione dell'evento
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
+                    <button id="btn-event" type="submit" name="action" class="btn btn-success" value="Accetta" >Accetta evento</button>
+                    <button id="btn-event" type="submit" name="action" class="btn btn-danger" value="Rifiuta">Rifiuta evento</button>
+                    <button id="btn-event" type="submit" name="action" class="btn btn-primary" value="Evidenza">Accetta e in evidenza</button>
+                    </form>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h4 class="card-title">Nome dell'evento</h4>
-                    <hr class="tab-event">
-                    <table class="table-borderless-responsive">
-                        <tr>
-                            <th scope="row">Luogo</th>
-                            <td id="nomeLuogo">Uci Romagna Center</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Data</th>
-                            <td id="dataEv">02-10-98</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Organizzatore</th>
-                            <td id="nomeOrg">Leonardo vincenzi</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Posti disponibili</th>
-                            <td id="numPosti">100</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Prezzo</th>
-                            <td id="costoBiglietto">6 <i class="fa fa-euro"></i></td>
-                        </tr>
-                    </table>
-                    <button id="btn-event" type="button" class="btn btn-outline-secondary">Aggiungi al carrello</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h4 class="card-title">Nome dell'evento</h4>
-                    <hr class="tab-event">
-                    <table class="table-borderless-responsive">
-                        <tr>
-                            <th scope="row">Luogo</th>
-                            <td id="nomeLuogo">Uci Romagna Center</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Data</th>
-                            <td id="dataEv">02-10-98</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Organizzatore</th>
-                            <td id="nomeOrg">Leonardo vincenzi</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Posti disponibili</th>
-                            <td id="numPosti">100</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Prezzo</th>
-                            <td id="costoBiglietto">6 <i class="fa fa-euro"></i></td>
-                        </tr>
-                    </table>
-                    <button id="btn-event" type="button" class="btn btn-outline-secondary">Aggiungi al carrello</i></button>
-                </div>
-            </div>
-        </div>
+        </div>     
+    <?php endforeach; ?>
+    
     </div>
     </div>
     <!--Footer-->
@@ -243,3 +186,4 @@
 
 </body>
 </html>
+
