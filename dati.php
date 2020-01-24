@@ -15,10 +15,10 @@
       <input type="text" class="form-control" name="surname" id="surname" value="<?php echo $user["surname"] ?>" maxlength="30" disabled>
 
       <label for="email">E-mail</label>
-      <input type="email" class="form-control" name="email" id="email" placeholder="<?php echo $user["user_email"] ?>" maxlength="55" required>
+      <input type="email" class="form-control" name="email" id="email" value="<?php echo $user["user_email"] ?>" maxlength="55" required>
 
       <label for="tel">Telefono</label>
-      <input type="tel" class="form-control" name="tel" id="tel" placeholder="<?php echo $user["user_tel"] ?>" maxlength="10" required>
+      <input type="tel" class="form-control" name="tel" id="tel" value="<?php echo $user["user_tel"] ?>" maxlength="10" required>
 
       <label for="date">Data di nascita</label>
       <input type="date" class="form-control" name="birthdate" id="birthdate" value="<?php echo $user["birthdate"] ?>" disabled>
