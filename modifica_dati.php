@@ -15,7 +15,7 @@ $conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PWD, $DB_NAME);
     $stmt->execute();
     $stmt->store_result();
 
-    header("location: index.php");
+    header("location: index.php?error=mod");
 
 
      $conn->close();
