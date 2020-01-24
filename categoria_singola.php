@@ -8,7 +8,7 @@
     <!--Eventi-->
     <div id="events" class="container-fluid padding">
     <div class="row padding">
-    <?php 
+    <?php
     //$cont = 0;
     $infomodal= 0;
     if(sizeof($templateParams["categorie"])==0){
@@ -17,7 +17,7 @@
         <h4 class="text-center">Non sono presenti eventi nella categoria <?php echo $templateParams["nome_categoria"];?></h4>
         <hr class="downRegister"> <?php
     } else {
-    foreach($templateParams["categorie"] as $categoria): 
+    foreach($templateParams["categorie"] as $categoria):
         //var_dump($categoria);
         $infomodal++;
         ?>
@@ -42,8 +42,9 @@
                         <tr>
                             <th id="Prezzo" scope="row">Prezzo</th>
                             <td headers="Prezzo" id="costoBiglietto" class="text-center"><?php echo $categoria["ticket_price"]; ?> <i class="fa fa-euro"></i></td>
-                        </tr>                        
+                        </tr>
                     </table>
+<<<<<<< HEAD
 
                     <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#shoppingchartModalCenter">Aggiungi al carrello</button>
                     <div class="modal fade" id="shoppingchartModalCenter" tabindex="-1" role="dialog" aria-labelledby="shoppingchartModalCenterTitle" aria-hidden="true">
@@ -77,6 +78,29 @@
                                             </tr>
                                         </tbody>
                                     </table>
+=======
+                    <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cartModalLabel">Aggiungi al carrello</button>
+                    <div id="cartModalLabel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cartModalLabelTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Metodo di pagamento</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="#" class="was-validated" novalidate method="post">
+                                        <p>Seleziona il metodo di pagamento:</p>
+                                            <input type="radio" name="pagamento" value="Paypal"> <i class="fa fa-cc-paypal"></i>  <input id="email_pp" type="email" name="pagamento" placeholder="Email" required></br>
+                                            <input type="radio" name="pagamento" value="other cards"> <i class="fa fa-cc-mastercard"></i> <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-amex"></i> <input id="n_carta" type="tel" name="pagamento" placeholder="Numero della carta" maxlength="16" required>
+                                            <input type="number" name="pagamento" min="1" max="12"> <input type="number" name="pagamento" min="21" max="29"></br>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                                    <button type="submit" class="btn btn-outline-secondary">Paga ora</button>  
+>>>>>>> e63de68d9ee68ec41fffaea5c7422e4519e05237
                                 </div>
                             </div>
                             <div class="modal-footer">

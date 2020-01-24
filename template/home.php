@@ -1,8 +1,10 @@
 <!--qui faccio un carosello dei vari eventi--> 
 <div id="slides" class="carousel slide carousel-fade" data-ride="carousel"> 
     <div class="carousel-inner"> 
+    <form action="index_inevidenza.php" method="POST">
         <!--slideshow-->
         <?php echo $templateParams["carosello"];?>
+    </form>
     </div> 
     <!--left and right controls-->
         <a href="#slides" class="carousel-control-prev" data-slide="prev">
