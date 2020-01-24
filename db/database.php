@@ -153,6 +153,59 @@ class DatabaseHelper{
 
         }
 
+        public function getAdminEvents(){
+            $parametro="In approvazione";
+            $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category AND events.organizer_id = organizer.organizer_id AND events.Stato=?");
+            $stmt->bind_param('s',$parametro);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            //var_dump($result->fetch_all(MYSQLI_ASSOC));
+            
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
+        public function ModifyDati($email,$telefono,$user){
+            $stmt = $this->db->prepare('UPDATE user SET user_email=?, user_tel=? WHERE user_id=?');
+            $stmt->bind_param('sii', $email, $telefono, $user);
+            $stmt->execute();
+            $stmt->store_result();
+        
+            header("location: index.php");
+        }
+
+        public function AdminApproved($stato,$in_evidenza,$idevento){
+
+            $stmt = $this->db->prepare('UPDATE events SET Stato=?, in_evidence=? WHERE event_id=?');
+            $stmt->bind_param('sii', $stato, $in_evidenza, $idevento);
+            $stmt->execute();
+            $stmt->store_result();
+
+            //header("location: html/admin.php");
+        }
+
+        public function EventIdToName($idevento){
+            $stmt=$this->db->prepare('SELECT event_name FROM events WHERE event_id=?');
+            $stmt->bind_param('i', $idevento);
+            $stmt->execute();
+            $stmt->store_result();
+            $stmt->bind_result($nome_evento);
+            $stmt->fetch();
+            return $nome_evento;
+        }
+
+        public function Admin_Action($descrizione,$idorganizzatore){
+            $stmt = $this->db->prepare("INSERT INTO notifies_org (description, notify_date,
+                                organizer_id) VALUES (?, ?, ?)");
+            $data = date("Y-m-d");
+            // $organizer_notify = FUNZIONE CHE TIRA FUORI ORG NAME DALLA CARTA EVENTO
+            //$organizer_notify = getOrgId();
+            $stmt->bind_param('ssi',$descrizione, $data, $idorganizzatore);
+            $stmt->execute();
+            $stmt->store_result();
+            header("location: html/admin.php");
+           
+           }
+
         // ERA UN ESEMPIO PER PROVARE STRINGHE
         // public function getAllNotifies($id_utente){  //non lo chiamo user_id per paura di conflitti
         //    $stmt = $this->db->prepare("SELECT * FROM notifies WHERE description=?");
