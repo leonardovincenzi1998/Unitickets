@@ -38,18 +38,18 @@ class DatabaseHelper{
                 $output .= '<div class="carousel-item active">
                 <img src="'.$row["img"].'" alt="'.$row["event_name"].'" class="d-block w-100">
                 <div class="carousel-caption">
-                    <button type="submit" class="btn btn-primary btn-lg">Eventi in evidenza</button>
+                    <button type="submit" class="btn btn-primary btn-md">Eventi in evidenza</button>
                 </div>
             </div>
             ';
             }
             else {
-            $output .= '<div class="carousel-item">
+                $output .= '<div class="carousel-item">
                 <img src="'.$row["img"].'" alt="'.$row["event_name"].'" class="d-block w-100">
-                    <div class="carousel-caption">
-                        <button type="submit" class="btn btn-primary btn-lg">Eventi in evidenza</button>
-                    </div>
+                <div class="carousel-caption">
+                    <button type="submit" class="btn btn-primary btn-md">Eventi in evidenza</button>
                 </div>
+            </div>
                 ';
             }
             $count = $count + 1;

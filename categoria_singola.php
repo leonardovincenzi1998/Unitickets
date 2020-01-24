@@ -44,72 +44,70 @@
                             <td headers="Prezzo" id="costoBiglietto" class="text-center"><?php echo $categoria["ticket_price"]; ?> <i class="fa fa-euro"></i></td>
                         </tr>
                     </table>
-<<<<<<< HEAD
+                    <button id="btn-event" type="button" name="aggiungi_al_carrello" class="btn btn-outline-secondary">Aggiungi al carrello</button>
 
-                    <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#shoppingchartModalCenter">Aggiungi al carrello</button>
-                    <div class="modal fade" id="shoppingchartModalCenter" tabindex="-1" role="dialog" aria-labelledby="shoppingchartModalCenterTitle" aria-hidden="true">
+                    <!--?php
+
+                    $product_ids = array();
+
+                    //controllo se Aggiungi al Carrello è stato cliccato
+                    if(filter_input(INPUT_POST, 'aggiungi_al_carrello')){
+                        if(isset($_SESSION['shopping_cart'])){
+
+                        }
+                        else{
+                            $_SESSION['shopping_cart'][0] = array
+                            (
+                                'id' => filter_input(INPUT_GET, 'id'),
+                                'name' => filter_input(INPUT_POST, 'name'),
+                                'price' => filter_input(INPUT_POST, 'price'),
+                                'quantity' => filter_input(INPUT_POST, 'quantity')                                
+                            );
+                        }
+                    }
+
+                    function pre_r($array){
+                        echo '<pre>';
+                        print_r($array);
+                        echo '</pre';
+                    }
+                    
+                    pre_r($_SESSION);
+
+                   
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                     ?>
+                      -->
+                    <!-- <div id="cartModalLabel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cartModalLabelTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="shoppingchartModalCenterTitle">Carrello</h5>
+                                <h5 class="modal-title">Metodo di pagamento</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div id="div_table_chart"class="table-responsive-sm">
-                                    <table id="tableChart" class="table">
-                                        <thead>
-                                            <tr>
-                                                <th id="id_evento" scope="col">id</th>
-                                                <th id="event_name" scope="col">Nome dell'evento</th>
-                                                <th id="qtà_bigl" scope="col">Q.tà biglietti</th>
-                                                <th id="totale" scope="col">Totale €</th>
-                                                <th id="btn_remove" scope="col"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th headers="code_event" scope="row">1</th>
-                                                <td headers="event_name">Cremonini 2C2C</td>
-                                                <td headers="qtà_bigl">1000</td>
-                                                <td headers="totale">8000000000€</td>
-                                                <td headers="btn_remove"><button class="btn btn-danger">Rimuovi</button></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-=======
-                    <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cartModalLabel">Aggiungi al carrello</button>
-                    <div id="cartModalLabel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cartModalLabelTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Metodo di pagamento</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="#" class="was-validated" novalidate method="post">
-                                        <p>Seleziona il metodo di pagamento:</p>
-                                            <input type="radio" name="pagamento" value="Paypal"> <i class="fa fa-cc-paypal"></i>  <input id="email_pp" type="email" name="pagamento" placeholder="Email" required></br>
-                                            <input type="radio" name="pagamento" value="other cards"> <i class="fa fa-cc-mastercard"></i> <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-amex"></i> <input id="n_carta" type="tel" name="pagamento" placeholder="Numero della carta" maxlength="16" required>
-                                            <input type="number" name="pagamento" min="1" max="12"> <input type="number" name="pagamento" min="21" max="29"></br>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                                    <button type="submit" class="btn btn-outline-secondary">Paga ora</button>  
->>>>>>> e63de68d9ee68ec41fffaea5c7422e4519e05237
-                                </div>
+                                <form action="#" class="was-validated" novalidate method="post">
+                                    <p>Seleziona il metodo di pagamento:</p>
+                                        <input type="radio" name="pagamento" value="Paypal"> <i class="fa fa-cc-paypal"></i>  <input id="email_pp" type="email" name="pagamento" placeholder="Email" required></br>
+                                        <input type="radio" name="pagamento" value="other cards"> <i class="fa fa-cc-mastercard"></i> <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-amex"></i> <input id="n_carta" type="tel" name="pagamento" placeholder="Numero della carta" maxlength="16" required>
+                                        <input type="number" name="pagamento" min="1" max="12"> <input type="number" name="pagamento" min="21" max="29"></br>
+                                </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Chiudi</button>
-                                <button type="submit" class="btn btn-secondary">Checkout</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                                <button type="submit" class="btn btn-outline-secondary">Paga ora</button>  
                             </div>
                         </div>
                     </div>
-                    </div>
+                    </div> -->
 
                     <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $infomodal; ?>">Dettagli</button>
                     <div id="<?php echo $infomodal; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
