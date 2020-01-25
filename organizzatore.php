@@ -52,6 +52,10 @@
                                             <label for="desc">Descrizione</label>
                                             <textarea class="form-control" name="desc" id="desc" rows="3" required></textarea>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="desc">Immagine</label>
+                                            <input type="text" class="form-control" name="img" id="img">
+                                        </div>
                                         <input type="submit" name="insert" id="insert" value="Crea evento" class="btn btn-success" />
                                     </form>
                                 </div>
@@ -63,7 +67,7 @@
                     </div>
 
                     <!-- Fine modale creazione evento -->
-                    <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#createEventModal">Crea evento</button>
+                    <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#createEventModal" >Crea evento</button>
                 </div>
             </div>
         </div>
@@ -76,6 +80,10 @@
                     <h4 class="card-title"><?php echo $evento["event_name"]; ?></h4>
                     <hr class="tab-event">
                     <table class="table-borderless-responsive">
+                        <tr>
+                            <th scope="row">Categoria</th>
+                            <td id="Categoria"><?php echo $evento["category_name"]; ?></td>
+                        </tr>
                         <tr>
                             <th scope="row">Luogo</th>
                             <td id="nomeLuogo"><?php echo $evento["event_place"]; ?></td>
@@ -210,7 +218,11 @@ $(document).ready(function(){
     },  
     success:function(data){  
      $('#insert_form')[0].reset();  
-     $('#createEventModal').modal('hide');  
+     window.location.href = "./index_organizzatore.php";
+     //$('#createEventModal').hide();
+     $('#btn-event').modal('hide');  
+     //window.location.replace="./index_organizzatore.php";
+     
      //$('#employee_table').html(data);  
     }  
    });  

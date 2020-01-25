@@ -28,10 +28,12 @@ if(!empty($_POST))
     $price = mysqli_real_escape_string($connect, $_POST["price"]);
     $description = mysqli_real_escape_string($connect, $_POST["desc"]);
     $organizer = mysqli_real_escape_string($connect, $_SESSION['organizer_id']);
+    $img = mysqli_real_escape_string($connect, $_POST['img']);
     $query = "
     INSERT INTO events(event_name, event_date, event_place, ticket_price, organizer_id, category, in_evidence, img, descriptions, Stato, ticket_available, total_ticket)  
-     VALUES('$name', '$data', '$place', '$price', '$organizer', '$category2', '0', '', '$description', 'In approvazione', '$seats','$seats')
+     VALUES('$name', '$data', '$place', '$price', '$organizer', '$category2', '0', '$img', '$description', 'In approvazione', '$seats','$seats')
     ";
+    //header("location index_categoria.php");
     if(mysqli_query($connect, $query))
     {
      alert("ok");
@@ -40,4 +42,7 @@ if(!empty($_POST))
     }
 }
 alert("ok");
+
+     
+
 ?>
