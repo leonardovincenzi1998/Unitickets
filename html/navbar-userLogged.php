@@ -58,6 +58,10 @@
                                 <td headers="btn_remove"><button class="btn btn-danger">X</button></td>
                             </tr>
                         </tbody>
+                        <tfoot>
+                            <th id="totale" colspan="2" class="text-center">TOTALE</th>
+                            <td headers="totale" colspan="2">€€€€</td>
+                        </tfoot>
                     </table>
                 </div>
             </div>

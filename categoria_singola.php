@@ -47,15 +47,42 @@
                     <button id="btn-event" type="button" name="aggiungi_al_carrello" class="btn btn-outline-secondary">Aggiungi al carrello</button>
 
                     <!--?php
-
+                    //session_start();
                     $product_ids = array();
+                    session_destroy();
 
                     //controllo se Aggiungi al Carrello è stato cliccato
                     if(filter_input(INPUT_POST, 'aggiungi_al_carrello')){
                         if(isset($_SESSION['shopping_cart'])){
+                            //tengo traccia di quanti prodotti sono nel carrello
+                            $count = count($_SESSION['shopping_cart']);
 
+                            //creo un array sequenziale per matchare le chiavi dell'array con l'id dei prodotti    
+                            $product_ids = array_column($_SESSION['shopping_cart'], 'id');
+
+                            //pre_r($product_ids);
+
+                            if(!in_array(filter_input(INPUT_GET,'id'), $product_ids)){
+                                $_SESSION['shopping_cart'][$count] = array
+                                    (
+                                        'id' => filter_input(INPUT_GET, 'id'),
+                                        'name' => filter_input(INPUT_POST, 'name'),
+                                        'price' => filter_input(INPUT_POST, 'price'),
+                                        'quantity' => filter_input(INPUT_POST, 'quantity')
+                                    )    
+                            }
+                            else{   //product already exist, increase quantity
+                                //match array key to id of the product being added to the cart
+                                //product already exists in shopping cart
+                                for($i=0; $i < count($product_ids); $i++){
+                                    if($product_ids[$i] == filter_input(INPUT_GET, 'id')){
+                                        $_SESSION['shopping_cart'][$i]['quantity'] += filter_input(INPUT_POST, 'quantity');
+                                    }
+                                }
+                            }
                         }
-                        else{
+                        else{   //se il carrello non esiste, creo il primo prodotto con array key  0
+                            //creo l'array usando submitted form data, inizia dal valore 0 e lo riempie con i valori    
                             $_SESSION['shopping_cart'][0] = array
                             (
                                 'id' => filter_input(INPUT_GET, 'id'),
@@ -73,17 +100,19 @@
                     }
                     
                     pre_r($_SESSION);
+                    ?>
 
-                   
+                   //roba da mettere in carrello x totale
+                   if(!empty($_SESSION['shopping_cart'])){
+                       $total = 0;
+
+                       foreach($_SESSION['shopping_cart'] as $key => $product)
+                   }
+
+
+                    -->
                     
                     
-                    
-                    
-                    
-                    
-                    
-                     ?>
-                      -->
                     <!-- <div id="cartModalLabel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cartModalLabelTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
