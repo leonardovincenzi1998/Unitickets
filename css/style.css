@@ -40,7 +40,7 @@ html, body {
 }
 
 #cardPadding{
-    margin-top: 5%;
+    margin-top: 5%; 
 }
 
 #categories, #events{
@@ -156,3 +156,13 @@ hr.orders{
         height: 55%;
     }
 }
+
+.card{
+    min-height: 360px;
+    max-width: 350px;
+}
+
+.card-imd-top{
+    max-height: 159px;
+}
+
