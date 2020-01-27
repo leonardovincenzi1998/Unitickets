@@ -20,7 +20,7 @@
                                         <div class="form-group">
                                             <label for="cat">Categoria</label>
                                             <select class="form-control" name="cat" id="cat" required>
-                                            <?php foreach($templateParams["categorie"] as $categoria): ?> 
+                                            <?php foreach($templateParams["categorie"] as $categoria): ?>
                                                 <option><?php echo $categoria["category_name"];?></option>
                                             <?php endforeach; ?>
                                             </select>
@@ -46,7 +46,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="price">Prezzo <i class="fa fa-euro"></i></label>
-                                            <input type="number" class="form-control" name="price" id="price" required>
+                                            <input type="number" step="0.01" class="form-control" name="price" id="price" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="desc">Descrizione</label>
@@ -107,7 +107,7 @@
                         <tr>
                             <th scope="row">Stato</th>
                             <td id="Stato"><?php echo $evento["Stato"]; ?></td>
-                        </tr>                    
+                        </tr>
                     </table>
                     <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#updateevent">Modifica evento</button>
                     <div class="modal fade" id="updateevent" tabindex="-1" role="dialog" aria-labelledby="modifyEventModalTitle" aria-hidden="true">
@@ -120,25 +120,45 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
+<<<<<<< HEAD
                                     
                                         
                                             <label for="id1" hidden>Id</label>
                                             <input type="number" class="form-control" id="id1" value="<?php echo $evento["event_id"]; ?>" hidden>
                                             
                                         
+=======
+                                    <form class="was-validated" novalidate method="post" id="modify-form" >
+
+                                            <label for="id1" hidden>Id</label>
+                                            <input type="number" class="form-control" id="id1" value="<//?php echo $evento["event_id"]; ?>" hidden>
+
+
+>>>>>>> feff80cdd5b6164e08f5344c70a8adb2af5de8f3
                                         <div class="form-group">
                                             <label for="cat2">Categoria</label>
                                             <select class="form-control" id="cat2" required>
                                             <option selected disabled>Non è possibile modificare la categoria dell'evento</option>
+<<<<<<< HEAD
                                             <?php foreach($templateParams["categorie"] as $categoria): ?> 
                                                 <option disabled><?php echo $categoria["category_name"];?></option>
                                             <?php endforeach; ?>
+=======
+                                            <//?php foreach($templateParams["categorie"] as $categoria): ?>
+                                                <option disabled><//?php echo $categoria["category_name"];?></option>
+                                            <//?php endforeach; ?>
+>>>>>>> feff80cdd5b6164e08f5344c70a8adb2af5de8f3
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="name2">Nome evento</label>
+<<<<<<< HEAD
                                             <input type="text" class="form-control" id="name2" value="<?php echo $evento["event_name"]?>"  required />
                                             
+=======
+                                            <input type="text" class="form-control" id="name2"  required />
+
+>>>>>>> feff80cdd5b6164e08f5344c70a8adb2af5de8f3
                                         </div>
                                         <div class="form-group">
                                             <label for="place2">Luogo</label>
@@ -166,72 +186,72 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
-                                    
+
                                 </div>
                             </div>
                         </div>
                     </div> 
                 </div>
-            </div>   
+            </div>
         </div>
-        <?php endforeach ?> 
+        <?php endforeach ?>
     </div>
     </div>
-    
+
     <script>
 $(document).ready(function(){
- $('#insert_form').on("submit", function(event){  
-  event.preventDefault();  
-  if($('#name').val() == "")  
-  {  
-   alert("Inserire titolo dell'evento");  
-  }  
-  else if($('#place').val() == "")  
-  {  
-   alert("Inserire luogo dell'evento");  
+ $('#insert_form').on("submit", function(event){
+  event.preventDefault();
+  if($('#name').val() == "")
+  {
+   alert("Inserire titolo dell'evento");
+  }
+  else if($('#place').val() == "")
+  {
+   alert("Inserire luogo dell'evento");
   }
   else if($('#data').val() == "")
   {
     alert("Inserire la data dell'evento")
-  }  
+  }
   else if($('#seats').val() == "")
   {
     alert("Inserire i posti disponibili")
-  } 
+  }
   else if($('#price').val() == "")
   {
     alert("Inserire il costo del biglietto")
-  } 
-  else if($('#desc').val() == '')
-  {  
-   alert("Inserire una descrizione dell'evento");  
   }
-   
-  else  
-  {    
-    
-   $.ajax({  
-    url:"insert.php",  
+  else if($('#desc').val() == '')
+  {
+   alert("Inserire una descrizione dell'evento");
+  }
+
+  else
+  {
+
+   $.ajax({
+    url:"insert.php",
     method:"POST",  
-    data:$('#insert_form').serialize(),  
-    beforeSend:function(){  
-     $('#insert').val("Inserting");  
-    },  
-    success:function(data){  
-     $('#insert_form')[0].reset();  
+    data:$('#insert_form').serialize(),
+    beforeSend:function(){
+     $('#insert').val("Inserting");
+    },
+    success:function(data){
+     $('#insert_form')[0].reset();
      window.location.href = "./index_organizzatore.php";
      //$('#createEventModal').hide();
-     $('#btn-event').modal('hide');  
+     $('#btn-event').modal('hide');
      //window.location.replace="./index_organizzatore.php";
-     
-     //$('#employee_table').html(data);  
-    }  
-   });  
-  }  
+
+     //$('#employee_table').html(data);
+    }
+   });
+  }
  });
- });  
 
 
+<<<<<<< HEAD
  $(document).ready(function(){
  $('#modify-form').on("submit", function(event){  
   event.preventDefault();  
@@ -242,27 +262,40 @@ $(document).ready(function(){
   else if($('#place2').val() == "")  
   {  
    alert("Inserire luogo dell'evento");  
+=======
+ /*$(document).ready(function(){
+ $('#modify-form').on("submit", function(event){
+  event.preventDefault();
+  if($('#name2').val() == "")
+  {
+   alert("Inserire titolo dell'evento");
+  }
+  else if($('#place2').val() == "")
+  {
+   alert("Inserire luogo dell'evento");
+>>>>>>> feff80cdd5b6164e08f5344c70a8adb2af5de8f3
   }
   else if($('#data2').val() == "")
   {
     alert("Inserire la data dell'evento")
-  }  
+  }
   else if($('#seats2').val() == "")
   {
     alert("Inserire i posti disponibili")
-  } 
+  }
   else if($('#price2').val() == "")
   {
     alert("Inserire il costo del biglietto")
-  } 
-  else if($('#desc2').val() == '')
-  {  
-   alert("Inserire una descrizione dell'evento");  
   }
-   
-  else  
-  {    
+  else if($('#desc2').val() == '')
+  {
+   alert("Inserire una descrizione dell'evento");
+  }
+
+  else
+  {
       alert($('#id1').val());
+<<<<<<< HEAD
     
    $.ajax({  
     url:"update.php",  
@@ -279,6 +312,23 @@ $(document).ready(function(){
     }  
    });  
   }  
+=======
+
+   $.ajax({
+    url:"update.php",
+    method:"POST",
+    data:$('#modify-form').serialize(),
+    beforeSend:function(){
+     $('#modify').val("Inserting");
+    },
+    success:function(data){
+     $('#modify-form')[0].reset();
+     $('#<//?php echo $modifyEventModal; ?>').modal('hide');
+     //$('#employee_table').html(data);
+    }
+   });
+  }
+>>>>>>> feff80cdd5b6164e08f5344c70a8adb2af5de8f3
  });
  });  */
 

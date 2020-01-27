@@ -2,8 +2,6 @@
 
 - SVECIA MODIFICA CSS PER LA DISTANZA TRA I CAMPI IN MODIFICA DATI DI "dati.php"
 
-- AGGIUNGERE CHIUSURA (O REDIRECT) MODALE CREAZIONE EVENTO
-
 - VISUALIZZAZIONE NOTIFICHE IN NAVBAR E NOTIFIES.PHP + CREAZIONE NOTIFIES_ORG.PHP
   (FUNZIONI GIà CREATE in db/database.php)
 
@@ -23,12 +21,8 @@ direi di evitare "cliente x ha comprato x biglietti per il tuo evento"
 "BIGLIETTI PER $EVENTO SPEDITI"         (?)
 
 - RIEMPIMENTO TABELLA ORDINI(myOrders.html)
+SELECT * FROM orders, user WHERE orders.user_id=user.user_id AND orders.user_id=?
 
 - CONCORDARE CARRELLO, PULSANTI PER GESTIRE Q.Tà
-
-INSERT INTO notifies (description, notify_date, user_id) VALUES (?, ?, ?)
-$data = date("Y-m-d");
-$user_notify = $_SESSION['user_id'];
-bind_param('ssi', "il tuo evento è stato modificato", $data, $user_notify); 
 
 -

@@ -5,10 +5,6 @@ html, body {
     color: #3f3f3f;
 }
 
-/* .carousel-inner img{
-    height: 55%;
-}*/
-
 .navbar{
     padding: .8rem;
 }
@@ -125,16 +121,20 @@ hr.orders{
 }
 
 #n_carta{
-  margin-top: 3%;
+    margin-top: 3%;
 }
 
 .navbar-nav li .dropdown-menu {
-  min-width: 250px;
-  max-width: 500px;
+    min-width: 250px;
+    max-width: 500px;
 }
 
 #submit_dati{
-  margin-top: 5%;
+    margin-top: 8%;
+}
+
+#form-dati label{
+    margin-top: 5%;
 }
 
 @media only screen and (max-width: 600px){
