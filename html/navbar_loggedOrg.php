@@ -10,7 +10,7 @@ $templateParams["notifica"] = $dbh->getNotifiesNavbarOrg($_SESSION["organizer_id
             <li class="nav-item dropdown">
                 <a href="#" id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
-                    <a href="#" class="dropdown-item">I miei dati</a>
+                    <a href="index_datiorg.php" class="dropdown-item">I miei dati</a>
                     <!-- <a href="#" class="dropdown-item">I miei ordini</a> -->
                     <a href="./access/logout.php" class="dropdown-item">Logout</a>
                 </div>
@@ -25,9 +25,10 @@ $templateParams["notifica"] = $dbh->getNotifiesNavbarOrg($_SESSION["organizer_id
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
                     <?php foreach($templateParams["notifica"] as $notifica): ?>
                     <p class="dropdown-item-text"><?php echo $notifica["description"] ?></p>
+                    <hr>
                     <?php endforeach; ?>
-                    <div class="dropdown-divider"></div>
-                    <a href="../index.php" class="dropdown-item">Vedi tutte le notifiche</a>
+                    <!-- <div class="dropdown-divider" ></div> -->
+                    <a href="../index.php" class="dropdown-item" style="color:blue">Vedi tutte le notifiche</a>
                     <!-- messo index per provare redirect -> funziona  -->
                 </div>
             </li>

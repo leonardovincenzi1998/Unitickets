@@ -59,9 +59,11 @@ class DatabaseHelper{
 
     //funzione per ottenere gli eventi in base all'id della categoria
     public function getEventsByCategoryId($idcategory){
-        $approvato="Approvato";
-        $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category AND events.organizer_id = organizer.organizer_id AND events.category=? AND events.Stato=?");
-        $stmt->bind_param('is',$idcategory,$approvato);
+        $inapprovazione="In approvazione";
+        $rifiutato="Rifiutato";
+        $inevidenza="In evidenza";
+        $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category AND events.organizer_id = organizer.organizer_id AND events.category=? AND NOT events.Stato=? AND NOT events.Stato=?");
+        $stmt->bind_param('iss',$idcategory,$inapprovazione,$rifiutato); 
         $stmt->execute();
         $result = $stmt->get_result();
         //var_dump($result->fetch_all(MYSQLI_ASSOC));
@@ -154,6 +156,17 @@ class DatabaseHelper{
 
         }
 
+        public function getOrganizerInfo($id_organizzatore){
+            $stmt = $this->db->prepare("SELECT organizer_name,organizer_surname,organizer_email,organizer_tel,organizer_iva FROM organizer WHERE organizer_id=?");
+            $stmt->bind_param('i',$id_organizzatore);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            //var_dump($result->fetch_all(MYSQLI_ASSOC));
+    
+            return $result->fetch_all(MYSQLI_ASSOC);
+
+        }
+
         public function getAdminEvents(){
             $parametro="In approvazione";
             $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category AND events.organizer_id = organizer.organizer_id AND events.Stato=?");
@@ -171,7 +184,16 @@ class DatabaseHelper{
             $stmt->execute();
             $stmt->store_result();
         
-            header("location: ./index_dati.php");
+            header("location: ./index.php?error=mod");
+        }
+
+        public function ModifyDatiOrg($email,$telefono,$organizer){
+            $stmt = $this->db->prepare('UPDATE organizer SET organizer_email=?, organizer_tel=? WHERE organizer_id=?');
+            $stmt->bind_param('sii', $email, $telefono, $organizer);
+            $stmt->execute();
+            $stmt->store_result();
+        
+            header("location: ./index_organizzatore.php?atype=cli&error=mod1");
         }
 
         public function ModifyEvents($id,$name,$place,$data,$seats,$price,$desc){

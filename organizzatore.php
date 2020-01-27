@@ -137,7 +137,6 @@
                                         <div class="form-group">
                                             <label for="name2">Nome evento</label>
                                             <input type="text" class="form-control" name="name2" id="name2" value="<?php echo $evento["event_name"]?>"  required />
-                                            
                                         </div>
                                         <div class="form-group">
                                             <label for="place2">Luogo</label>

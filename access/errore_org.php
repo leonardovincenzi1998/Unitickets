@@ -101,5 +101,14 @@ else if($_GET['error']=="ins") { ?>
    </button>
  </div>
 <?php }
+
+else if($_GET['error']=="mod1") { ?>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <p class="text-md-center"> <strong>Ottimo!</strong> Dati modificati correttamente.</p>
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>
+<?php }
 }
  ?>
