@@ -158,11 +158,22 @@ hr.orders{
     }
 }
 
-.card{
+#cartehome{
     min-height: 360px;
     max-width: 350px;
 }
 
+
+.card{
+    margin: 10px;
+    min-height: 360px;
+    max-width: 402px;
+}
+
 .card-imd-top{
     max-height: 159px;
+}
+
+#btn-event{
+    margin-bottom: 5%;
 }

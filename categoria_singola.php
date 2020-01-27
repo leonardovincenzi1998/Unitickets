@@ -21,12 +21,14 @@
         //var_dump($categoria);
         $infomodal++;
         ?>
-        <div class="col-md-4">
-            <div class="card text-center">
+        <div class="card text-center">
+            <div class="card-header" >
+                <h4 class="card-title"><?php echo $categoria["event_name"]; ?></h4>
+            </div>
                 <div class="card-body">
-                    <h4 class="card-title"><?php echo $categoria["event_name"]; ?></h4>
-                    <hr class="tab-event">
-                    <table class="table-borderless-responsive">
+                    <!-- <hr class="tab-event"> -->
+                    <div class="table-borderless-responsive">
+                        <table class="table">
                         <tr>
                             <th id="Luogo" scope="row">Luogo</th>
                             <td headers="Luogo" id="nomeLuogo" class="text-center"><?php echo $categoria["event_place"]; ?></td>
@@ -43,9 +45,40 @@
                             <th id="Prezzo" scope="row">Prezzo</th>
                             <td headers="Prezzo" id="costoBiglietto" class="text-center"><?php echo $categoria["ticket_price"]; ?> <i class="fa fa-euro"></i></td>
                         </tr>
-                    </table>
-                    <button id="btn-event" type="button" name="aggiungi_al_carrello" class="btn btn-outline-secondary">Aggiungi al carrello</button>
-
+                        <tr>
+                            <td headers="btn" id="bottone" class="text-center"><button id="btn-event" type="button" name="aggiungi_al_carrello" class="btn btn-outline-secondary">Aggiungi al carrello</button></td>
+                            <td headers="btn" id="bottone" class="text-center"><button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $infomodal; ?>">Dettagli</button></td>
+                        </tr>
+                    </table> 
+                    </div>
+                </div>
+        
+   
+                    <div id="<?php echo $infomodal; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="infoModalLabel"><?php echo $categoria["event_name"]; ?></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                <?php echo $categoria["descriptions"]; ?>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            
+        </div>
+        <?php endforeach;
+        } ?>
+    </div>
+    </div>
                     <!--?php
                     //session_start();
                     $product_ids = array();
@@ -137,30 +170,4 @@
                         </div>
                     </div>
                     </div> -->
-
-                    <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $infomodal; ?>">Dettagli</button>
-                    <div id="<?php echo $infomodal; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="infoModalLabel"><?php echo $categoria["event_name"]; ?></h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                <?php echo $categoria["descriptions"]; ?>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <?php endforeach;
-        } ?>
-    </div>
-    </div>
+                    
