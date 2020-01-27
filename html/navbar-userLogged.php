@@ -45,22 +45,34 @@
                                 <!-- <th id="id_evento" scope="col">id</th> -->
                                 <th id="event_name" scope="col">Evento</th>
                                 <th id="quantità_bigl" scope="col">Q.tà</th>
-                                <th id="totale" scope="col">Totale €</th>
+                                <th id="totale" width="20%" scope="col">Prezzo €</th>
                                 <th id="btn_remove" scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <!-- <th headers="id_evento" scope="row">1</th> -->
-                                <td headers="event_name">Cremonini 2C2C</td>
-                                <td headers="quantità_bigl">1000</td>
-                                <td headers="totale">80€</td>
-                                <td headers="btn_remove"><button class="btn btn-danger">X</button></td>
-                            </tr>
+                          <tr>
+                            <?php
+                              if(!empty($_SESSION['shopping_cart'])){
+                                $total = 0;
+                              }
+                            ?>
+                            <?php foreach($_SESSION['shopping_cart'] as $key => $product):?>
+                              <!-- <th headers="id_evento" scope="row">1</th> -->
+                              <td headers="event_name"><?php echo($product['name']); ?></td>
+                              <td headers="quantità_bigl"><?php echo($product['quantity']); ?></td>
+                              <td headers="totale"><?php echo number_format($product['quantity'] * $product['price'], 2); ?></td>
+                              <td headers="btn_remove"><button class="fa fa-trash-o"></button></td>
+                              <!-- <input "type="hidden" name="remove" value="remove" class="fa fa-trash-o">
+                               metti form sopra! -->
+                          </tr>
+                        <?php
+                          $total = $total + ($product['quantity'] * $product['price']);
+                          endforeach;
+                        ?>
                         </tbody>
                         <tfoot>
-                            <th id="totale" colspan="2" class="text-center">TOTALE</th>
-                            <td headers="totale" colspan="2">€€€€</td>
+                            <th id="totale" colspan="2" class="text-center">Totale ordine</th>
+                            <td headers="totale" colspan="2"><?php echo number_format($total, 2); ?> €</td>
                         </tfoot>
                     </table>
                 </div>

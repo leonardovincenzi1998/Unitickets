@@ -44,7 +44,25 @@
                             <td headers="Prezzo" id="costoBiglietto" class="text-center"><?php echo $categoria["ticket_price"]; ?> <i class="fa fa-euro"></i></td>
                         </tr>
                     </table>
-                    <button id="btn-event" type="button" name="aggiungi_al_carrello" class="btn btn-outline-secondary">Aggiungi al carrello</button>
+
+                    <?php
+                    $cat = $categoria["category_id"];
+                    $evento = $categoria['event_id'];
+                    // var_dump($cat);
+                    ?>
+
+                    <form action="cart.php?idcategoria=<?php echo $cat;?>&id_evento=<?php echo $evento;?>" method="post">
+                        <div class="form-group">
+                            <input type="hidden" name="id_evento" value="<?php echo $categoria["event_id"];?>">
+                            <input type="hidden" name="nome_evento" value="<?php echo $categoria["event_name"];?>">
+                            <input type="hidden" name="prezzo_evento" value="<?php echo $categoria["ticket_price"];?>">
+                            <input type="hidden" name="qtà_evento" value="1">
+                            <!-- <input type="submit" name="aggiungi_al_carrello" class="btn btn-outline-secondary" value="Aggiungi al carrello"> -->
+                        </div>
+                        <button id="btn-event" type="submit" name="aggiungi_al_carrello" class="btn btn-outline-secondary">Aggiungi al carrello</button>
+                        <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $infomodal; ?>">Dettagli</button>
+                    </form>
+
 
                     <!--?php
                     //session_start();
@@ -57,7 +75,7 @@
                             //tengo traccia di quanti prodotti sono nel carrello
                             $count = count($_SESSION['shopping_cart']);
 
-                            //creo un array sequenziale per matchare le chiavi dell'array con l'id dei prodotti    
+                            //creo un array sequenziale per matchare le chiavi dell'array con l'id dei prodotti
                             $product_ids = array_column($_SESSION['shopping_cart'], 'id');
 
                             //pre_r($product_ids);
@@ -69,7 +87,7 @@
                                         'name' => filter_input(INPUT_POST, 'name'),
                                         'price' => filter_input(INPUT_POST, 'price'),
                                         'quantity' => filter_input(INPUT_POST, 'quantity')
-                                    )    
+                                    )
                             }
                             else{   //product already exist, increase quantity
                                 //match array key to id of the product being added to the cart
@@ -82,13 +100,13 @@
                             }
                         }
                         else{   //se il carrello non esiste, creo il primo prodotto con array key  0
-                            //creo l'array usando submitted form data, inizia dal valore 0 e lo riempie con i valori    
+                            //creo l'array usando submitted form data, inizia dal valore 0 e lo riempie con i valori
                             $_SESSION['shopping_cart'][0] = array
                             (
                                 'id' => filter_input(INPUT_GET, 'id'),
                                 'name' => filter_input(INPUT_POST, 'name'),
                                 'price' => filter_input(INPUT_POST, 'price'),
-                                'quantity' => filter_input(INPUT_POST, 'quantity')                                
+                                'quantity' => filter_input(INPUT_POST, 'quantity')
                             );
                         }
                     }
@@ -98,7 +116,7 @@
                         print_r($array);
                         echo '</pre';
                     }
-                    
+
                     pre_r($_SESSION);
                     ?>
 
@@ -111,8 +129,8 @@
 
 
                     -->
-                    
-                    
+
+
                     <!-- <div id="cartModalLabel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cartModalLabelTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -132,13 +150,13 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                                <button type="submit" class="btn btn-outline-secondary">Paga ora</button>  
+                                <button type="submit" class="btn btn-outline-secondary">Paga ora</button>
                             </div>
                         </div>
                     </div>
                     </div> -->
 
-                    <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $infomodal; ?>">Dettagli</button>
+                    <!-- <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $infomodal; ?>">Dettagli</button> -->
                     <div id="<?php echo $infomodal; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
@@ -164,3 +182,4 @@
         } ?>
     </div>
     </div>
+  </div>

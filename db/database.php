@@ -173,7 +173,7 @@ class DatabaseHelper{
             $stmt->execute();
             $stmt->store_result();
 
-            header("location: index.php"); //non basta gia quella nel bottone?
+            header("location: index.php?error=mod");
         }
 
         public function AdminApproved($stato,$in_evidenza,$idevento){
