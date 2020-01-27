@@ -1,5 +1,5 @@
 <?php
-include 'functions_org.php';     //nb 
+include 'functions_org.php';     //nb
 sec_session_start();
 if(!empty($_GET['error'])){
   if($_GET['error']=="reg") {?>
@@ -52,9 +52,9 @@ if(!empty($_GET['error'])){
    //   echo "prova";
      // }
   //var_dump($_SESSION);
-  if(login_check($mysqli)){
-    echo "DAJE!";
-  }
+  // if(login_check($mysqli)){
+  //   echo "DAJE!";
+  // }
   }
   else if($_GET['error']=="log1") { ?>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
