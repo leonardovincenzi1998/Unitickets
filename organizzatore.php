@@ -251,18 +251,6 @@ $(document).ready(function(){
  });
 
 
-<<<<<<< HEAD
- $(document).ready(function(){
- $('#modify-form').on("submit", function(event){  
-  event.preventDefault();  
-  if($('#name2').val() == "")  
-  {  
-   alert("Inserire titolo dell'evento");  
-  }  
-  else if($('#place2').val() == "")  
-  {  
-   alert("Inserire luogo dell'evento");  
-=======
  /*$(document).ready(function(){
  $('#modify-form').on("submit", function(event){
   event.preventDefault();
@@ -273,7 +261,6 @@ $(document).ready(function(){
   else if($('#place2').val() == "")
   {
    alert("Inserire luogo dell'evento");
->>>>>>> feff80cdd5b6164e08f5344c70a8adb2af5de8f3
   }
   else if($('#data2').val() == "")
   {
@@ -295,7 +282,6 @@ $(document).ready(function(){
   else
   {
       alert($('#id1').val());
-<<<<<<< HEAD
     
    $.ajax({  
     url:"update.php",  
@@ -312,23 +298,6 @@ $(document).ready(function(){
     }  
    });  
   }  
-=======
-
-   $.ajax({
-    url:"update.php",
-    method:"POST",
-    data:$('#modify-form').serialize(),
-    beforeSend:function(){
-     $('#modify').val("Inserting");
-    },
-    success:function(data){
-     $('#modify-form')[0].reset();
-     $('#<//?php echo $modifyEventModal; ?>').modal('hide');
-     //$('#employee_table').html(data);
-    }
-   });
-  }
->>>>>>> feff80cdd5b6164e08f5344c70a8adb2af5de8f3
  });
  });  */
 
