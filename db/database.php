@@ -59,8 +59,9 @@ class DatabaseHelper{
 
     //funzione per ottenere gli eventi in base all'id della categoria
     public function getEventsByCategoryId($idcategory){
-        $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category AND events.organizer_id = organizer.organizer_id AND events.category=?");
-        $stmt->bind_param('i',$idcategory);
+        $approvato="Approvato";
+        $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category AND events.organizer_id = organizer.organizer_id AND events.category=? AND events.Stato=?");
+        $stmt->bind_param('is',$idcategory,$approvato);
         $stmt->execute();
         $result = $stmt->get_result();
         //var_dump($result->fetch_all(MYSQLI_ASSOC));
@@ -80,7 +81,7 @@ class DatabaseHelper{
     }
 
     public function getEventsByIdOrganizer($idorganizer){
-        $stmt = $this->db->prepare("SELECT * FROM events WHERE organizer_id=?");
+        $stmt = $this->db->prepare("SELECT * FROM events,category WHERE events.category=category.category_id AND organizer_id=? ORDER BY event_id DESC");
         $stmt->bind_param('i',$idorganizer);
         $stmt->execute();
         $result = $stmt->get_result();
