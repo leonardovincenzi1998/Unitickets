@@ -109,8 +109,8 @@
                             <td id="Stato"><?php echo $evento["Stato"]; ?></td>
                         </tr>                    
                     </table>
-                    <!-- <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<//?php echo $modifyEventModal; ?>">Modifica evento</button>
-                    <div class="modal fade" id="<//?php echo $modifyEventModal; ?>" tabindex="-1" role="dialog" aria-labelledby="modifyEventModalTitle" aria-hidden="true">
+                    <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#updateevent">Modifica evento</button>
+                    <div class="modal fade" id="updateevent" tabindex="-1" role="dialog" aria-labelledby="modifyEventModalTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -120,46 +120,47 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="was-validated" novalidate method="post" id="modify-form" >
+                                    
                                         
                                             <label for="id1" hidden>Id</label>
-                                            <input type="number" class="form-control" id="id1" value="<//?php echo $evento["event_id"]; ?>" hidden>
+                                            <input type="number" class="form-control" id="id1" value="<?php echo $evento["event_id"]; ?>" hidden>
                                             
                                         
                                         <div class="form-group">
                                             <label for="cat2">Categoria</label>
                                             <select class="form-control" id="cat2" required>
                                             <option selected disabled>Non è possibile modificare la categoria dell'evento</option>
-                                            <//?php foreach($templateParams["categorie"] as $categoria): ?> 
-                                                <option disabled><//?php echo $categoria["category_name"];?></option>
-                                            <//?php endforeach; ?>
+                                            <?php foreach($templateParams["categorie"] as $categoria): ?> 
+                                                <option disabled><?php echo $categoria["category_name"];?></option>
+                                            <?php endforeach; ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="name2">Nome evento</label>
-                                            <input type="text" class="form-control" id="name2"  required />
+                                            <input type="text" class="form-control" id="name2" value="<?php echo $evento["event_name"]?>"  required />
                                             
                                         </div>
                                         <div class="form-group">
                                             <label for="place2">Luogo</label>
-                                            <input type="text" class="form-control" id="place2"  required />
+                                            <input type="text" class="form-control" id="place2" value="<?php echo $evento["event_place"]?>" required />
                                         </div>
                                         <div class="form-group">
                                             <label for="data2">Data e orario inizio</label>
-                                            <input type="datetime-local" class="form-control" id="data2" required />
+                                            <input type="datetime-local" class="form-control" id="data2" value="<?php echo $evento["event_date"]?>" required />
                                         </div>
                                         <div class="form-group">
                                             <label for="seats2">Posti disponibili</label>
-                                            <input type="number" class="form-control" id="seats2" required />
+                                            <input type="number" class="form-control" id="seats2" value="<?php echo $evento["ticket_available"]?>" required />
                                         </div>
                                         <div class="form-group">
                                             <label for="price2">Prezzo <i class="fa fa-euro"></i></label>
-                                            <input type="number" class="form-control" id="price2" required />
+                                            <input type="number" class="form-control" id="price2" value="<?php echo $evento["ticket_price"]?>" required />
                                         </div>
                                         <div class="form-group">
                                             <label for="desc2">Descrizione</label>
-                                            <textarea class="form-control" id="desc2" rows="3" required></textarea>
+                                            <textarea class="form-control" id="desc2" rows="3" <?php echo $evento["descriptions"]?> required><?php echo $evento["descriptions"]?></textarea>
                                         </div>
+                                        <form class="was-validated" novalidate method="post" id="modify-form" >
                                         <input type="submit" name="modify" id="modify" class="btn btn-success" value="Modifica evento" />
                                     </form>
                                 </div>
@@ -169,7 +170,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div> 
                 </div>
             </div>   
         </div>
@@ -231,7 +232,7 @@ $(document).ready(function(){
  });  
 
 
- /*$(document).ready(function(){
+ $(document).ready(function(){
  $('#modify-form').on("submit", function(event){  
   event.preventDefault();  
   if($('#name2').val() == "")  
@@ -271,8 +272,9 @@ $(document).ready(function(){
      $('#modify').val("Inserting");  
     },  
     success:function(data){  
-     $('#modify-form')[0].reset();  
-     $('#<//?php echo $modifyEventModal; ?>').modal('hide');  
+     $('#modify-form')[0].reset(); 
+     window.location.href = "./index_organizzatore.php"; 
+     $('#updateevent').modal('hide');  
      //$('#employee_table').html(data);  
     }  
    });  
