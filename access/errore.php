@@ -52,9 +52,8 @@ if(!empty($_GET['error'])){
    //   echo "prova";
      // }
   //var_dump($_SESSION);
-  if(login_check($mysqli)){
-    echo "DAJE!";
-  }
+  // if(login_check($mysqli)){
+  // }
   }
   else if($_GET['error']=="log1") { ?>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">

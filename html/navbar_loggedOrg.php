@@ -1,4 +1,4 @@
-<?php 
+<?php
 $templateParams["notifica"] = $dbh->getNotifiesNavbarOrg($_SESSION["organizer_id"]);
 ?>
 
@@ -11,7 +11,7 @@ $templateParams["notifica"] = $dbh->getNotifiesNavbarOrg($_SESSION["organizer_id
                 <a href="#" id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
                     <a href="#" class="dropdown-item">I miei dati</a>
-                    <a href="#" class="dropdown-item">I miei ordini</a>
+                    <!-- <a href="#" class="dropdown-item">I miei ordini</a> -->
                     <a href="./access/logout.php" class="dropdown-item">Logout</a>
                 </div>
             </li>
