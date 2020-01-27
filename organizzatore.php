@@ -71,7 +71,7 @@
                 </div>
             </div>
         </div>
-        <?php $modifyEventModal=0;
+        <?php $modifyEventModal=-1;
             foreach($templateParams["eventi"] as $evento):
             $modifyEventModal++; ?>
         <div id="orgEvent" class="col-md-4">
@@ -109,8 +109,8 @@
                             <td id="Stato"><?php echo $evento["Stato"]; ?></td>
                         </tr>
                     </table>
-                    <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#updateevent">Modifica evento</button>
-                    <div class="modal fade" id="updateevent" tabindex="-1" role="dialog" aria-labelledby="modifyEventModalTitle" aria-hidden="true">
+                    <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $modifyEventModal; ?>">Modifica evento</button>
+                    <div class="modal fade" id="<?php echo $modifyEventModal; ?>" tabindex="-1" role="dialog" aria-labelledby="modifyEventModalTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -120,67 +120,46 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-<<<<<<< HEAD
-                                    
-                                        
+                                    <form class="was-validated" novalidate method="post" id="modify-form" action="update.php" >
+                                        <div class="form-group">
                                             <label for="id1" hidden>Id</label>
-                                            <input type="number" class="form-control" id="id1" value="<?php echo $evento["event_id"]; ?>" hidden>
-                                            
-                                        
-=======
-                                    <form class="was-validated" novalidate method="post" id="modify-form" >
-
-                                            <label for="id1" hidden>Id</label>
-                                            <input type="number" class="form-control" id="id1" value="<//?php echo $evento["event_id"]; ?>" hidden>
-
-
->>>>>>> feff80cdd5b6164e08f5344c70a8adb2af5de8f3
+                                            <input type="number" class="form-control" name="id1" id="id1" value="<?php echo $evento["event_id"]; ?>" hidden>
+                                        </div>   
                                         <div class="form-group">
                                             <label for="cat2">Categoria</label>
                                             <select class="form-control" id="cat2" required>
                                             <option selected disabled>Non è possibile modificare la categoria dell'evento</option>
-<<<<<<< HEAD
                                             <?php foreach($templateParams["categorie"] as $categoria): ?> 
                                                 <option disabled><?php echo $categoria["category_name"];?></option>
                                             <?php endforeach; ?>
-=======
-                                            <//?php foreach($templateParams["categorie"] as $categoria): ?>
-                                                <option disabled><//?php echo $categoria["category_name"];?></option>
-                                            <//?php endforeach; ?>
->>>>>>> feff80cdd5b6164e08f5344c70a8adb2af5de8f3
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="name2">Nome evento</label>
-<<<<<<< HEAD
-                                            <input type="text" class="form-control" id="name2" value="<?php echo $evento["event_name"]?>"  required />
+                                            <input type="text" class="form-control" name="name2" id="name2" value="<?php echo $evento["event_name"]?>"  required />
                                             
-=======
-                                            <input type="text" class="form-control" id="name2"  required />
-
->>>>>>> feff80cdd5b6164e08f5344c70a8adb2af5de8f3
                                         </div>
                                         <div class="form-group">
                                             <label for="place2">Luogo</label>
-                                            <input type="text" class="form-control" id="place2" value="<?php echo $evento["event_place"]?>" required />
+                                            <input type="text" class="form-control" name="place2" id="place2" value="<?php echo $evento["event_place"]?>" required />
                                         </div>
                                         <div class="form-group">
                                             <label for="data2">Data e orario inizio</label>
-                                            <input type="datetime-local" class="form-control" id="data2" value="<?php echo $evento["event_date"]?>" required />
+                                            <input type="datetime-local" class="form-control" name="data2" id="data2" value="<?php echo $evento["event_date"]?>" required />
                                         </div>
                                         <div class="form-group">
                                             <label for="seats2">Posti disponibili</label>
-                                            <input type="number" class="form-control" id="seats2" value="<?php echo $evento["ticket_available"]?>" required />
+                                            <input type="number" class="form-control" name="seats2" id="seats2" value="<?php echo $evento["total_ticket"]?>" required />
                                         </div>
                                         <div class="form-group">
                                             <label for="price2">Prezzo <i class="fa fa-euro"></i></label>
-                                            <input type="number" class="form-control" id="price2" value="<?php echo $evento["ticket_price"]?>" required />
+                                            <input type="number" class="form-control" name="price2" id="price2" value="<?php echo $evento["ticket_price"]?>" required />
                                         </div>
                                         <div class="form-group">
                                             <label for="desc2">Descrizione</label>
-                                            <textarea class="form-control" id="desc2" rows="3" <?php echo $evento["descriptions"]?> required><?php echo $evento["descriptions"]?></textarea>
+                                            <textarea class="form-control" name="desc2" id="desc2" rows="3" <?php echo $evento["descriptions"]?> required><?php echo $evento["descriptions"]?></textarea>
                                         </div>
-                                        <form class="was-validated" novalidate method="post" id="modify-form" >
+                                        
                                         <input type="submit" name="modify" id="modify" class="btn btn-success" value="Modifica evento" />
                                     </form>
                                 </div>
@@ -239,9 +218,10 @@ $(document).ready(function(){
     },
     success:function(data){
      $('#insert_form')[0].reset();
-     window.location.href = "./index_organizzatore.php";
+     window.location.href = "./index_organizzatore.php?atype=cli&error=ins";
      //$('#createEventModal').hide();
      $('#btn-event').modal('hide');
+     //header("location: ./index_organizzatore.php?atype=cli&error=ins");
      //window.location.replace="./index_organizzatore.php";
 
      //$('#employee_table').html(data);
@@ -249,57 +229,5 @@ $(document).ready(function(){
    });
   }
  });
-
-
- /*$(document).ready(function(){
- $('#modify-form').on("submit", function(event){
-  event.preventDefault();
-  if($('#name2').val() == "")
-  {
-   alert("Inserire titolo dell'evento");
-  }
-  else if($('#place2').val() == "")
-  {
-   alert("Inserire luogo dell'evento");
-  }
-  else if($('#data2').val() == "")
-  {
-    alert("Inserire la data dell'evento")
-  }
-  else if($('#seats2').val() == "")
-  {
-    alert("Inserire i posti disponibili")
-  }
-  else if($('#price2').val() == "")
-  {
-    alert("Inserire il costo del biglietto")
-  }
-  else if($('#desc2').val() == '')
-  {
-   alert("Inserire una descrizione dell'evento");
-  }
-
-  else
-  {
-      alert($('#id1').val());
-    
-   $.ajax({  
-    url:"update.php",  
-    method:"POST",  
-    data:$('#modify-form').serialize(),  
-    beforeSend:function(){  
-     $('#modify').val("Inserting");  
-    },  
-    success:function(data){  
-     $('#modify-form')[0].reset(); 
-     window.location.href = "./index_organizzatore.php"; 
-     $('#updateevent').modal('hide');  
-     //$('#employee_table').html(data);  
-    }  
-   });  
-  }  
- });
- });  */
-
-
+});
  </script>

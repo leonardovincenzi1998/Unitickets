@@ -171,7 +171,16 @@ class DatabaseHelper{
             $stmt->execute();
             $stmt->store_result();
         
-            header("location: index.php");
+            header("location: ./index_dati.php");
+        }
+
+        public function ModifyEvents($id,$name,$place,$data,$seats,$price,$desc){
+            $stmt=$this->db->prepare('UPDATE events SET event_name=?, event_date=?, event_place=?, ticket_price=?, descriptions=?, total_ticket=? WHERE event_id=?');
+            $stmt->bind_param('sssisii',$name,$data,$place,$price,$desc,$seats,$id);
+            $stmt->execute();
+            $stmt->store_result();
+            
+            header("location: ./index_organizzatore.php?atype=cli&error=upd");
         }
 
         public function AdminApproved($stato,$in_evidenza,$idevento){

@@ -74,5 +74,32 @@ if(!empty($_GET['error'])){
   </div>
  <?php
  }
+
+ else if($_GET['error']=="upd") { ?>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <p class="text-md-center"> <strong>Ottimo!</strong> Evento modificato correttamente.</p>
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>
+<?php }
+
+ else if($_GET['error']=="nupd") { ?>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <p class="text-md-center"> <strong>Errore!</strong> Compila tutti i campi.</p>
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>
+<?php }
+
+else if($_GET['error']=="ins") { ?>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <p class="text-md-center"> <strong>Ottimo!</strong> Evento creato correttamente.</p>
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>
+<?php }
 }
  ?>
