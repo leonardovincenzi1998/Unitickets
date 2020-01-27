@@ -59,7 +59,8 @@ class DatabaseHelper{
 
     //funzione per ottenere gli eventi in base all'id della categoria
     public function getEventsByCategoryId($idcategory){
-        $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category AND events.organizer_id = organizer.organizer_id AND events.category=?");
+        $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category
+                                    AND events.organizer_id = organizer.organizer_id AND events.category=?");
         $stmt->bind_param('i',$idcategory);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -134,11 +135,12 @@ class DatabaseHelper{
         }
 
         public function getInEvidenceInfo(){
-            $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category AND events.organizer_id = organizer.organizer_id AND in_evidence=1");
+            $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category
+                                        AND events.organizer_id = organizer.organizer_id AND in_evidence=1");
             $stmt->execute();
             $result = $stmt->get_result();
             //var_dump($result->fetch_all(MYSQLI_ASSOC));
-    
+
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
@@ -148,19 +150,20 @@ class DatabaseHelper{
             $stmt->execute();
             $result = $stmt->get_result();
             //var_dump($result->fetch_all(MYSQLI_ASSOC));
-    
+
             return $result->fetch_all(MYSQLI_ASSOC);
 
         }
 
         public function getAdminEvents(){
             $parametro="In approvazione";
-            $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category AND events.organizer_id = organizer.organizer_id AND events.Stato=?");
+            $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category
+                                        AND events.organizer_id = organizer.organizer_id AND events.Stato=?");
             $stmt->bind_param('s',$parametro);
             $stmt->execute();
             $result = $stmt->get_result();
             //var_dump($result->fetch_all(MYSQLI_ASSOC));
-            
+
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
@@ -169,8 +172,8 @@ class DatabaseHelper{
             $stmt->bind_param('sii', $email, $telefono, $user);
             $stmt->execute();
             $stmt->store_result();
-        
-            header("location: index.php");
+
+            header("location: index.php"); //non basta gia quella nel bottone?
         }
 
         public function AdminApproved($stato,$in_evidenza,$idevento){
@@ -197,13 +200,12 @@ class DatabaseHelper{
             $stmt = $this->db->prepare("INSERT INTO notifies_org (description, notify_date,
                                 organizer_id) VALUES (?, ?, ?)");
             $data = date("Y-m-d");
-            // $organizer_notify = FUNZIONE CHE TIRA FUORI ORG NAME DALLA CARTA EVENTO
-            //$organizer_notify = getOrgId();
+            
             $stmt->bind_param('ssi',$descrizione, $data, $idorganizzatore);
             $stmt->execute();
             $stmt->store_result();
             header("location: html/admin.php");
-           
+
            }
 
         // ERA UN ESEMPIO PER PROVARE STRINGHE
