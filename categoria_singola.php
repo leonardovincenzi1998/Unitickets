@@ -1,14 +1,14 @@
 <!--inserisco gli eventi divisi per categoria-->
 <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-light">
-          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.php#categories">Home</a></li>
           <li class="breadcrumb-item active" aria-current="page">Categoria:<?php echo $templateParams["nome_categoria"];?></li>
         </ol>
-    </nav>
-    <!--Eventi-->
-    <div id="events" class="container-fluid padding">
-    <div class="row padding">
-    <?php
+</nav>
+<!--Eventi-->
+<div id="events" class="container-fluid padding">
+<div class="row padding">
+<?php
     //$cont = 0;
     $infomodal= 0;
     if(sizeof($templateParams["categorie"])==0){
@@ -23,33 +23,66 @@
         ?>
         <div class="col-md-4">
             <div class="card text-center">
-                <div class="card-body">
+                <div class="card-header">
                     <h4 class="card-title"><?php echo $categoria["event_name"]; ?></h4>
-                    <hr class="tab-event">
-                    <table class="table-borderless-responsive">
+                </div>
+                <div class="card-body">
+                    <table class="table-bordered">
                         <tr>
                             <th id="Luogo" scope="row">Luogo</th>
-                            <td headers="Luogo" id="nomeLuogo" class="text-center"><?php echo $categoria["event_place"]; ?></td>
+                            <td headers="Luogo" id="nomeLuogo" class="text-right"><?php echo $categoria["event_place"]; ?></td>
                         </tr>
                         <tr>
                             <th id="Data" scope="row">Data</th>
-                            <td headers="Data" id="dataEv" class="text-center"><?php echo $categoria["event_date"]; ?></td>
+                            <td headers="Data" id="dataEv" class="text-right"><?php echo $categoria["event_date"]; ?></td>
                         </tr>
                         <tr>
                             <th id="Organizzatore" scope="row">Organizzatore</th>
-                            <td headers="Organizzatore" id="nomeOrg" class="text-center"><?php echo $categoria["organizer_name"]; echo ' ';echo $categoria["organizer_surname"] ?></td>
+                            <td headers="Organizzatore" id="nomeOrg" class="text-right"><?php echo $categoria["organizer_name"]; echo ' ';echo $categoria["organizer_surname"] ?></td>
                         </tr>
                         <tr>
                             <th id="Prezzo" scope="row">Prezzo</th>
-                            <td headers="Prezzo" id="costoBiglietto" class="text-center"><?php echo $categoria["ticket_price"]; ?> <i class="fa fa-euro"></i></td>
+                            <td headers="Prezzo" id="costoBiglietto" class="text-right"><?php echo $categoria["ticket_price"]; ?> <i class="fa fa-euro"></i></td>
                         </tr>
                     </table>
-                    <button id="btn-event" type="button" name="aggiungi_al_carrello" class="btn btn-outline-secondary">Aggiungi al carrello</button>
-
+                    <form action="index_categoria.php?idcategoria=<?php echo $categoria["category_id"];?>">
+                        <input type="hidden" name="id_evento" value="<?php echo $categoria["event_id"];?>">
+                        <input type="hidden" name="nome_evento" value="<?php echo $categoria["event_name"];?>">
+                        <input type="hidden" name="prezzo_evento" value="<?php echo $categoria["ticket_price"];?>">
+                        <input type="hidden" name="qtà_evento" value="1">
+                        <button id="btn-event" type="submit" name="aggiungi_al_carrello" class="btn btn-outline-secondary">Aggiungi al carrello</button>
+                        <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $infomodal; ?>">Dettagli</button>
+                    </form>
+                    
+                    <div id="<?php echo $infomodal; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="infoModalLabel"><?php echo $categoria["event_name"]; ?></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                <?php echo $categoria["descriptions"]; ?>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; } ?>
+    </div>
+</div>
+</div>
+                    
                     <!--?php
-                    //session_start();
-                    $product_ids = array();
-                    session_destroy();
+
+                    require_once("bootstrap.php");
 
                     //controllo se Aggiungi al Carrello è stato cliccato
                     if(filter_input(INPUT_POST, 'aggiungi_al_carrello')){
@@ -137,30 +170,3 @@
                         </div>
                     </div>
                     </div> -->
-
-                    <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $infomodal; ?>">Dettagli</button>
-                    <div id="<?php echo $infomodal; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="infoModalLabel"><?php echo $categoria["event_name"]; ?></h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                <?php echo $categoria["descriptions"]; ?>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <?php endforeach;
-        } ?>
-    </div>
-    </div>
