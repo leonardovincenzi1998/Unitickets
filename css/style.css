@@ -36,7 +36,7 @@ html, body {
 }
 
 #cardPadding{
-    margin-top: 5%;
+    margin-top: 5%; 
 }
 
 #categories, #events{
@@ -154,5 +154,26 @@ hr.orders{
 
     .carousel-inner img{
         height: 55%;
+        
     }
+}
+
+#cartehome{
+    min-height: 360px;
+    max-width: 350px;
+}
+
+
+.card{
+    margin: 10px;
+    min-height: 360px;
+    max-width: 402px;
+}
+
+.card-imd-top{
+    max-height: 159px;
+}
+
+#btn-event{
+    margin-bottom: 5%;
 }

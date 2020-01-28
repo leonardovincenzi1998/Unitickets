@@ -21,12 +21,14 @@
         //var_dump($categoria);
         $infomodal++;
         ?>
-        <div class="col-md-4">
-            <div class="card text-center">
+        <div class="card text-center">
+            <div class="card-header" >
+                <h4 class="card-title"><?php echo $categoria["event_name"]; ?></h4>
+            </div>
                 <div class="card-body">
-                    <h4 class="card-title"><?php echo $categoria["event_name"]; ?></h4>
-                    <hr class="tab-event">
-                    <table class="table-borderless-responsive">
+                    <!-- <hr class="tab-event"> -->
+                    <div class="table-borderless-responsive">
+                        <table class="table">
                         <tr>
                             <th id="Luogo" scope="row">Luogo</th>
                             <td headers="Luogo" id="nomeLuogo" class="text-center"><?php echo $categoria["event_place"]; ?></td>

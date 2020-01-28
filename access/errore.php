@@ -12,7 +12,7 @@ if(!empty($_GET['error'])){
   <?php }
   else if($_GET['error']=="reg1") { ?>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <p class="text-md-center"> <strong>Errore!</strong> E-mail già associata ad un altro account.</p>
+      <p class="text-md-center"> <strong>Errore!</strong> L'e-mail inserita è già associata ad un altro account.</p>
      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
        <span aria-hidden="true">&times;</span>
      </button>
@@ -21,7 +21,7 @@ if(!empty($_GET['error'])){
 
  else if($_GET['error']=="regok") { ?>
    <div class="alert alert-success alert-dismissible fade show" role="alert">
-     <p class="text-md-center"> <strong>Ci siamo!</strong> Ti sei registrato correttamente</p>
+     <p class="text-md-center"> <strong>Benvenuto!</strong> Ti sei registrato correttamente</p>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -30,7 +30,7 @@ if(!empty($_GET['error'])){
 
  else if($_GET['error']=="log") { ?>
    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-     <p class="text-md-center"> <strong>Errore!</strong> Password sbagliata.</p>
+     <p class="text-md-center"> <strong>Errore!</strong> Password inserita errata.</p>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -39,7 +39,7 @@ if(!empty($_GET['error'])){
   }
   else if($_GET['error']=="logok") { ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <p class="text-md-center"> <strong>Ci Siamo!</strong> Login eseguito.</p>
+      <p class="text-md-center"> <strong>Bentornato!</strong> Login eseguito correttamente.</p>
      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
        <span aria-hidden="true">&times;</span>
      </button>
@@ -76,11 +76,12 @@ if(!empty($_GET['error'])){
 
  else if($_GET['error']=="mod") { ?>
    <div class="alert alert-success alert-dismissible fade show" role="alert">
-     <p class="text-md-center"> <strong>OK!</strong> Dati modificati correttamente.</p>
+     <p class="text-md-center"> <strong>Ottimo!</strong> Dati modificati correttamente.</p>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
  <?php }
+
 }
  ?>
