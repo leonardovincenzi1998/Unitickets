@@ -5,6 +5,7 @@ require_once("bootstrap.php");
 sec_session_start();
 
 $templateParams["modifica"]= $dbh->ModifyDati($_POST['email'], $_POST['tel'], $_SESSION['user_id']);
+// header("location: index.php?error=mod"); c'è già nella funzione!
 
 
 /*$DB_HOST = 'localhost';
@@ -19,7 +20,6 @@ $conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PWD, $DB_NAME);
     $stmt->execute();
     $stmt->store_result();
 
-    header("location: index.php?error=mod");
 
 
      $conn->close();*/

@@ -1,5 +1,5 @@
 <?php
-include 'functions_org.php';     //nb 
+include 'functions_org.php';     //nb
 sec_session_start();
 if(!empty($_GET['error'])){
   if($_GET['error']=="reg") {?>
@@ -52,9 +52,9 @@ if(!empty($_GET['error'])){
    //   echo "prova";
      // }
   //var_dump($_SESSION);
-  if(login_check($mysqli)){
-    echo "DAJE!";
-  }
+  // if(login_check($mysqli)){
+  //   echo "DAJE!";
+  // }
   }
   else if($_GET['error']=="log1") { ?>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -74,5 +74,41 @@ if(!empty($_GET['error'])){
   </div>
  <?php
  }
+
+ else if($_GET['error']=="upd") { ?>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <p class="text-md-center"> <strong>Ottimo!</strong> Evento modificato correttamente.</p>
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>
+<?php }
+
+ else if($_GET['error']=="nupd") { ?>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <p class="text-md-center"> <strong>Errore!</strong> Compila tutti i campi.</p>
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>
+<?php }
+
+else if($_GET['error']=="ins") { ?>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <p class="text-md-center"> <strong>Ottimo!</strong> Evento creato correttamente.</p>
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>
+<?php }
+
+else if($_GET['error']=="mod1") { ?>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <p class="text-md-center"> <strong>Ottimo!</strong> Dati modificati correttamente.</p>
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+   </button>
+ </div>
+<?php }
 }
  ?>

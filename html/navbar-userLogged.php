@@ -45,30 +45,84 @@
                                 <!-- <th id="id_evento" scope="col">id</th> -->
                                 <th id="event_name" scope="col">Evento</th>
                                 <th id="quantità_bigl" scope="col">Q.tà</th>
-                                <th id="totale" scope="col">Totale €</th>
+                                <th id="totale" width="20%" scope="col">Prezzo €</th>
                                 <th id="btn_remove" scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <!-- <th headers="id_evento" scope="row">1</th> -->
-                                <td headers="event_name">Cremonini 2C2C</td>
-                                <td headers="quantità_bigl">1000</td>
-                                <td headers="totale">80€</td>
-                                <td headers="btn_remove"><button class="btn btn-danger">X</button></td>
-                            </tr>
+                          <tr>
+                            <?php
+                              if(!empty($_SESSION['shopping_cart'])){
+                                $total = 0;
+                              }
+                            ?>
+                            <?php foreach($_SESSION['shopping_cart'] as $key => $product):?>
+                              <!-- <th headers="id_evento" scope="row">1</th> -->
+                              <td headers="event_name"><?php echo($product['name']); ?></td>
+                              <td headers="quantità_bigl"><?php echo($product['quantity']); ?></td>
+                              <td headers="totale"><?php echo number_format($product['quantity'] * $product['price'], 2); ?></td>
+                              <td headers="btn_remove"><form action="cart.php?idcategoria=<?php echo $_GET['idcategoria']; ?>" method="post"><input type="hidden" name="remove_elem" value="1"></input>
+                                    <input type="hidden" name="id_remove_element" value="<?php echo $product['id']; ?>"></input><button type="submit" class="fa fa-trash-o"></button></form></td>
+                              <!-- <input "type="hidden" name="remove" value="remove" class="fa fa-trash-o">
+                               metti form sopra! -->
+                          </tr>
+                        <?php
+                          $total = $total + ($product['quantity'] * $product['price']);
+                          endforeach;
+                        ?>
                         </tbody>
                         <tfoot>
-                            <th id="totale" colspan="2" class="text-center">TOTALE</th>
-                            <td headers="totale" colspan="2">€€€€</td>
+                            <th id="totale" colspan="2" class="text-center">Totale ordine</th>
+                            <td headers="totale" colspan="2"><?php echo number_format($total, 2); ?> €</td>
                         </tfoot>
                     </table>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                <button type="button" class="btn btn-primary">Checkout</button>
+                <button type="button" id="checkout" class="btn btn-primary" data-toggle="modal" data-target="#cartModalLabel">Checkout</button>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                      $("#checkout").click(function(){
+                        $(".modal-backdrop").hide();
+                        $("#shoppingchartModalCenter").hide();
+                      });
+                    });
+                </script>
             </div>
         </div>
     </div>
+</div>
+
+
+<div id="cartModalLabel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cartModalLabelTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Metodo di pagamento</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form action="#" class="was-validated" novalidate method="post">
+                <p>Seleziona il metodo di pagamento:</p>
+                    <input type="radio" name="pagamento" value="Paypal"> <i class="fa fa-cc-paypal"></i>  <input id="email_pp" type="email" name="pagamento" placeholder="Email" required></br>
+                    <input type="radio" name="pagamento" value="other cards"> <i class="fa fa-cc-mastercard"></i> <i class="fa fa-cc-visa"></i> <i class="fa fa-cc-amex"></i> <input id="n_carta" type="tel" name="pagamento" placeholder="Numero della carta" maxlength="16" required>
+                    <input type="number" name="pagamento" min="1" max="12"> <input type="number" name="pagamento" min="21" max="29"></br>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" id="closecheckout" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+              <script type="text/javascript">
+                  $(document).ready(function(){
+                    $("#closecheckout").click(function(){
+                      $("#cartModalLabel").hide();
+                    });
+                  });
+              </script>
+            <button type="submit" class="btn btn-outline-secondary">Paga ora</button>
+        </div>
+    </div>
+</div>
 </div>
