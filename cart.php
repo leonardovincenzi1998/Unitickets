@@ -61,13 +61,22 @@
   }
 
   pre_r($_SESSION);
-  $cate = $_GET['idcategoria'];
-  header("location: index_categoria.php?idcategoria=".$cate."");
 
 // if(!empty($_SESSION['shopping_cart'])){
 //   $total = 0;
 // }
-
+//REMOVE SOTTO
+if(isset($_POST['remove_elem'])){
+  $_SESSION['open_cart'] = 1;
+  foreach ($_SESSION['shopping_cart'] as $key => $product) {
+    if($product['id'] == $_POST['id_remove_element']){
+      unset($_SESSION['shopping_cart'][$key]);
+    }
+  }
+  $_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
+}
+$cate = $_GET['idcategoria'];
+header("location: index_categoria.php?idcategoria=".$cate."");
 
 
 

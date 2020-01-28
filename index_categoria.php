@@ -4,7 +4,8 @@ require_once 'access/functions.php';
 sec_session_start();                   //mi serve per vedere navbar giusta
 
 // var_dump($_SESSION);  //per debug, mostra variabili di sessione istanziate al login
-
+// if(isset($_POST['open_cart'])){
+//
 
 $templateParams["titolo"] = "Unitickets - Eventi";
 $templateParams["nome"] = "categoria_singola.php";
@@ -14,7 +15,19 @@ $templateParams["categorie"] = $dbh->getEventsByCategoryId($_GET['idcategoria'])
 //$templateParams["nomeOrganizzatore"] = $dbh->getOrganizerNameByEvents();
 //var_dump($templateParams["categorie"]);
 
-require("template/base.php");
+require_once("template/base.php");
+if(isset($_SESSION['open_cart'])){
+?>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#shoppingchartModalCenter").modal('show');
+});
+</script>
+<?php }
+  // var_dump($_SESSION['open_cart']);
+  if(isset($_SESSION['open_cart'])){
+    unset($_SESSION['open_cart']);
+  }
 // var_dump($_POST['aggiungi_al_carrello']);
 // $pro = $_POST['aggiungi_al_carrello'];
 // var_dump($pro);
