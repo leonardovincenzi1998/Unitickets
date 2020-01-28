@@ -16,6 +16,7 @@ $templateParams["categorie"] = $dbh->getEventsByCategoryId($_GET['idcategoria'])
 //var_dump($templateParams["categorie"]);
 
 require_once("template/base.php");
+
 if(isset($_SESSION['open_cart'])){
 ?>
 <script type="text/javascript">
