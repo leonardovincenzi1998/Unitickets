@@ -23,7 +23,7 @@
     } else {
     foreach($templateParams["categorie"] as $categoria):
         $infomodal++;
-        ?>
+    ?>
     <div id="orgEvent" class="col-md-4">
         <div class="card text-center">
             <div class="card-header" >
