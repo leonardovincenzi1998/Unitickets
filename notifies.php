@@ -5,12 +5,13 @@ $templateParams['nome'] = "./bootstrap.php";
 $templateParams["titolo"] = "Unitickets - Notifiche";
 require_once './access/functions.php';
 // require 'include_navbar.php';
-sec_session_start(); //dovrebbe andare perchè in base ho include navbar che include functions.php
 require_once './template/base.php';
+sec_session_start(); //dovrebbe andare perchè in base ho include navbar che include functions.php
 
-$prova = $dbh->getNotifiesNavbar(3);
+$prova = $dbh->getAllNotifies($_SESSION['user_id']);
 
 var_dump($prova);
+
 // //gli passo $_SESSION['user_id']
 // public function getAllNotifies($id_utente){  //non lo chiamo user_id per paura di conflitti
 //   $stmt = $this->db->prepare("SELECT * FROM notifies WHERE user_id=?")

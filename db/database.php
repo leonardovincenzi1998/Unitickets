@@ -278,14 +278,6 @@ class DatabaseHelper{
         public function insertOrderDetails($orderid, $event, $quantity, $price){
              $stmt = $this->db->prepare("INSERT INTO order_details(order_id, event_id, quantity,
                        price) VALUES (?, ?, ?, ?)");
-             // $user = $_SESSION['user_id'];
-             // $event = $_SESSION['shopping_cart']['id'];
-             // $quantity = $_SESSION['shopping_cart']['quantity'];
-             // $date = date("Y-m-d");
-             // $totale = 0;
-             // foreach($_SESSION['shopping_cart'] as $key => $product):
-             //   $totale = $totale + ($product['quantity'] * $product['price']);
-             //   endforeach;
              $stmt->bind_param('iiii', $orderid, $event, $quantity, $price);
              $stmt->execute();
              $stmt->store_result();
