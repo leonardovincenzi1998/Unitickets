@@ -88,7 +88,7 @@
                             </script>
                                 <tbody>
                                     <tr>
-                                        <td colspan="3" headers="event_name"><h4 class="text-center"><?php echo "Carrello Vuoto!!"; ?></h4></td>
+                                        <td colspan="3" headers="event_name"><h4 ><?php echo "Carrello vuoto"; ?></h4></td>
                                         
                                     </tr>
                                 </tbody>     
@@ -139,7 +139,9 @@
                     });
                   });
               </script>
-            <button type="submit" class="btn btn-outline-secondary">Paga ora</button>
+              <form action="pay.php" method="post">
+                  <button type="submit" class="btn btn-outline-secondary">Paga ora</button>
+              </form>
         </div>
     </div>
 </div>

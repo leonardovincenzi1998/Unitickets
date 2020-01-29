@@ -49,7 +49,7 @@
                 </li>
             </ul>
         </div>
-    </div>    
+    </div>
     </nav>
     <!--tabella con resoconto ordini-->
     <div id="titoloCat" class="container-fluid padding">
@@ -59,42 +59,73 @@
                 <h4 class="display-6">I miei ordini</h4>
                 <hr class="orders">
             </div>
-        </div>    
+        </div>
     </div>
     <!-- a tabella con il riepilogo degli ordini -->
     <div id="div_table_riepilogo" class="table-responsive-sm">
         <table id="tableResume" class="table table-striped">
             <thead>
                 <tr>
-                    <th id="cod_evento" scope="col">id</th>
-                    <th id="nome_evento" scope="col">Evento</th>
-                    <th id="qtà_bigl" scope="col">Quantità</th>
-                    <th id="totale" scope="col">Totale <i class="fa fa-euro"></i></th>
-                    <th id="mtd_pgmt" scope="col">Metodo di pagamento</th>
+                    <th id="cod_evento" width="50%" scope="col">ID Ordine</th>
+                    <!-- <th id="nome_evento" scope="col">Evento</th> -->
+                    <!-- <th id="qtà_bigl" scope="col">Quantità</th> -->
+                    <th id="data" width="25%" scope="col">Data Ordine</th>
+                    <th id="totale" width="25%" scope="col">Totale <i class="fa fa-euro"></i></th>
+                    <!-- <th id="mtd_pgmt" scope="col">Metodo di pagamento</th> -->
                 </tr>
             </thead>
             <tbody>
-                <tr>    
-                    <th headers="cod_evento" scope="row">1</th>
-                    <td headers="nome_evento">ciaone</td>
-                    <td headers="qtà_bigl">8</td>
+                <tr>
+                    <td headers="cod_evento" scope="row">1</th>
+                    <!-- <td headers="nome_evento">ciaone</td> -->
+                    <td headers="data">30/10/1997</td>
+                    <!-- <td headers="qtà_bigl">8</td> -->
                     <td headers="totale">€€€€</td>
-                    <td headers="mtd_pgmt">Carta</td>
+                    <!-- <td headers="mtd_pgmt">Carta</td> -->
                 </tr>
+
+                <!-- <table id="dett" class="table table-striped">
+                    <thead> -->
+                        <tr>
+                            <!-- <th id="" scope="col">id</th> -->
+                            <th id="nome" width="50%" scope="col">Evento</th>
+                            <th id="qtà" width="25%" scope="col">Quantità</th>
+                            <th id="prezzo" width="25%" scope="col">Prezzo <i class="fa fa-euro"></i></th>
+                            <!-- <th id="mtd_p" scope="col">Metodo di pagamento</th> -->
+                        </tr>
+                    <!-- </thead> -->
+                    <!-- <tbody> -->
+                        <tr>
+                            <!-- <th headers="cod_evento" scope="row">1</th> -->
+                            <td headers="nome">TULUS ROCK IN RIMINI</td>
+                            <td headers="qtà">8</td>
+                            <td headers="prezzo">€€</td>
+                            <!-- <td headers="">Carta</td> -->
+                        </tr>
+                    <!-- </tbody> -->
+
+                <!-- </table> -->
+
             </tbody>
+            <tfoot>
+                <tr>
+                    <!-- <th id="total" scope="row" colspan="3" class="text-center">TOTALE</th>
+                    <td headers="total" colspan="2" class="text-center">€€€€</td> -->
+                </tr>
+            </tfoot>
         </table>
     </div>
     <!-- inserisco tabella -->
-    <script>$(document).ready( function() {
+    <!-- <script>$(document).ready( function() {
         $('#tableResume').DataTable();
-    } );</script>
+    } );</script> -->
     <!-- footer con contatti, socials e metodi di pagamento -->
     <footer>
         <div class="container-fluid padding">
         <div class="row text-center">
             <div class="col-md-4">
                 <hr class="light">
-                <h5>Contatti</h5>   
+                <h5>Contatti</h5>
                 <hr class="light">
                 <p>leonardo.delvecchio@studio.unibo.it</p>
                 <p>leonardo.vincenzi@studio.unibo.it</p>

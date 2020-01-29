@@ -258,4 +258,102 @@ class DatabaseHelper{
         //    return $result->fetch_all(MYSQLI_ASSOC);
         //
         //  }
+
+        public function insertOrder($user, $date, $totale){
+             $stmt = $this->db->prepare("INSERT INTO orders(user_id,
+                       purchase_date, total_amounts) VALUES (?, ?, ?)");
+             // $user = $_SESSION['user_id'];
+             // $event = $_SESSION['shopping_cart']['id'];
+             // $quantity = $_SESSION['shopping_cart']['quantity'];
+             // $date = date("Y-m-d");
+             // $totale = 0;
+             // foreach($_SESSION['shopping_cart'] as $key => $product):
+             //   $totale = $totale + ($product['quantity'] * $product['price']);
+             //   endforeach;
+             $stmt->bind_param('isi', $user, $date, $totale);
+             $stmt->execute();
+             $stmt->store_result();
+
+           }
+
+           public function insertOrderDetails($orderid, $event, $quantity, $price){
+             $stmt = $this->db->prepare("INSERT INTO order_details(order_id, event_id, quantity,
+                       price) VALUES (?, ?, ?, ?)");
+             // $user = $_SESSION['user_id'];
+             // $event = $_SESSION['shopping_cart']['id'];
+             // $quantity = $_SESSION['shopping_cart']['quantity'];
+             // $date = date("Y-m-d");
+             // $totale = 0;
+             // foreach($_SESSION['shopping_cart'] as $key => $product):
+             //   $totale = $totale + ($product['quantity'] * $product['price']);
+             //   endforeach;
+             $stmt->bind_param('iiii', $orderid, $event, $quantity, $price);
+             $stmt->execute();
+             $stmt->store_result();
+
+           }
+
+           public function getOrderId(){
+             $stmt = $this->db->prepare("SELECT MAX(order_id) FROM orders");
+             $stmt->execute();
+             $stmt->store_result();
+             $stmt->bind_result($orderid);
+             // $orderid = $orderid + 1;
+             $stmt->fetch();
+             return $orderid;
+           }
+           // public function insertOrderDetails($event, $quantity, $date, $price){
+           //   $stmt = $this->db->prepare("INSERT INTO order_details(event_id, quantity,
+           //             purchase_date, total_amounts) VALUES (?, ?, ?, ?, ?)");
+           //   // $user = $_SESSION['user_id'];
+           //   // $event = $_SESSION['shopping_cart']['id'];
+           //   // $quantity = $_SESSION['shopping_cart']['quantity'];
+           //   // $date = date("Y-m-d");
+           //   // $totale = 0;
+           //   // foreach($_SESSION['shopping_cart'] as $key => $product):
+           //   //   $totale = $totale + ($product['quantity'] * $product['price']);
+           //   //   endforeach;
+           //   $stmt->bind_param('iisi', $event, $quantity, $date, $price);
+           //   $stmt->execute();
+           //   $stmt->store_result();
+           //
+           // }
+           public function OrderNotify($descrizione, $userid){
+               $stmt = $this->db->prepare("INSERT INTO notifies (description, notify_date,
+                                   user_id) VALUES (?, ?, ?)");
+               $data = date("Y-m-d");
+               $stmt->bind_param('ssi',$descrizione, $data, $userid);
+               $stmt->execute();
+               $stmt->store_result();
+
+              }
+
+              public function getMyOrders($user){
+                $stmt = $this->db->prepare("SELECT * FROM orders, order_details WHERE
+                        orders.order_id = order_details.order_id AND orders.user_id = ?");
+                $stmt->bind_param('i', $user);
+                $stmt->execute();
+                $result = $stmt->get_result(MYSQLI_ASSOC);
+
+                return $result;
+              }
+
+              public function Dec($quantity, $evento){
+                $stmt = $this->db->prepare("UPDATE events SET events.ticket_available=(ticket_available - ?)
+                                            WHERE event_id=?");
+                $stmt->bind_param('ii', $quantity, $evento);
+                $stmt->execute();
+                $stmt->store_result();
+
+              }
+
+              public function getTotal($user){
+                $stmt = $this->db->prepare("SELECT * FROM orders WHERE user_id = ?");
+                $stmt->bind_param('i', $user);
+                $stmt->execute();
+                $result = $stmt->get_result(MYSQLI_ASSOC);
+
+                return $result;
+              }
+
 }
