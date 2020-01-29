@@ -5,7 +5,6 @@ sec_session_start();                   //mi serve per vedere navbar giusta
 
 // var_dump($_SESSION);  //per debug, mostra variabili di sessione istanziate al login
 // if(isset($_POST['open_cart'])){
-//
 
 $templateParams["titolo"] = "Unitickets - Eventi";
 $templateParams["nome"] = "categoria_singola.php";
@@ -13,9 +12,11 @@ $templateParams["nome_categoria"] = $dbh->getCategoryNameById($_GET['idcategoria
 $templateParams["categorie"] = $dbh->getEventsByCategoryId($_GET['idcategoria']);
 //$templateParams["evento"] = $dbh->getEventsById($_GET['idevent']);
 //$templateParams["nomeOrganizzatore"] = $dbh->getOrganizerNameByEvents();
+
 //var_dump($templateParams["categorie"]);
 
 require_once("template/base.php");
+
 if(isset($_SESSION['open_cart'])){
 ?>
 <script type="text/javascript">

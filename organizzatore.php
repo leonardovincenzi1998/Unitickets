@@ -1,10 +1,16 @@
+<div class="container justify-content-center col-md-4">
+<hr class="upRegister">
+<h2 class="text-center">I miei eventi</h2>
+<hr class="downRegister">
+</div>
 <div id="events" class="container-fluid padding">
     <div class="row padding">
         <div id="orgEvent" class="col-md-4">
             <div class="card text-center">
-                <div class="card-body">
+                <div class="card-header">
                     <h4 class="card-title">Crea evento</h4>
-                    <hr class="tab-event">
+                </div>
+                <div class="card-body">
                     <!-- Modal -->
                     <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -76,10 +82,11 @@
             $modifyEventModal++; ?>
         <div id="orgEvent" class="col-md-4">
             <div class="card text-center">
-                <div class="card-body">
+                <div class="card-header">
                     <h4 class="card-title"><?php echo $evento["event_name"]; ?></h4>
-                    <hr class="tab-event">
-                    <table class="table-borderless-responsive">
+                </div>
+                <div class="card-body">
+                    <table class="table table-responsive" style="line-height: 1;">
                         <tr>
                             <th scope="row">Categoria</th>
                             <td id="Categoria"><?php echo $evento["category_name"]; ?></td>
@@ -230,3 +237,5 @@ $(document).ready(function(){
  });
 });
  </script>
+    </div>
+    </div>
