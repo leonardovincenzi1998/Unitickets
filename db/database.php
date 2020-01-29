@@ -239,6 +239,15 @@ class DatabaseHelper{
 
            }
 
+        public function getOrganizerNotify($idorganizer){
+            $stmt = $this->db->prepare('SELECT * FROM notifies_org WHERE organizer_id=? ORDER BY notifies_id DESC');
+            $stmt->bind_param('i', $idorganizer);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+
         // ERA UN ESEMPIO PER PROVARE STRINGHE
         // public function getAllNotifies($id_utente){  //non lo chiamo user_id per paura di conflitti
         //    $stmt = $this->db->prepare("SELECT * FROM notifies WHERE description=?");
@@ -264,10 +273,9 @@ class DatabaseHelper{
              $stmt->bind_param('isi', $user, $date, $totale);
              $stmt->execute();
              $stmt->store_result();
+        }
 
-           }
-
-           public function insertOrderDetails($orderid, $event, $quantity, $price){
+        public function insertOrderDetails($orderid, $event, $quantity, $price){
              $stmt = $this->db->prepare("INSERT INTO order_details(order_id, event_id, quantity,
                        price) VALUES (?, ?, ?, ?)");
              $stmt->bind_param('iiii', $orderid, $event, $quantity, $price);

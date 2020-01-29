@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script> src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"</script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+    <title>Eventi</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!--tabella con notifiche-->
+    <div id="titoloCat" class="container-fluid padding">
+        <div class="row welcome text-center">
+            <div class="col-md-12">
+                <hr class="orders">
+                <h4 class="display-6">Notifiche</h4>
+                <hr class="orders">
+            </div>
+        </div>    
+    </div>
+    <!-- a tabella con il riepilogo degli ordini -->
+    <div id="div_table_riepilogo" class="table-responsive-sm">
+        <table id="tableNotifies" class="table table-striped">
+            <thead>
+                <tr>
+                    <th id="cod_id" scope="col">id</th>
+                    <th id="ntf_date" scope="col">Data</th>
+                    <th id="descr" scope="col">Notifica</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>    
+                    <th headers="cod_id" scope="row">1</th>
+                    <td headers="ntf_date">02/10/98</td>
+                    <td headers="descr"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- inserisco tabella -->
+    <script>$(document).ready( function() {
+        $('#tableNotifies').DataTable();
+    } );</script>
+
+    
+</body>
+</html>
