@@ -5,7 +5,6 @@ sec_session_start();                   //mi serve per vedere navbar giusta
 
 // var_dump($_SESSION);  //per debug, mostra variabili di sessione istanziate al login
 // if(isset($_POST['open_cart'])){
-//
 
 $templateParams["titolo"] = "Unitickets - Eventi";
 $templateParams["nome"] = "categoria_singola.php";
