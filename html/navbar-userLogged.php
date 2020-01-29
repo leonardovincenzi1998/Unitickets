@@ -16,11 +16,17 @@
             </li>
             <li class="nav-item dropdown">
                 <a href="#" id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i></a>
+                 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
-                    <p class="dropdown-item-text">Notifica</p>
-                    <p class="dropdown-item-text">Notifica bella lunga per vedere se fa dropdown</p>
-                    <p class="dropdown-item-text">Notifica</p>
-                    <div class="dropdown-divider"></div>
+                <?php
+                $notifiche = $dbh->getNotifiesNavbar($_SESSION['user_id']);
+                foreach ($notifiche as $notifica): ?>
+
+                  <p class="dropdown-item-text"><?php echo $notifica['description']; ?></p>
+                  <!-- <p class="dropdown-item-text">Notifica bella lunga per vedere se fa dropdown</p>
+                  <p class="dropdown-item-text">Notifica</p> -->
+                  <div class="dropdown-divider"></div>
+                <?php endforeach;  ?>
                     <a href="./notifies.php" class="dropdown-item">Vedi tutte le notifiche</a>
                 </div>
             </li>
@@ -54,7 +60,7 @@
                             <?php
                             if(!empty($_SESSION['shopping_cart'])){
                                 $total = 0;
-                            
+
                                 foreach($_SESSION['shopping_cart'] as $key => $product):?>
                                 <!-- <th headers="id_evento" scope="row">1</th> -->
                                 <td headers="event_name"><?php echo($product['name']); ?></td>
@@ -72,7 +78,7 @@
 
                             $total = $total + ($product['quantity'] * $product['price']);
                             endforeach;
-                            
+
                             ?>
                         </tbody>
                         <tfoot>
@@ -89,9 +95,9 @@
                                 <tbody>
                                     <tr>
                                         <td colspan="3" headers="event_name"><h4 ><?php echo "Carrello vuoto"; ?></h4></td>
-                                        
+
                                     </tr>
-                                </tbody>     
+                                </tbody>
                     <?php   } ?>
                     </table>
                 </div>
