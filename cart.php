@@ -78,6 +78,4 @@ if(isset($_POST['remove_elem'])){
 $cate = $_GET['idcategoria'];
 header("location: index_categoria.php?idcategoria=".$cate."");
 
-
-
- ?>
+?>

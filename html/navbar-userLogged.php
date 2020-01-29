@@ -50,31 +50,49 @@
                             </tr>
                         </thead>
                         <tbody>
-                          <tr>
+                            <tr>
                             <?php
-                              if(!empty($_SESSION['shopping_cart'])){
+                            if(!empty($_SESSION['shopping_cart'])){
                                 $total = 0;
-                              }
+                            
+                                foreach($_SESSION['shopping_cart'] as $key => $product):?>
+                                <!-- <th headers="id_evento" scope="row">1</th> -->
+                                <td headers="event_name"><?php echo($product['name']); ?></td>
+                                <td headers="quantità_bigl"><?php echo($product['quantity']); ?></td>
+                                <td headers="totale"><?php echo number_format($product['quantity'] * $product['price'], 2); ?></td>
+                                <td headers="btn_remove">
+                                    <form action="cart.php?idcategoria=<?php echo $_GET['idcategoria']; ?>" method="post">
+                                        <input type="hidden" name="remove_elem" value="1"></input>
+                                        <input type="hidden" name="id_remove_element" value="<?php echo $product['id']; ?>"></input>
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php
+
+                            $total = $total + ($product['quantity'] * $product['price']);
+                            endforeach;
+                            
                             ?>
-                            <?php foreach($_SESSION['shopping_cart'] as $key => $product):?>
-                              <!-- <th headers="id_evento" scope="row">1</th> -->
-                              <td headers="event_name"><?php echo($product['name']); ?></td>
-                              <td headers="quantità_bigl"><?php echo($product['quantity']); ?></td>
-                              <td headers="totale"><?php echo number_format($product['quantity'] * $product['price'], 2); ?></td>
-                              <td headers="btn_remove"><form action="cart.php?idcategoria=<?php echo $_GET['idcategoria']; ?>" method="post"><input type="hidden" name="remove_elem" value="1"></input>
-                                    <input type="hidden" name="id_remove_element" value="<?php echo $product['id']; ?>"></input><button type="submit" class="fa fa-trash-o"></button></form></td>
-                              <!-- <input "type="hidden" name="remove" value="remove" class="fa fa-trash-o">
-                               metti form sopra! -->
-                          </tr>
-                        <?php
-                          $total = $total + ($product['quantity'] * $product['price']);
-                          endforeach;
-                        ?>
                         </tbody>
                         <tfoot>
                             <th id="totale" colspan="2" class="text-center">Totale ordine</th>
                             <td headers="totale" colspan="2"><?php echo number_format($total, 2); ?> €</td>
                         </tfoot>
+                        <?php }
+                            else{?>
+                            <script type="text/javascript">
+                                $(document).ready(function(){
+                                    $("#checkout").hide();
+                                });
+                            </script>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="3" headers="event_name"><h4 class="text-center"><?php echo "Carrello Vuoto!!"; ?></h4></td>
+                                        
+                                    </tr>
+                                </tbody>     
+                    <?php   } ?>
                     </table>
                 </div>
             </div>

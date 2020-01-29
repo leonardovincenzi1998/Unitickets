@@ -40,10 +40,11 @@
     <div class="row padding">
         <div class="col-md-4">
             <div class="card text-center">
-                <div class="card-body">
+                <div class="card-header">
                     <h4 class="card-title">Cado dalle nubi</h4>
-                    <hr class="tab-event">
-                    <table class="table-borderless-responsive">
+                </div>
+                <div class="card-body">
+                    <table class="table table-responsive" style="line-height: 1;">
                         <tr>
                             <th scope="row">Luogo</th>
                             <td id="nomeLuogo">Uci Romagna Center</td>
@@ -80,7 +81,7 @@
                                     Qua bisogna scrivere la descrizione dell'evento
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Chiudi</button>
                                 </div>
                             </div>
                         </div>
@@ -90,10 +91,11 @@
         </div>
         <div class="col-md-4">
             <div class="card text-center">
+                <div class="card-header">
+                    <h4 class="card-title">Cado dalle nubi</h4>
+                </div>
                 <div class="card-body">
-                    <h4 class="card-title">Nome dell'evento</h4>
-                    <hr class="tab-event">
-                    <table class="table-borderless-responsive">
+                    <table class="table table-responsive" style="line-height: 1;">
                         <tr>
                             <th scope="row">Luogo</th>
                             <td id="nomeLuogo">Uci Romagna Center</td>
@@ -116,37 +118,87 @@
                         </tr>                        
                     </table>
                     <button id="btn-event" type="button" class="btn btn-outline-secondary">Aggiungi al carrello</button>
+                    <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#infoModal">+info</button>
+                    <div id="infoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="infoModalLabel">Info relative all'evento</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Qua bisogna scrivere la descrizione dell'evento
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Chiudi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card text-center">
-                <div class="card-body">
-                    <h4 class="card-title">Nome dell'evento</h4>
-                    <hr class="tab-event">
-                    <table class="table-borderless-responsive">
+                <div class="card-header">
+                    <h4 class="card-title">Cado dalle nubi</h4>
+                </div>
+                <div class="card-body table-responsive overflow-auto">
+                    <table id="tabella_cat" class="table">
                         <tr>
-                            <th id="Luogo" scope="row">Luogo</th>
-                            <td headers="Luogo" id="nomeLuogo">Uci Romagna Center</td>
+                            <th scope="row">Luogo</th>
+                            <td id="nomeLuogo">Uci Romagna Center</td>
                         </tr>
                         <tr>
-                            <th id="Data" scope="row">Data</th>
-                            <td headers="Data" id="dataEv">02-10-98</td>
+                            <th scope="row">Data</th>
+                            <td id="dataEv">02-10-98</td>
                         </tr>
                         <tr>
-                            <th id="Organizzatore" scope="row">Organizzatore</th>
-                            <td headers="Organizzatore" id="nomeOrg">Leonardo vincenzi</td>
+                            <th scope="row">Organizzatore</th>
+                            <td id="nomeOrg">Leonardo vincenzi</td>
                         </tr>
                         <tr>
-                            <th id="Posti disponibili" scope="row">Posti disponibili</th>
-                            <td headers="Posti disponibili" id="numPosti">100</td>
+                            <th scope="row">Posti disponibili</th>
+                            <td id="numPosti">100</td>
                         </tr>
                         <tr>
-                            <th id="Prezzo" scope="row">Prezzo</th>
-                            <td headers="Prezzo" id="costoBiglietto">6 <i class="fa fa-euro"></i></td>
-                        </tr>                        
+                            <th scope="row">Prezzo</th>
+                            <td id="costoBiglietto">6 <i class="fa fa-euro"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Descrizione</th>
+                            <td id="descrEvent">
+                                <div class="overflow-auto">
+                                    Questo evento è bellissimo, si svolge in una location da urlo.Come puoi non volerci venire, dai vieni coglione.
+                                </div>
+                            </td>
+                        </tr>                         
                     </table>
-                    <button id="btn-event" type="button" class="btn btn-outline-secondary">Aggiungi al carrello</i></button>
+                </div>
+                <div class="card-footer">
+                    <button id="btn-event" type="button" class="btn btn-outline-secondary" style="transform: translateY(-50%);">Aggiungi al carrello</button>
+                    <button id="btn-info" type="button" class="btn btn-outline-secondary" style="transform: translateY(-50%);" data-toggle="modal" data-target="#infoModal">+info</button>
+                </div>
+                    <div id="infoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="infoModalLabel">Info relative all'evento</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Qua bisogna scrivere la descrizione dell'evento
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Chiudi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
