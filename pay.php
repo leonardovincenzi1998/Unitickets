@@ -37,7 +37,7 @@ foreach($_SESSION['shopping_cart'] as $key => $product):
   // $count++;
   $dbh->insertOrderDetails($getmax, $event, $quantity, $price);
   $dbh->Dec($quantity, $event);
-  $descrizione = "Hai ordinato biglietti per ".$product['name']."";
+  $descrizione = "Il tuo ordine numero:  ".$getmax." è stato confermato";
   $dbh->OrderNotify($descrizione, $_SESSION['user_id']);
   $price = 0;
   endforeach;
