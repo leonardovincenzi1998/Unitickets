@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="seats">Posti disponibili</label>
-                                            <input type="number" class="form-control" name="seats" id="seats" required>
+                                            <input type="number" class="form-control" name="seats" id="seats" disabled>
                                         </div>
                                         <div class="form-group">
                                             <label for="price">Prezzo <i class="fa fa-euro"></i></label>
@@ -100,6 +100,10 @@
                             <td id="dataEv"><?php echo $evento["event_date"]; ?></td>
                         </tr>
                         <tr>
+                            <th scope="row">Biglietti totali</th>
+                            <td id="numPostiTot"><?php echo $evento["total_ticket"]; ?></td>
+                        </tr>
+                        <tr>
                             <th scope="row">Biglietti rimasti</th>
                             <td id="numPosti"><?php echo $evento["ticket_available"]; ?></td>
                         </tr>
@@ -143,7 +147,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="name2">Nome evento</label>
-                                            <input type="text" class="form-control" name="name2" id="name2" value="<?php echo $evento["event_name"]?>"  required />
+                                            <input type="text" class="form-control" name="name2" id="name2" value="<?php echo $evento["event_name"]?>"  disabled />
                                         </div>
                                         <div class="form-group">
                                             <label for="place2">Luogo</label>
@@ -159,11 +163,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="price2">Prezzo <i class="fa fa-euro"></i></label>
-                                            <input type="number" class="form-control" name="price2" id="price2" value="<?php echo $evento["ticket_price"]?>" required />
+                                            <input type="number" class="form-control" name="price2" id="price2" value="<?php echo $evento["ticket_price"]?>" disabled />
                                         </div>
                                         <div class="form-group">
                                             <label for="desc2">Descrizione</label>
-                                            <textarea class="form-control" name="desc2" id="desc2" rows="3" <?php echo $evento["descriptions"]?> required><?php echo $evento["descriptions"]?></textarea>
+                                            <textarea class="form-control" name="desc2" id="desc2" rows="3" <?php echo $evento["descriptions"]?> disabled><?php echo $evento["descriptions"]?></textarea>
                                         </div>
                                         
                                         <input type="submit" name="modify" id="modify" class="btn btn-success" value="Modifica evento" />

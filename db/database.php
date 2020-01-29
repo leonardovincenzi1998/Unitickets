@@ -198,13 +198,39 @@ class DatabaseHelper{
             header("location: ./index_organizzatore.php?atype=cli&error=mod1");
         }
 
-        public function ModifyEvents($id,$name,$place,$data,$seats,$price,$desc){
-            $stmt=$this->db->prepare('UPDATE events SET event_name=?, event_date=?, event_place=?, ticket_price=?, descriptions=?, total_ticket=? WHERE event_id=?');
-            $stmt->bind_param('sssisii',$name,$data,$place,$price,$desc,$seats,$id);
+        public function ticket_available($id){
+            $stmt=$this->db->prepare('SELECT ticket_available FROM events WHERE event_id=?');
+            $stmt->bind_param('i', $id);
             $stmt->execute();
             $stmt->store_result();
+            $stmt->bind_result($available);
+            $stmt->fetch();
+            return $available;
+        }
 
-            header("location: ./index_organizzatore.php?atype=cli&error=upd");
+        public function total_ticket($id){
+            $stmt=$this->db->prepare('SELECT total_ticket FROM events WHERE event_id=?');
+            $stmt->bind_param('i', $id);
+            $stmt->execute();
+            $stmt->store_result();
+            $stmt->bind_result($total);
+            $stmt->fetch();
+            return $total;
+        }
+
+
+
+        public function ModifyEvents($id,$place,$data,$newseats,$available_seats,$total){
+
+            $ticket=$available_seats+($newseats-$total);
+            if($ticket<=0){
+                $ticket=0;
+            }
+
+            $stmt=$this->db->prepare('UPDATE events SET event_date=?, event_place=?,ticket_available=?,total_ticket=? WHERE event_id=?');
+            $stmt->bind_param('ssiii',$data,$place,$ticket,$newseats,$id);
+            $stmt->execute();
+            $stmt->store_result();
         }
 
         public function AdminApproved($stato,$in_evidenza,$idevento){
@@ -308,7 +334,6 @@ class DatabaseHelper{
                $stmt->bind_param('ssi',$descrizione, $data, $userid);
                $stmt->execute();
                $stmt->store_result();
-
               }
 
               public function getMyOrders($user){
@@ -337,6 +362,28 @@ class DatabaseHelper{
                 $result = $stmt->get_result(MYSQLI_ASSOC);
 
                 return $result;
+              }
+
+              public function selectUsersBought($eventid){
+                $stmt= $this->db->prepare("SELECT DISTINCT orders.user_id FROM order_details,orders WHERE order_details.order_id=orders.order_id AND order_details.event_id=?");
+                $stmt->bind_param('i', $eventid);
+                $stmt->execute();
+                $result = $stmt->get_result();
+        //var_dump($result->fetch_all(MYSQLI_ASSOC));
+
+                return $result->fetch_all(MYSQLI_ASSOC);
+              }
+              
+
+              public function changeEventNotify($userid,$descrizione){
+                $stmt = $this->db->prepare("INSERT INTO notifies(description, notify_date, user_id) VALUES (?, ?, ?)");
+                
+                $data = date("Y-m-d");
+                $stmt->bind_param('ssi',$descrizione, $data, $userid);
+                $stmt->execute();
+                $stmt->store_result();
+               // var_dump()
+               // header("location: ./index_organizzatore.php?atype=cli&error=upd");
               }
 
 }
