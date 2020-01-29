@@ -131,17 +131,19 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" id="closecheckout" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-              <script type="text/javascript">
-                  $(document).ready(function(){
-                    $("#closecheckout").click(function(){
-                      $("#cartModalLabel").hide();
+            <form action="#">
+                <button type="button" id="closecheckout" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $("#closecheckout").click(function(){
+                            $("#cartModalLabel").hide();
+                        });
                     });
-                  });
-              </script>
-              <form action="pay.php" method="post">
-                  <button type="submit" class="btn btn-outline-secondary">Paga ora</button>
-              </form>
+                </script>
+            </form>
+            <form action="pay.php" method="post">
+                <button type="submit" class="btn btn-outline-secondary">Paga ora</button>
+            </form>
         </div>
     </div>
 </div>

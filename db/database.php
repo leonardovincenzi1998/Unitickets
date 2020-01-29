@@ -273,10 +273,9 @@ class DatabaseHelper{
              $stmt->bind_param('isi', $user, $date, $totale);
              $stmt->execute();
              $stmt->store_result();
+        }
 
-           }
-
-           public function insertOrderDetails($orderid, $event, $quantity, $price){
+        public function insertOrderDetails($orderid, $event, $quantity, $price){
              $stmt = $this->db->prepare("INSERT INTO order_details(order_id, event_id, quantity,
                        price) VALUES (?, ?, ?, ?)");
              // $user = $_SESSION['user_id'];
