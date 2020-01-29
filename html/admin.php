@@ -7,7 +7,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script> src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"</script>
+    <!-- <script> src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"</script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Admin</title>
     <link href="../css/style.css" rel="stylesheet">
@@ -85,18 +86,63 @@ $templateParams["eventi"]= $dbh->getAdminEvents();
         <h2>Eventi in sospeso</h2>
         <hr class="downCat">
     </div>
-    <!--Eventi-->
     <div id="events" class="container-fluid padding">
     <div class="row padding">
+        <div id="orgEvent" class="col-md-4">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h4 class="card-title">Aggiungi categoria</h4>
+                </div>
+                <div class="card-body">
+    <div class="modal fade" id="createCategory" tabindex="-1" role="dialog" aria-labelledby="createCategoryTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="createCategoryTitle">Aggiungi categoria</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="was-validated" novalidate method="post" id="add_category">
+                                        <div class="form-group">
+                                            <label for="name">Nome categoria</label>
+                                            <input type="text" class="form-control" name="name" id="name" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="desc">Descrizione</label>
+                                            <textarea class="form-control" name="desc" id="desc" rows="3" required></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="img">Immagine</label>
+                                            <input type="text" class="form-control" name="img" id="img" required>
+                                        </div>
+                                        <input type="submit" name="insert" id="insert" value="Crea categoria" class="btn btn-success" />
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fine modale creazione evento -->
+                    <button id="btn-cat" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#createCategory" >Crea categoria</button>
+                </div>
+            </div>
+        </div>
+    <!--Eventi vecchio admin-->
     <?php $cont=-1; ?>
     <?php foreach($templateParams["eventi"] as $evento): 
         $cont++; ?>
-        <div class="col-md-4">
+        <div id="orgEvent" class="col-md-4">
             <div class="card text-center">
+                <div class="card-header">
+                    <h4 class="card-title"><?php echo $evento["event_name"]; ?></h4>
+                </div>
                 <div class="card-body">
-                    <h4 class="card-title"><?php echo $evento["event_name"] ?></h4>
-                    <hr class="tab-event">
-                    <table class="table-borderless-responsive">
+                    <table class="table table-responsive" style="line-height: 1;">
                     <tr>
                             <th id="Prezzo" scope="row">Categoria</th>
                             <td headers="Prezzo" id="costoBiglietto"><?php echo $evento["category_name"] ?></td>
@@ -186,4 +232,47 @@ $templateParams["eventi"]= $dbh->getAdminEvents();
 
 </body>
 </html>
+
+<script>
+$(document).ready(function(){
+ $('#add_category').on("submit", function(event){
+  event.preventDefault();
+  if($('#name').val() == "")
+  {
+   alert("Inserire il nome della categoria");
+  }
+  else if($('#desc').val() == '')
+  {
+   alert("Inserire la descrizione della categoria");
+  }
+  else if($('#img').val() == '')
+  {
+   alert("Inserire l'immagine della categoria");
+  }
+
+  else
+  {
+
+   $.ajax({
+    url:"insert_cat.php",
+    method:"POST",  
+    data:$('#add_category').serialize(),
+    beforeSend:function(){
+     $('#insert').val("Inserting");
+    },
+    success:function(data){
+     $('#add_category')[0].reset();
+     window.location.href = "./admin.php";
+     //$('#createCategory').hide();
+     $('#btn-cat').modal('hide');
+     //header("location: ./index_organizzatore.php?atype=cli&error=ins");
+     //window.location.replace="./index_organizzatore.php";
+
+     //$('#employee_table').html(data);
+    }
+   });
+  }
+ });
+});
+</script>
 

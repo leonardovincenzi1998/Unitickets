@@ -1,4 +1,8 @@
-<!-- svecia -->
+<div class="container justify-content-center col-md-4">
+<hr class="upRegister">
+<h2 class="text-center">I miei eventi</h2>
+<hr class="downRegister">
+</div>
 <div id="events" class="container-fluid padding">
     <div class="row padding">
         <div id="orgEvent" class="col-md-4">
