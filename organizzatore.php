@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="data">Data</label>
-                                            <input type="datetime-local" class="form-control" name="data" id="data" required>
+                                            <input type="datetime-local" class="form-control" name="data" id="data" min="2020-02-18T00:00" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="seats">Posti disponibili</label>
@@ -155,7 +155,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="data2">Data e orario inizio</label>
-                                            <input type="datetime-local" class="form-control" name="data2" id="data2" value="<?php echo $evento["event_date"]?>" required />
+                                            <input type="datetime-local" class="form-control" name="data2" id="data2" min="2020-02-18T00:00" required />
                                         </div>
                                         <div class="form-group">
                                             <label for="seats2">Posti disponibili</label>
