@@ -9,7 +9,5 @@ $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["carosello"] = $dbh->getEventsInEvidence();
 
 
-
-
 require("template/base.php");
 ?>
