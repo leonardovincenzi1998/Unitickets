@@ -393,6 +393,7 @@ class DatabaseHelper{
                 $stmt->bind_param('ssi',$descrizione, $data, $idorganizzatore);
                 $stmt->execute();
                 $stmt->store_result();
+             }
 
               public function selectUsersBought($eventid){
                 $stmt= $this->db->prepare("SELECT DISTINCT orders.user_id FROM order_details,orders WHERE order_details.order_id=orders.order_id AND order_details.event_id=?");
