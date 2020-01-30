@@ -8,7 +8,7 @@
 <!-- Eventi -->
 <div id="events" class="container-fluid padding">
     <div class="row padding">
-    <?php 
+    <?php
     $infomodal= 0;
     foreach($templateParams["inevidenza"] as $events):
         $infomodal++;
@@ -35,12 +35,12 @@
                         <tr>
                             <th id="Prezzo" scope="row">Prezzo</th>
                             <td headers="Prezzo" id="costoBiglietto" class="text-right"><?php echo $events["ticket_price"]; ?> <i class="fa fa-euro"></i></td>
-                        </tr>                        
+                        </tr>
                     </table>
 
                     <?php
-                    
-                    
+
+
 
                     ?>
 
@@ -50,9 +50,9 @@
                         <input type="hidden" name="prezzo_evento" value="<?php echo $events["ticket_price"];?>">
                         <input type="hidden" name="qtà_evento" value="1">
                         <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cartModalLabel">Aggiungi al carrello</button>
-                        <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $infomodal; ?>">Dettagli</button>
+                        <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#_<?php echo $infomodal;?>">Dettagli</button>
                     </form>
-                    <div id="<?php echo $infomodal; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+                    <div id="_<?php echo $infomodal;?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -76,4 +76,3 @@
     <?php endforeach; ?>
     </div>
 </div>
-        
