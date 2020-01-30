@@ -5,17 +5,12 @@ IMPORTANTI:
 
 -  sold-out notifica all'organizzatore
    NOTIFICHE ORGANIZZATORE DA FARE :
-   "IL TUO EVENTO $EVENTO è SOLD OUT!"
+   "IL TUO EVENTO $EVENTO è SOLD OUT!" fattoh
 
-- RIEMPIMENTO TABELLA ORDINI(myOrders.html)
-SELECT * FROM orders, user WHERE orders.user_id=user.user_id AND orders.user_id=?
+- PAGINA RIEPILOGO ORDINI (X CLIENTE) fattoh
 
-- PAGINA RIEPILOGO ORDINI (X CLIENTE)
-
-- PAGINA RIEPILOGO NOTIFICHE(X CLIENTE E ORGANIZZATORE)
+- PAGINA RIEPILOGO NOTIFICHE(X CLIENTE E ORGANIZZATORE) fattoh
 
 
 OPZIONALI:
 - possibilità di eliminare l'evento per l'organizzatore con annessa notifica a chi ha preso i biglietti
-
-

@@ -4,9 +4,9 @@
   $templateParams["categorie"] = $dbh->getEventsByCategoryId($_GET['idcategoria']);
   sec_session_start();
 
-  var_dump($_POST['aggiungi_al_carrello']);
+  // var_dump($_POST['aggiungi_al_carrello']);
   $pro = $_POST['aggiungi_al_carrello'];
-  var_dump($pro);
+  // var_dump($pro);
   // unset($GLOBALS['pro']);
   // var_dump($pro);
   // unset($_SESSION['shopping_cart']);

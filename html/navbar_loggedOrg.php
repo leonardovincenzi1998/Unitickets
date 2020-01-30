@@ -4,7 +4,7 @@ $templateParams["notifica"] = $dbh->getNotifiesNavbarOrg($_SESSION["organizer_id
 
 <nav class="navbar navbar-light navbar-expand bg-light sticky-top">
 <div class="container-fluid">
-    <a class="navbar-brand" href="#">Unitickets</a>
+    <a class="navbar-brand" href="index_organizzatore.php">Unitickets</a>
     <div>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">

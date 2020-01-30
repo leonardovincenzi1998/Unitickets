@@ -1,13 +1,13 @@
 <nav class="navbar navbar-light navbar-expand bg-light sticky-top">
 <div class="container-fluid">
-    <a class="navbar-brand" href="#">Unitickets</a>
+    <a class="navbar-brand" href="index.php">Unitickets</a>
     <div>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a href="#" id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
                     <a href="index_dati.php" class="dropdown-item">I miei dati</a>
-                    <a href="#" class="dropdown-item">I miei ordini</a>
+                    <a href="index_orders.php" class="dropdown-item">I miei ordini</a>
                     <a href="./access/logout.php" class="dropdown-item">Logout</a>
                 </div>
             </li>
@@ -16,7 +16,7 @@
             </li>
             <li class="nav-item dropdown">
                 <a href="#" id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i></a>
-                 
+
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
                 <?php
                 $notifiche = $dbh->getNotifiesNavbar($_SESSION['user_id']);
@@ -27,7 +27,7 @@
                   <p class="dropdown-item-text">Notifica</p> -->
                   <div class="dropdown-divider"></div>
                 <?php endforeach;  ?>
-                    <a href="./notifies.php" class="dropdown-item">Vedi tutte le notifiche</a>
+                    <a href="./notifies.php" class="dropdown-item" style="color:blue">Vedi tutte le notifiche</a>
                 </div>
             </li>
         </ul>
