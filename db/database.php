@@ -62,8 +62,10 @@ class DatabaseHelper{
         $inapprovazione="In approvazione";
         $rifiutato="Rifiutato";
         $inevidenza="In evidenza";
-        $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category AND events.organizer_id = organizer.organizer_id AND events.category=? AND NOT events.Stato=? AND NOT events.Stato=?");
-        $stmt->bind_param('iss',$idcategory,$inapprovazione,$rifiutato);
+        $data = date("Y-m-d");
+        $stmt = $this->db->prepare("SELECT * FROM events,category,organizer WHERE category.category_id = events.category AND
+          events.organizer_id = organizer.organizer_id AND events.category=? AND event_date>=? AND NOT events.Stato=? AND NOT events.Stato=?");
+        $stmt->bind_param('isss',$idcategory, $data, $inapprovazione,$rifiutato);
         $stmt->execute();
         $result = $stmt->get_result();
         //var_dump($result->fetch_all(MYSQLI_ASSOC));
@@ -372,6 +374,27 @@ class DatabaseHelper{
                 return $result;
               }
 
+
+              public function getEventInfo($eventid){
+                $stmt = $this->db->prepare("SELECT events.organizer_id, events.ticket_available FROM events, organizer WHERE
+                                    organizer.organizer_id = events.organizer_id AND event_id=?");
+                $stmt->bind_param('i', $eventid);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                return $result->fetch_all(MYSQLI_ASSOC);
+              }
+
+              public function NotifySoldOut($descrizione, $idorganizzatore){
+                $stmt = $this->db->prepare("INSERT INTO notifies_org (description, notify_date,
+                                    organizer_id) VALUES (?, ?, ?)");
+                $data = date("Y-m-d");
+
+                $stmt->bind_param('ssi',$descrizione, $data, $idorganizzatore);
+                $stmt->execute();
+                $stmt->store_result();
+             }
+
               public function selectUsersBought($eventid){
                 $stmt= $this->db->prepare("SELECT DISTINCT orders.user_id FROM order_details,orders WHERE order_details.order_id=orders.order_id AND order_details.event_id=?");
                 $stmt->bind_param('i', $eventid);
@@ -381,11 +404,11 @@ class DatabaseHelper{
 
                 return $result->fetch_all(MYSQLI_ASSOC);
               }
-              
+
 
               public function changeEventNotify($userid,$descrizione){
                 $stmt = $this->db->prepare("INSERT INTO notifies(description, notify_date, user_id) VALUES (?, ?, ?)");
-                
+
                 $data = date("Y-m-d");
                 $stmt->bind_param('ssi',$descrizione, $data, $userid);
                 $stmt->execute();

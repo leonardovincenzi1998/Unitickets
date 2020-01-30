@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="data">Data</label>
-                                            <input type="datetime-local" class="form-control" name="data" id="data" required>
+                                            <input type="datetime-local" class="form-control" name="data" id="data" min="2020-02-18T00:00" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="seats">Posti disponibili</label>
@@ -120,7 +120,14 @@
                             <td id="Stato"><?php echo $evento["Stato"]; ?></td>
                         </tr>
                     </table>
-                    <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $modifyEventModal; ?>">Modifica evento</button>
+                    <?php
+                      if($evento['event_date']<=date("Y-m-d H:i:s")){ ?>
+                         <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $modifyEventModal; ?>" disabled>Modifica evento</button>
+                      <?php }
+                      else{
+                         ?><button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $modifyEventModal; ?>">Modifica evento</button>
+                      <?php } ?>
+                    <!-- <button id="btn-event<//?php echo($modifyEventModal);?>" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<//?php echo $modifyEventModal; ?>">Modifica evento</button> -->
                     <div class="modal fade" id="<?php echo $modifyEventModal; ?>" tabindex="-1" role="dialog" aria-labelledby="modifyEventModalTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
@@ -135,12 +142,12 @@
                                         <div class="form-group">
                                             <label for="id1" hidden>Id</label>
                                             <input type="number" class="form-control" name="id1" id="id1" value="<?php echo $evento["event_id"]; ?>" hidden>
-                                        </div>   
+                                        </div>
                                         <div class="form-group">
                                             <label for="cat2">Categoria</label>
                                             <select class="form-control" id="cat2" required>
                                             <option selected disabled>Non è possibile modificare la categoria dell'evento</option>
-                                            <?php foreach($templateParams["categorie"] as $categoria): ?> 
+                                            <?php foreach($templateParams["categorie"] as $categoria): ?>
                                                 <option disabled><?php echo $categoria["category_name"];?></option>
                                             <?php endforeach; ?>
                                             </select>
@@ -155,7 +162,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="data2">Data e orario inizio</label>
-                                            <input type="datetime-local" class="form-control" name="data2" id="data2" value="<?php echo $evento["event_date"]?>" required />
+                                            <input type="datetime-local" class="form-control" name="data2" id="data2" min="2020-02-18T00:00" required />
                                         </div>
                                         <div class="form-group">
                                             <label for="seats2">Posti disponibili</label>
@@ -169,7 +176,7 @@
                                             <label for="desc2">Descrizione</label>
                                             <textarea class="form-control" name="desc2" id="desc2" rows="3" <?php echo $evento["descriptions"]?> disabled><?php echo $evento["descriptions"]?></textarea>
                                         </div>
-                                        
+
                                         <input type="submit" name="modify" id="modify" class="btn btn-success" value="Modifica evento" />
                                     </form>
                                 </div>
@@ -179,7 +186,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -221,7 +228,7 @@ $(document).ready(function(){
 
    $.ajax({
     url:"insert.php",
-    method:"POST",  
+    method:"POST",
     data:$('#insert_form').serialize(),
     beforeSend:function(){
      $('#insert').val("Inserting");
