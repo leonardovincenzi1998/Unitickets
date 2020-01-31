@@ -54,13 +54,13 @@
       }
   }
 
-  function pre_r($array){
-      echo '<pre>';
-      print_r($array);
-      echo '</pre';
-  }
+  // function pre_r($array){
+  //     echo '<pre>';
+  //     print_r($array);
+  //     echo '</pre';
+  // }
 
-  pre_r($_SESSION);
+  // pre_r($_SESSION);
 
 // if(!empty($_SESSION['shopping_cart'])){
 //   $total = 0;
