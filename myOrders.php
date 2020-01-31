@@ -1,7 +1,9 @@
-
-</head>
-<body>
-
+<nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-light">
+          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">I miei ordini</li>
+        </ol>
+</nav>
     <!--tabella con resoconto ordini-->
     <div id="titoloCat" class="container-fluid padding">
         <div class="row welcome text-center">
@@ -17,7 +19,7 @@
         <table id="tableResume" class="table table-striped">
             <thead>
                 <tr>
-                    <th id="id_ordine" width="20%" scope="col">ID Ordine</th>
+                    <th id="id_ordine" width="20%" scope="col">Numero Ordine</th>
                     <th id="data" width="20%" scope="col">Data Ordine</th>
                     <th id="totale" width="20%" scope="col">Totale <i class="fa fa-euro"></i></th>
                     <th id="dett" width="20%" scope="col">Dettagli</th>
@@ -32,7 +34,7 @@
                 <tr>
                     <td headers="id_ordine" scope="row"><?php echo $det['order_id'];?></th>
                     <td headers="data"><?php echo $det['purchase_date']; ?></td>
-                    <td headers="totale"><?php echo $det['total_amounts']; ?></td>
+                    <td headers="totale"><?php echo $det['total_amounts']; ?>€</td>
                     <td headers="dett"><button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#__<?php echo $infomodal; ?>">Dettagli</button></td>
                     <!-- <td headers="mtd_pgmt">Carta</td> -->
                 </tr>
