@@ -12,7 +12,7 @@
   <script type="text/javascript" src="forms.js"></script>
   </head>
   <body>
-
+    <?php require_once 'errore.php' ?>
   <div class="container justify-content-center col-md-4">
       <hr class="upRegister">
        <h2 class="text-center">Login Admin </h2>
@@ -24,7 +24,7 @@
         <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" maxlength="55" required>
 
         <label for="password">Password</label>
-        <input type="password" class="form-control" name="p" id="password" placeholder="Password" maxlength="16" required>
+        <input type="password" class="form-control" name="p" id="password" placeholder="Password" maxlength="16">
 
         <button type="submit" class="btn btn-outline-secondary" onclick="formhash(this.form, this.form.password)">Entra</button>
       </form>
