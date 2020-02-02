@@ -18,8 +18,8 @@
                 <div class="card-header">
                     <h4 class="card-title"><?php echo $events["event_name"]; ?></h4>
                 </div>
-                <div class="card-body">
-                    <table class="table table-responsive" style="line-height: 1;">
+                <div class="card-body table-responsive">
+                    <table class="table" style="line-height: 1;">
                         <tr>
                             <th id="Luogo" scope="row">Luogo</th>
                             <td headers="Luogo" id="nomeLuogo" class="text-right"><?php echo $events["event_place"]; ?></td>

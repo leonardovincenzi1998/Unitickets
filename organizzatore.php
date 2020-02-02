@@ -85,8 +85,8 @@
                 <div class="card-header">
                     <h4 class="card-title"><?php echo $evento["event_name"]; ?></h4>
                 </div>
-                <div class="card-body">
-                    <table class="table table-responsive" style="line-height: 1;">
+                <div class="card-body table-responsive">
+                    <table class="table" style="line-height: 1;">
                         <tr>
                             <th scope="row">Categoria</th>
                             <td id="Categoria"><?php echo $evento["category_name"]; ?></td>

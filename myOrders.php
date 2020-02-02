@@ -56,7 +56,6 @@
                     </button>
                 </div>
                 <div class="modal-body table-responsive-sm">
-                 
                  <table id="dett" class="table table-striped">
                      <thead>
                          <tr>
