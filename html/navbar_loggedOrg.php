@@ -1,14 +1,14 @@
 <?php
 $templateParams["notifica"] = $dbh->getNotifiesNavbarOrg($_SESSION["organizer_id"]);
 ?>
-
-<nav class="navbar navbar-light navbar-expand bg-light sticky-top">
+<!-- bg-dark -->
+<nav class="navbar navbar-light navbar-expand sticky-top">
 <div class="container-fluid">
-    <a class="navbar-brand" href="index_organizzatore.php">Unitickets</a>
+    <a class="navbar-brand" style="color: #d5d5d5" href="index_organizzatore.php">Unitickets</a>
     <div>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
-                <a href="#" id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+                <a href="#" id="navbardrop" class="nav-link dropdown-toggle" style="color: #d5d5d5" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
                     <a href="index_datiorg.php" class="dropdown-item">I miei dati</a>
                     <!-- <a href="#" class="dropdown-item">I miei ordini</a> -->
@@ -21,7 +21,7 @@ $templateParams["notifica"] = $dbh->getNotifiesNavbarOrg($_SESSION["organizer_id
                 </a>
             </li> -->
             <li class="nav-item dropdown">
-                <a href="#" id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i></a>
+                <a href="#" id="navbardrop" class="nav-link dropdown-toggle" style="color: #d5d5d5" data-toggle="dropdown"><i class="fa fa-bell"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
                     <?php foreach($templateParams["notifica"] as $notifica): ?>
                     <p class="dropdown-item-text"><?php echo $notifica["description"] ?></p>

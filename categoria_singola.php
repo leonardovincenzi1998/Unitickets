@@ -10,7 +10,7 @@
 <div id="events" class="container-fluid padding">
     <div class="row padding">
     <?php
-    //$cont = 0;
+    
     $infomodal= 0;
     if(sizeof($templateParams["categorie"])==0){
         ?>
@@ -52,7 +52,7 @@
                 <?php
                 $cat = $categoria["category_id"];
                 $evento = $categoria['event_id'];
-                // var_dump($cat);
+                
                 ?>
                 
                 <form action="cart.php?idcategoria=<?php echo $cat;?>&id_evento=<?php echo $evento;?>" method="post">
@@ -60,7 +60,7 @@
                         <input type="hidden" name="nome_evento" value="<?php echo $categoria["event_name"];?>">
                         <input type="hidden" name="prezzo_evento" value="<?php echo $categoria["ticket_price"];?>">
                         <input type="hidden" name="qtà_evento" value="1">
-                        <button id="btn-event" type="submit" name="aggiungi_al_carrello" class="btn btn-outline-secondary">Aggiungi al carrello</button>
+                        <button id="btn-event" type="submit" name="aggiungi_al_carrello" class="btn btn-outline-primary">Aggiungi al carrello</button>
                         <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#_<?php echo $infomodal; ?>">Dettagli</button> 
                 </form>
                 
