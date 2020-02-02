@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="seats">Posti disponibili</label>
-                                            <input type="number" class="form-control" name="seats" id="seats" disabled>
+                                            <input type="number" class="form-control" name="seats" id="seats" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="price">Prezzo <i class="fa fa-euro"></i></label>
