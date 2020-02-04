@@ -23,6 +23,14 @@
     font-size: 1.1rem !important;
 }
 
+.nav-link:hover{
+    color: #ffffff !important;
+}
+
+.navbar-brand:hover{
+    color: #ffffff !important;
+}
+
 footer{
     margin-top: 5%;
     background-color: #021c30;
@@ -96,9 +104,9 @@ hr.light-100{
     margin-top: 5%;
 }
 
-/*#orgEvent{
-    margin-top: 5%;
-}*/
+#allNotifies:active{
+    background-color: #ffffff;
+}
 
 #form-registrazione input, #form-login input{
     margin-bottom: 5%;

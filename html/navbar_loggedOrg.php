@@ -28,7 +28,7 @@ $templateParams["notifica"] = $dbh->getNotifiesNavbarOrg($_SESSION["organizer_id
                     <hr>
                     <?php endforeach; ?>
                     <!-- <div class="dropdown-divider" ></div> -->
-                    <a href="./index_notifiche_org.php" class="dropdown-item" style="color:blue">Vedi tutte le notifiche</a>
+                    <a href="./index_notifiche_org.php" id="allNotifies" class="dropdown-item" style="color:blue">Vedi tutte le notifiche</a>
                     <!-- messo index per provare redirect -> funziona  -->
                 </div>
             </li>

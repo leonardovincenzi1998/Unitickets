@@ -27,7 +27,7 @@
                   <p class="dropdown-item-text">Notifica</p> -->
                   <div class="dropdown-divider"></div>
                 <?php endforeach;  ?>
-                    <a href="./notifies.php" class="dropdown-item" style="color:blue">Vedi tutte le notifiche</a>
+                    <a href="./notifies.php" id="allNotifies" class="dropdown-item" style="color:blue">Vedi tutte le notifiche</a>
                 </div>
             </li>
         </ul>
