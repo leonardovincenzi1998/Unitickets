@@ -18,5 +18,5 @@ Importanza: !
 <!-- *) “accedi”, “registrati” e “uniticket” si devono almeno illuminare di bianco quando ci passo sopra col mouse -->
 *) le tabelle hanno i dati sfasati rispetto ai titoli 
 *) se il carrello è vuoto la riga con “evento, q.tà, prezzo” non dovrebbe esserci
-*) quando schiaccio su “vedi tutte le notifiche” il background diventa blu con scritta blu
+<!-- *) quando schiaccio su “vedi tutte le notifiche” il background diventa blu con scritta blu -->
 *) fare si che gli avvisi spariscano dopo un certo numero di secondi
