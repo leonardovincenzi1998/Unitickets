@@ -35,6 +35,10 @@ $conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PWD, $DB_NAME);
 //     $_POST['birthdate'], $_POST['tel'] )) {
 if (!empty($_POST['p']) && !empty($_POST['email']) && !empty($_POST['name']) &&
      !empty($_POST['surname']) && !empty($_POST['birthdate']) && !empty($_POST['tel']) ) {
+       if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+          header("location: ./register.php?atype=cli&error=mail");
+        }
+        else{
   if ($stmt = $conn->prepare('SELECT * FROM user WHERE user_email = ?')) {
 
     $stmt->bind_param('s', $_POST['email']);
@@ -65,7 +69,7 @@ if (!empty($_POST['p']) && !empty($_POST['email']) && !empty($_POST['name']) &&
       }
     }
   	// $stmt->close(); //else
-}} else {
+}}} else {
   header("location: ./register.php?atype=cli&error=reg");
 }
   //else

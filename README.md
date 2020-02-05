@@ -6,7 +6,7 @@ IMPORTANTI:
 Importanza: !!
 *) se clicco “aggiungi al carrello” e non sono loggato non fa niente, che ci sia un re-indirizzamento alla pagina di login
 	DECIDIAMO DI METTERE IL CARRELLO NELLA BARRA ALLA SINISTRA DI ACCEDI, NEL CASO DI NON LOGGATO RIMUOVERE CON JS IL PULSANTE CHECKOUT
-*) la registrazione sembra non andare, dice che è avvenuta correttamente ma quando provo ad accedere dice che la password è sbagliata FALZO
+<!-- *) la registrazione sembra non andare, dice che è avvenuta correttamente ma quando provo ad accedere dice che la password è sbagliata FALZO -->
 <!-- *) nei “i miei dati” il bottone “modifica dati” si deve chiamare “salva modifiche”, senno non si capisce FATTO -->
 *) Ogni tanto c’è scorrimento orizzontale nei “riquadri” che contengono gli eventi
 *) aggiungo al carrello e non mi chiede la quantità, un po’ tanto minimale
@@ -17,8 +17,8 @@ Importanza: !!
 Importanza: !
 *) quando si fa il resize della finestra l’immagine la segue ma senza mantenere le sue proporzioni
 <!-- *) “accedi”, “registrati” e “uniticket” si devono almeno illuminare di bianco quando ci passo sopra col mouse -->
-*) le tabelle hanno i dati sfasati rispetto ai titoli  QUESTA DAVA ERRORE CON SAFARI (I TD NON SEGUIVANO I TH HEADERS A CUI SI RIFERIVANO) MA CON CHROME A ME VA LISCIO
-*) se il carrello è vuoto la riga con “evento, q.tà, prezzo” non dovrebbe esserci
+<!-- *) le tabelle hanno i dati sfasati rispetto ai titoli  QUESTA DAVA ERRORE CON SAFARI (I TD NON SEGUIVANO I TH HEADERS A CUI SI RIFERIVANO) MA CON CHROME A ME VA LISCIO -->
+<!-- *) se il carrello è vuoto la riga con “evento, q.tà, prezzo” non dovrebbe esserci -->
 <!-- *) quando schiaccio su “vedi tutte le notifiche” il background diventa blu con scritta blu -->
 *) fare si che gli avvisi spariscano dopo un certo numero di secondi
 

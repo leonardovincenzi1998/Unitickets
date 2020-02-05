@@ -48,11 +48,14 @@
                     <table class="table">
                         <thead>
                             <tr>
+                              <?php if(empty($_SESSION['shopping_cart'])){}
+                                else { ?>
                                 <!-- <th id="id_evento" scope="col">id</th> -->
                                 <th id="event_name" scope="col">Evento</th>
                                 <th id="quantità_bigl" scope="col">Q.tà</th>
                                 <th id="totale" width="20%" scope="col">Prezzo €</th>
                                 <th id="btn_remove" scope="col"></th>
+                              <?php } ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,7 +97,7 @@
                             </script>
                                 <tbody>
                                     <tr>
-                                        <td colspan="3" headers="event_name"><h4 ><?php echo "Carrello vuoto"; ?></h4></td>
+                                        <td colspan="3" headers="event_name"><h4 class="text-center"><?php echo "Il carrello è vuoto"; ?></h4></td>
 
                                     </tr>
                                 </tbody>

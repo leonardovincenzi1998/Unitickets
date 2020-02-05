@@ -93,5 +93,15 @@ if(!empty($_GET['error'])){
    </div>
   <?php
   }
+
+  else if($_GET['error']=="mail") { ?>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <p class="text-md-center"> <strong>Errore!</strong> Inserisci una mail valida.</p>
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+  <?php }
+
 }
  ?>
