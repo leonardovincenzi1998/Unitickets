@@ -48,7 +48,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="seats">Posti disponibili</label>
-                                            <input type="number" class="form-control" name="seats" id="seats" disabled>
+                                            <input type="number" class="form-control" name="seats" id="seats" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="price">Prezzo <i class="fa fa-euro"></i></label>
@@ -73,7 +73,7 @@
                     </div>
 
                     <!-- Fine modale creazione evento -->
-                    <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#createEventModal" >Crea evento</button>
+                    <button id="btn-event" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#createEventModal" >Crea evento</button>
                 </div>
             </div>
         </div>
@@ -85,8 +85,8 @@
                 <div class="card-header">
                     <h4 class="card-title"><?php echo $evento["event_name"]; ?></h4>
                 </div>
-                <div class="card-body">
-                    <table class="table table-responsive" style="line-height: 1;">
+                <div class="card-body table-responsive">
+                    <table class="table" style="line-height: 1;">
                         <tr>
                             <th scope="row">Categoria</th>
                             <td id="Categoria"><?php echo $evento["category_name"]; ?></td>
@@ -122,10 +122,10 @@
                     </table>
                     <?php
                       if($evento['event_date']<=date("Y-m-d H:i:s")){ ?>
-                         <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $modifyEventModal; ?>" disabled>Modifica evento</button>
+                         <button id="btn-event" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#<?php echo $modifyEventModal; ?>" disabled>Modifica evento</button>
                       <?php }
                       else{
-                         ?><button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $modifyEventModal; ?>">Modifica evento</button>
+                         ?><button id="btn-event" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#<?php echo $modifyEventModal; ?>">Modifica evento</button>
                       <?php } ?>
                     <!-- <button id="btn-event<//?php echo($modifyEventModal);?>" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<//?php echo $modifyEventModal; ?>">Modifica evento</button> -->
                     <div class="modal fade" id="<?php echo $modifyEventModal; ?>" tabindex="-1" role="dialog" aria-labelledby="modifyEventModalTitle" aria-hidden="true">

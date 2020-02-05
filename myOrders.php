@@ -55,8 +55,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                 <!-- <h4>modal body</h4> -->
+                <div class="modal-body table-responsive-sm">
                  <table id="dett" class="table table-striped">
                      <thead>
                          <tr>
@@ -88,8 +87,3 @@
     </div>
     <?php $infomodal++; ?>
 <?php endforeach; ?>
-    <!-- inserisco tabella -->
-    <!-- <script>$(document).ready( function() {
-        $('#tableResume').DataTable();
-    } );</script> -->
-    <!-- footer con contatti, socials e metodi di pagamento -->

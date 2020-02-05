@@ -1,10 +1,10 @@
-<nav class="navbar navbar-light navbar-expand bg-light sticky-top">
+<nav class="navbar navbar-light navbar-expand sticky-top">
 <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">Unitickets</a>
+    <a class="navbar-brand"  style="color: #d5d5d5" href="index.php">Unitickets</a>
     <div>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
-                <a href="#" id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+                <a href="#" id="navbardrop" class="nav-link dropdown-toggle" style="color: #d5d5d5" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
                     <a href="index_dati.php" class="dropdown-item">I miei dati</a>
                     <a href="index_orders.php" class="dropdown-item">I miei ordini</a>
@@ -12,10 +12,10 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link" data-toggle="modal" data-target="#shoppingchartModalCenter"><i class="fa fa-shopping-cart"></i></a>
+                <a href="#" class="nav-link"  style="color: #d5d5d5"  data-toggle="modal" data-target="#shoppingchartModalCenter"><i class="fa fa-shopping-cart"></i></a>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i></a>
+                <a href="#" id="navbardrop" style="color: #d5d5d5" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i></a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
                 <?php
@@ -27,7 +27,7 @@
                   <p class="dropdown-item-text">Notifica</p> -->
                   <div class="dropdown-divider"></div>
                 <?php endforeach;  ?>
-                    <a href="./notifies.php" class="dropdown-item" style="color:blue">Vedi tutte le notifiche</a>
+                    <a href="./notifies.php" id="allNotifies" class="dropdown-item" style="color:blue">Vedi tutte le notifiche</a>
                 </div>
             </li>
         </ul>

@@ -56,13 +56,13 @@
         // require_once '../access/functions_admin.php ';
    if(login_check_admin($mysqli)){ ?>
 
-    <nav class="navbar navbar-light navbar-expand-sm bg-light sticky-top">
+    <nav class="navbar navbar-light navbar-expand-sm sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Unitickets</a>
+        <a class="navbar-brand" style="color: #d5d5d5" href="#">Unitickets</a>
         <div>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a href="../access/logout.php" class="nav-link">Logout</a>
+                    <a href="../access/logout.php" style="color: #d5d5d5" class="nav-link">Logout</a>
                 </li>
                 <!-- <li class="nav-item">
                     <a href="#" class="nav-link">Registrati</a>
@@ -128,7 +128,7 @@ $templateParams["eventi"]= $dbh->getAdminEvents();
                     </div>
 
                     <!-- Fine modale creazione evento -->
-                    <button id="btn-cat" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#createCategory" >Crea categoria</button>
+                    <button id="btn-cat" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#createCategory" >Crea categoria</button>
                 </div>
             </div>
         </div>
