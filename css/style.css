@@ -7,6 +7,7 @@
 
 .navbar{
     padding: .8rem;
+    background-color: #5679eb;
 }
 
 .navbar-nav{
@@ -20,6 +21,21 @@
 
 .nav-link{
     font-size: 1.1rem !important;
+}
+
+.nav-link:hover{
+    color: #ffffff !important;
+}
+
+.navbar-brand:hover{
+    color: #ffffff !important;
+}
+
+footer{
+    margin-top: 5%;
+    background-color: #021c30;
+    color: #d5d5d5;
+    padding-top: 2rem;
 }
 
 #slides{
@@ -36,19 +52,12 @@
 }
 
 #cardPadding{
-    margin-top: 5%; 
+    margin-top: 5%;
 }
 
 #categories, #events{
     padding-left: 8%;
     padding-right: 8%;
-}
-
-footer{
-    margin-top: 5%;
-    background-color: #3f3f3f;
-    color: #d5d5d5;
-    padding-top: 2rem;
 }
 
 footer div.col-md-12{
@@ -95,9 +104,9 @@ hr.light-100{
     margin-top: 5%;
 }
 
-/*#orgEvent{
-    margin-top: 5%;
-}*/
+#allNotifies:active{
+    background-color: #ffffff;
+}
 
 #form-registrazione input, #form-login input{
     margin-bottom: 5%;
@@ -154,7 +163,7 @@ hr.orders{
 
     .carousel-inner img{
         height: 55%;
-        
+
     }
 }
 

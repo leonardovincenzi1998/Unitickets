@@ -3,7 +3,7 @@ require_once 'bootstrap.php';
 require_once './access/functions.php';
 sec_session_start();
 
-var_dump($_SESSION);
+// var_dump($_SESSION);
 
 
 ?> <br><?php
@@ -25,9 +25,9 @@ $date = date("Y-m-d");
 foreach($_SESSION['shopping_cart'] as $key => $product):
   $totale = $totale + ($product['quantity'] * $product['price']);
   $info = $dbh->getEventInfo($product['id']);
-  var_dump($info);
-  var_dump($info[0]['ticket_available']);
-  var_dump($totale);
+  // var_dump($info);
+  // var_dump($info[0]['ticket_available']);
+  // var_dump($totale);
   if($info[0]['ticket_available'] < $product['quantity']){
     $bool=1;
     // $descr_org = "Wow! Il tuo evento ".$product['name']." è sold out!";

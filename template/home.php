@@ -35,7 +35,7 @@
                     <h4 class="card-title"><?php echo $categoria["category_name"]; ?></h4>
                     <p class="card-text"><?php echo $categoria["description"]; ?></p>
                     <form action="index_categoria.php?idcategoria=<?php echo $categoria["category_id"]?>" method="POST"> 
-                        <button type="submit" class="btn btn-outline-secondary" >Vai alla categoria</button>
+                        <button type="submit" class="btn btn-outline-primary" >Vai alla categoria</button>
                     </form>
                 </div>
             </div>

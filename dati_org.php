@@ -23,7 +23,7 @@
       <label for="date">Partita Iva</label>
       <input type="number" class="form-control" name="birthdate" id="birthdate" value="<?php echo $organizer["organizer_iva"] ?>" maxlength="11" disabled>
 
-      <button type="submit" id="submit_dati" class="btn btn-outline-secondary" onclick="">Modifica dati</button>
+      <button type="submit" id="submit_dati" class="btn btn-outline-secondary" onclick="">Salva modifiche</button>
     </form>
 <?php endforeach; ?>
 </div>

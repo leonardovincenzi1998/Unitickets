@@ -4,9 +4,9 @@
   $templateParams["categorie"] = $dbh->getEventsByCategoryId($_GET['idcategoria']);
   sec_session_start();
 
-  var_dump($_POST['aggiungi_al_carrello']);
+  // var_dump($_POST['aggiungi_al_carrello']);
   $pro = $_POST['aggiungi_al_carrello'];
-  var_dump($pro);
+  // var_dump($pro);
   // unset($GLOBALS['pro']);
   // var_dump($pro);
   // unset($_SESSION['shopping_cart']);
@@ -54,13 +54,13 @@
       }
   }
 
-  function pre_r($array){
-      echo '<pre>';
-      print_r($array);
-      echo '</pre';
-  }
+  // function pre_r($array){
+  //     echo '<pre>';
+  //     print_r($array);
+  //     echo '</pre';
+  // }
 
-  pre_r($_SESSION);
+  // pre_r($_SESSION);
 
 // if(!empty($_SESSION['shopping_cart'])){
 //   $total = 0;

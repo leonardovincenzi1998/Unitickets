@@ -20,7 +20,7 @@ if($_GET['atype']=="cli"){
       <input type="tel" class="form-control" name="tel" id="tel" placeholder="Telefono" maxlength="10" required>
 
       <label for="date">Data di nascita</label>
-      <input type="date" class="form-control" name="birthdate" id="birthdate" placeholder="Data di nascita" required>
+      <input type="date" class="form-control" name="birthdate" id="birthdate" placeholder="Data di nascita" max="2002-02-18" required>
 
       <button type="submit" class="btn btn-outline-secondary" onclick="formhash(this.form, this.form.password)">Conferma</button>
     </form>

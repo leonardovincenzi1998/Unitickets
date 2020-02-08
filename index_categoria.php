@@ -90,11 +90,11 @@ $(document).ready(function(){
 //            'quantity' => $_POST['qtà_evento'],
 //         );
 
-function pre_r($array){
-    echo '<pre>';
-    print_r($array);
-    echo '</pre';
-}
-
-pre_r($_SESSION);
+// function pre_r($array){
+//     echo '<pre>';
+//     print_r($array);
+//     echo '</pre';
+// }
+//
+// pre_r($_SESSION);
 ?>

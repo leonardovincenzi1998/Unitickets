@@ -8,7 +8,7 @@
 <!-- Eventi -->
 <div id="events" class="container-fluid padding">
     <div class="row padding">
-    <?php 
+    <?php
     $infomodal= 0;
     foreach($templateParams["inevidenza"] as $events):
         $infomodal++;
@@ -18,8 +18,8 @@
                 <div class="card-header">
                     <h4 class="card-title"><?php echo $events["event_name"]; ?></h4>
                 </div>
-                <div class="card-body">
-                    <table class="table table-responsive" style="line-height: 1;">
+                <div class="card-body table-responsive">
+                    <table class="table" style="line-height: 1;">
                         <tr>
                             <th id="Luogo" scope="row">Luogo</th>
                             <td headers="Luogo" id="nomeLuogo" class="text-right"><?php echo $events["event_place"]; ?></td>
@@ -35,12 +35,12 @@
                         <tr>
                             <th id="Prezzo" scope="row">Prezzo</th>
                             <td headers="Prezzo" id="costoBiglietto" class="text-right"><?php echo $events["ticket_price"]; ?> <i class="fa fa-euro"></i></td>
-                        </tr>                        
+                        </tr>
                     </table>
 
                     <?php
-                    
-                    
+
+
 
                     ?>
 
@@ -49,10 +49,10 @@
                         <input type="hidden" name="nome_evento" value="<?php echo $events["event_name"];?>">
                         <input type="hidden" name="prezzo_evento" value="<?php echo $events["ticket_price"];?>">
                         <input type="hidden" name="qtà_evento" value="1">
-                        <button id="btn-event" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#cartModalLabel">Aggiungi al carrello</button>
-                        <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#<?php echo $infomodal; ?>">Dettagli</button>
+                        <button id="btn-event" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#cartModalLabel">Aggiungi al carrello</button>
+                        <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#_<?php echo $infomodal;?>">Dettagli</button>
                     </form>
-                    <div id="<?php echo $infomodal; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+                    <div id="_<?php echo $infomodal;?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -76,4 +76,3 @@
     <?php endforeach; ?>
     </div>
 </div>
-        

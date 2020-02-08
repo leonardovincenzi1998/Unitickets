@@ -1,22 +1,22 @@
-<nav class="navbar navbar-light navbar-expand bg-light sticky-top">
+<nav class="navbar navbar-light navbar-expand sticky-top">
 <div class="container-fluid">
-    <a class="navbar-brand" href="#">Unitickets</a>
+    <a class="navbar-brand"  style="color: #d5d5d5" href="index.php">Unitickets</a>
     <div>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
-                <a href="#" id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+                <a href="#" id="navbardrop" class="nav-link dropdown-toggle" style="color: #d5d5d5" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
                     <a href="index_dati.php" class="dropdown-item">I miei dati</a>
-                    <a href="#" class="dropdown-item">I miei ordini</a>
+                    <a href="index_orders.php" class="dropdown-item">I miei ordini</a>
                     <a href="./access/logout.php" class="dropdown-item">Logout</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link" data-toggle="modal" data-target="#shoppingchartModalCenter"><i class="fa fa-shopping-cart"></i></a>
+                <a href="#" class="nav-link"  style="color: #d5d5d5"  data-toggle="modal" data-target="#shoppingchartModalCenter"><i class="fa fa-shopping-cart"></i></a>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i></a>
-                 
+                <a href="#" id="navbardrop" style="color: #d5d5d5" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i></a>
+
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
                 <?php
                 $notifiche = $dbh->getNotifiesNavbar($_SESSION['user_id']);
@@ -27,7 +27,7 @@
                   <p class="dropdown-item-text">Notifica</p> -->
                   <div class="dropdown-divider"></div>
                 <?php endforeach;  ?>
-                    <a href="./notifies.php" class="dropdown-item">Vedi tutte le notifiche</a>
+                    <a href="./notifies.php" id="allNotifies" class="dropdown-item" style="color:blue">Vedi tutte le notifiche</a>
                 </div>
             </li>
         </ul>
@@ -48,11 +48,14 @@
                     <table class="table">
                         <thead>
                             <tr>
+                              <?php if(empty($_SESSION['shopping_cart'])){}
+                                else { ?>
                                 <!-- <th id="id_evento" scope="col">id</th> -->
                                 <th id="event_name" scope="col">Evento</th>
                                 <th id="quantità_bigl" scope="col">Q.tà</th>
                                 <th id="totale" width="20%" scope="col">Prezzo €</th>
                                 <th id="btn_remove" scope="col"></th>
+                              <?php } ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -94,7 +97,7 @@
                             </script>
                                 <tbody>
                                     <tr>
-                                        <td colspan="3" headers="event_name"><h4 ><?php echo "Carrello vuoto"; ?></h4></td>
+                                        <td colspan="3" headers="event_name"><h4 class="text-center"><?php echo "Il carrello è vuoto"; ?></h4></td>
 
                                     </tr>
                                 </tbody>

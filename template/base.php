@@ -17,7 +17,7 @@
 </head>
 <body>
   <?php require_once 'include_navbar.php'; ?>
-    
+
   <?php require($templateParams["nome"]); ?>
   <!--Contatti-->
   <footer>
