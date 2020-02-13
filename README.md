@@ -12,7 +12,7 @@ Importanza: !!
 *) aggiungo al carrello e non mi chiede la quantità, un po’ tanto minimale
 *) il tuo ordine numero X è bruttino, dovrebbe esserci scritto il tuo ordine contenente .. RAGIONEVOLE LASCIARE ANCHE COSì
 *) ci sono dei problemi di codifica, trovo dei caratteri strani
-*) Sono dentro all’organizzatore e quando clicco su “modifica” per l’evento dei dogo data e ora sono vuoti e sono in rosso e dice che rimane un posto, se chiudo dice che i biglietti rimasti sono zero, qualcosina forse non va lì
+<!-- *) Sono dentro all’organizzatore e quando clicco su “modifica” per l’evento dei dogo data e ora sono vuoti e sono in rosso e dice che rimane un posto, se chiudo dice che i biglietti rimasti sono zero, qualcosina forse non va lì -->
 
 Importanza: !
 *) quando si fa il resize della finestra l’immagine la segue ma senza mantenere le sue proporzioni
@@ -27,3 +27,4 @@ Sistemare pagina eventi in evidenza (carrello e modali)
 
 -)Tarta: filter_validate_email con error.php per controllare se viene effettivamente inserita una mail
 -)Svecia: controlla se i colori che hai messo nella navbar siano accessibili al massimo (vedi link/lezioni prof.)
+-)Leo: modalità inserimento e visualizzazione immagine come fatto da tutor in lab

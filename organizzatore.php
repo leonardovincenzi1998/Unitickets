@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="data">Data</label>
-                                            <input type="datetime-local" class="form-control" name="data" id="data" min="<?php echo date('Y-m-d');?>" required>
+                                            <input type="datetime-local" class="form-control" name="data" id="data" min="<?php echo date('Y-m-d\TH:i');?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="seats">Posti disponibili</label>
@@ -59,7 +59,7 @@
                                             <textarea class="form-control" name="desc" id="desc" rows="3" required></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="desc">Immagine</label>
+                                            <label for="img">Immagine</label>
                                             <input type="text" class="form-control" name="img" id="img">
                                         </div>
                                         <input type="submit" name="insert" id="insert" value="Crea evento" class="btn btn-success" />
@@ -122,7 +122,7 @@
                     </table>
                     <?php
                       if($evento['event_date']<=date("Y-m-d H:i:s")){ ?>
-                         <button id="btn-event" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#<?php echo $modifyEventModal; ?>" disabled>Modifica evento</button>
+                         <button id="btn-event" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#<?php echo $modifyEventModal; ?>" disabled>Evento scaduto</button>
                       <?php }
                       else{
                          ?><button id="btn-event" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#<?php echo $modifyEventModal; ?>">Modifica evento</button>
@@ -160,9 +160,13 @@
                                             <label for="place2">Luogo</label>
                                             <input type="text" class="form-control" name="place2" id="place2" value="<?php echo $evento["event_place"]?>" required />
                                         </div>
+                                        <?php 
+                                        $originalDate = $evento["event_date"];
+                                        $newDate = date('Y-m-d\TH:i', strtotime($originalDate));
+                                        ?>
                                         <div class="form-group">
                                             <label for="data2">Data e orario inizio</label>
-                                            <input type="datetime-local" class="form-control" name="data2" id="data2" min="2020-02-18T00:00" required />
+                                            <input type="datetime-local" class="form-control" name="data2" id="data2" value= "<?php echo $newDate; ?>" min="<?php echo date('Y-m-d\TH:i'); ?>" required />
                                         </div>
                                         <div class="form-group">
                                             <label for="seats2">Posti disponibili</label>
