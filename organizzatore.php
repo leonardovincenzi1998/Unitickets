@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="data">Data</label>
-                                            <input type="datetime-local" class="form-control" name="data" id="data" min="2020-02-18T00:00" required>
+                                            <input type="datetime-local" class="form-control" name="data" id="data" min="<?php echo date('Y-m-d');?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="seats">Posti disponibili</label>
