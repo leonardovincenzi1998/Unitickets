@@ -120,3 +120,10 @@ else if($_GET['error']=="mail") { ?>
 <?php }
 }
  ?>
+
+<script type="text/javascript">
+    // show the alert
+    setTimeout(function() {
+        $(".alert-dismissible").alert('close');
+    }, 2000);
+</script>

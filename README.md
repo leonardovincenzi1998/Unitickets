@@ -8,7 +8,7 @@ Importanza: !!
 	DECIDIAMO DI METTERE IL CARRELLO NELLA BARRA ALLA SINISTRA DI ACCEDI, NEL CASO DI NON LOGGATO RIMUOVERE CON JS IL PULSANTE CHECKOUT
 <!-- *) la registrazione sembra non andare, dice che è avvenuta correttamente ma quando provo ad accedere dice che la password è sbagliata FALZO -->
 <!-- *) nei “i miei dati” il bottone “modifica dati” si deve chiamare “salva modifiche”, senno non si capisce FATTO -->
-*) Ogni tanto c’è scorrimento orizzontale nei “riquadri” che contengono gli eventi
+<!-- *) Ogni tanto c’è scorrimento orizzontale nei “riquadri” che contengono gli eventi -->
 *) aggiungo al carrello e non mi chiede la quantità, un po’ tanto minimale
 *) il tuo ordine numero X è bruttino, dovrebbe esserci scritto il tuo ordine contenente .. RAGIONEVOLE LASCIARE ANCHE COSì
 *) ci sono dei problemi di codifica, trovo dei caratteri strani
@@ -20,11 +20,11 @@ Importanza: !
 <!-- *) le tabelle hanno i dati sfasati rispetto ai titoli  QUESTA DAVA ERRORE CON SAFARI (I TD NON SEGUIVANO I TH HEADERS A CUI SI RIFERIVANO) MA CON CHROME A ME VA LISCIO -->
 <!-- *) se il carrello è vuoto la riga con “evento, q.tà, prezzo” non dovrebbe esserci -->
 <!-- *) quando schiaccio su “vedi tutte le notifiche” il background diventa blu con scritta blu -->
-*) fare si che gli avvisi spariscano dopo un certo numero di secondi
+<!-- *) fare si che gli avvisi spariscano dopo un certo numero di secondi -->
 
 Sistemare reindirizzamento carrello nella home
 Sistemare pagina eventi in evidenza (carrello e modali)
 
 -)Tarta: filter_validate_email con error.php per controllare se viene effettivamente inserita una mail
--)Svecia: controlla se i colori che hai messo nella navbar siano accessibili al massimo (vedi link/lezioni prof.)
+<!-- -)Svecia: controlla se i colori che hai messo nella navbar siano accessibili al massimo (vedi link/lezioni prof.) -->
 -)Leo: modalità inserimento e visualizzazione immagine come fatto da tutor in lab
