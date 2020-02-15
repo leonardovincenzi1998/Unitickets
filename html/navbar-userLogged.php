@@ -18,31 +18,43 @@
                 $notificheviste = $dbh->checkNotifies($_SESSION['user_id']);
                 if(empty($notificheviste)){
                    $num_notifiche=0;
-
+                   ?>
+                    <script>
+                         $(document).ready(function(){
+                         $("#badge").hide();
+                         });
+                    </script>
+                    <?php
                 } else {
+                    
                     $num_notifiche= count($notificheviste);
+                    if($num_notifiche > 3){ 
+                        $num_notifiche="3+";
+                    }
                 }
                 
             ?>
-                <script>
+            <script>
                 $(document).ready(function(){
-                    $("#campanella").click(function(){
-                    $("#badge").hide();
-
+                    $("#navbardrop1").click(function(event){
+                        event.preventDefault();
+                        console.log("script");
+                        $("#badge").hide();
+                    $.ajax({
+                    url:"html/azzera.php",
+                     success:function(){
+                         console.log("funziona");
+                     }
                     });
-                
-    
-
-
-
-
                 });
+            });
+            </script>
 
-            </script> 
             <li class="nav-item dropdown">
-                <a href="#" id="navbardrop" style="color: #d5d5d5" class="nav-link" data-toggle="dropdown"><i class="fa fa-bell" id="campanella"></i><span class="badge" id="badge"><?php echo $num_notifiche; ?></span></a>
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
+                <a href="#" id="navbardrop1" style="color: #d5d5d5" class="nav-link" data-toggle="dropdown"><i class="fa fa-bell" id="campanella"></i><span class="badge" id="badge"><?php echo $num_notifiche; ?></span></a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop1">
                 <?php
                 $notifiche = $dbh->getNotifiesNavbar($_SESSION['user_id']);
                 foreach ($notifiche as $notifica): ?>
@@ -182,5 +194,6 @@
     </div>
 </div>
 </div>
+
 
 

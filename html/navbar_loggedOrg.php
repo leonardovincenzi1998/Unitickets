@@ -20,9 +20,45 @@ $templateParams["notifica"] = $dbh->getNotifiesNavbarOrg($_SESSION["organizer_id
                     <i class="fa fa-shopping-cart"><span id="badge-num" class="badge badge-light" style="color: #3f3f3f;">5</span></i>
                 </a>
             </li> -->
+            <?php 
+                $notificheviste = $dbh->checkNotifiesOrg($_SESSION['organizer_id']);
+                if(empty($notificheviste)){
+                   $num_notifiche=0;
+                   ?>
+                    <script>
+                         $(document).ready(function(){
+                         $("#badge").hide();
+                         });
+                    </script>
+                    <?php
+                } else {
+                    
+                    $num_notifiche= count($notificheviste);
+                    if($num_notifiche > 3){ 
+                        $num_notifiche="3+";
+                    }
+                }
+                
+            ?>
+            <script>
+                $(document).ready(function(){
+                    $("#navbardrop1").click(function(event){
+                        event.preventDefault();
+                        console.log("script");
+                        $("#badge").hide();
+                    $.ajax({
+                    url:"html/azzeraOrg.php",
+                     success:function(){
+                         console.log("funziona");
+                     }
+                    });
+                });
+            });
+            </script>
+
             <li class="nav-item dropdown">
-                <a href="#" id="navbardrop" class="nav-link dropdown-toggle" style="color: #d5d5d5" data-toggle="dropdown"><i class="fa fa-bell"></i></a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
+                <a href="#" id="navbardrop1" class="nav-link dropdown-toggle" style="color: #d5d5d5" data-toggle="dropdown"><i class="fa fa-bell" id="campnotifica"></i><span class="badge" id="badge"><?php echo $num_notifiche; ?></span></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop1">
                     <?php foreach($templateParams["notifica"] as $notifica): ?>
                     <p class="dropdown-item-text"><?php echo $notifica["description"] ?></p>
                     <hr>

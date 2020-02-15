@@ -403,6 +403,35 @@ class DatabaseHelper{
                 return $result->fetch_all(MYSQLI_ASSOC);
               }
 
+              public function zeroNotifies($user){
+                  $stmt = $this->db->prepare("UPDATE notifies SET letta = ? WHERE user_id=?");
+                  $uno=1;
+                  $stmt->bind_param('ii', $uno,$user);
+                  $stmt->execute();
+                  $stmt->store_result();
+                  
+              }
+
+              public function checkNotifiesOrg($organizer){
+                $stmt = $this->db->prepare("SELECT * FROM notifies_org WHERE letta=? AND organizer_id=?");
+                $zero=0;
+                $stmt->bind_param('ii',$zero, $organizer);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                return $result->fetch_all(MYSQLI_ASSOC);
+              }
+
+
+              public function zeroNotifiesOrg($organizer){
+                $stmt = $this->db->prepare("UPDATE notifies_org SET letta = ? WHERE organizer_id=?");
+                $uno=1;
+                $stmt->bind_param('ii', $uno,$organizer);
+                $stmt->execute();
+                $stmt->store_result();
+                
+            }
+
 
 
 
