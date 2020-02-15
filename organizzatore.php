@@ -5,7 +5,7 @@
 </div>
 <div id="events" class="container-fluid padding">
     <div class="row padding">
-        <div id="orgEvent" class="col-md-4">
+        <div id="orgEvent" class="col-lg-4">
             <div class="card text-center">
                 <div class="card-header">
                     <h4 class="card-title">Crea evento</h4>
@@ -80,7 +80,7 @@
         <?php $modifyEventModal=-1;
             foreach($templateParams["eventi"] as $evento):
             $modifyEventModal++; ?>
-        <div id="orgEvent" class="col-md-4">
+        <div id="orgEvent" class="col-lg-4">
             <div class="card text-center">
                 <div class="card-header">
                     <h4 class="card-title"><?php echo $evento["event_name"]; ?></h4>

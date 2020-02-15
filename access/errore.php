@@ -34,16 +34,16 @@ if(!empty($_GET['error'])){
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>
+    </div>
   <?php
   }
   else if($_GET['error']=="logok") { ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       <p class="text-md-center"> <strong>Bentornato!</strong> Login eseguito correttamente.</p>
-     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-       <span aria-hidden="true">&times;</span>
-     </button>
-   </div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
  <?php
    // if(login_check($mysqli)==true){
    //   echo "$user_id";
@@ -105,3 +105,10 @@ if(!empty($_GET['error'])){
 
 }
  ?>
+
+<script type="text/javascript">
+    // show the alert
+    setTimeout(function() {
+        $(".alert-dismissible").alert('close');
+    }, 2000);
+</script>

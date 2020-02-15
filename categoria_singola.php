@@ -24,7 +24,7 @@
     foreach($templateParams["categorie"] as $categoria):
         $infomodal++;
     ?>
-    <div id="orgEvent" class="col-md-4">
+    <div id="orgEvent" class="col-lg-4">
         <div class="card text-center">
             <div class="card-header" >
                 <h4 class="card-title"><?php echo $categoria["event_name"]; ?></h4>

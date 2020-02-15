@@ -13,7 +13,7 @@
     foreach($templateParams["inevidenza"] as $events):
         $infomodal++;
         ?>
-        <div class="col-md-4">
+        <div class="col-lg-4">
             <div class="card text-center">
                 <div class="card-header">
                     <h4 class="card-title"><?php echo $events["event_name"]; ?></h4>
