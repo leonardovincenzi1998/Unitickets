@@ -14,8 +14,33 @@
             <li class="nav-item">
                 <a href="#" class="nav-link"  style="color: #d5d5d5"  data-toggle="modal" data-target="#shoppingchartModalCenter"><i class="fa fa-shopping-cart"></i></a>
             </li>
+            <?php 
+                $notificheviste = $dbh->checkNotifies($_SESSION['user_id']);
+                if(empty($notificheviste)){
+                   $num_notifiche=0;
+
+                } else {
+                    $num_notifiche= count($notificheviste);
+                }
+                
+            ?>
+                <script>
+                $(document).ready(function(){
+                    $("#campanella").click(function(){
+                    $("#badge").hide();
+
+                    });
+                
+    
+
+
+
+
+                });
+
+            </script> 
             <li class="nav-item dropdown">
-                <a href="#" id="navbardrop" style="color: #d5d5d5" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i></a>
+                <a href="#" id="navbardrop" style="color: #d5d5d5" class="nav-link" data-toggle="dropdown"><i class="fa fa-bell" id="campanella"></i><span class="badge" id="badge"><?php echo $num_notifiche; ?></span></a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop">
                 <?php
@@ -157,3 +182,5 @@
     </div>
 </div>
 </div>
+
+

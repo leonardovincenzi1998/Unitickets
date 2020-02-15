@@ -36,7 +36,7 @@ class DatabaseHelper{
         while($row = mysqli_fetch_array($result)) {
             if($count == 0) {
                 $output .= '<div class="carousel-item active">
-                <img src="'.$row["img"].'" alt="'.$row["event_name"].'" class="d-block w-100">
+                <img src="'. UPLOAD_DIR.$row["img"].'" alt="'.$row["event_name"].'" class="d-block w-100">
                 <div class="carousel-caption">
                     <button type="submit" class="btn btn-primary btn-md">Eventi in evidenza</button>
                 </div>
@@ -45,7 +45,7 @@ class DatabaseHelper{
             }
             else {
                 $output .= '<div class="carousel-item">
-                <img src="'.$row["img"].'" alt="'.$row["event_name"].'" class="d-block w-100">
+                <img src="'. UPLOAD_DIR.$row["img"].'" alt="'.$row["event_name"].'" class="d-block w-100">
                 <div class="carousel-caption">
                     <button type="submit" class="btn btn-primary btn-md">Eventi in evidenza</button>
                 </div>
@@ -329,7 +329,7 @@ class DatabaseHelper{
               }
 
               public function getTotal($user){
-                $stmt = $this->db->prepare("SELECT * FROM orders WHERE user_id = ?");
+                $stmt = $this->db->prepare("SELECT * FROM orders WHERE user_id = ? ORDER BY order_id DESC;");
                 $stmt->bind_param('i', $user);
                 $stmt->execute();
                 $result = $stmt->get_result();
@@ -391,6 +391,16 @@ class DatabaseHelper{
 
                   return $result->fetch_all(MYSQLI_ASSOC);
 
+              }
+
+              public function checkNotifies($user){
+                $stmt = $this->db->prepare("SELECT * FROM notifies WHERE letta=? AND user_id=?");
+                $zero=0;
+                $stmt->bind_param('ii',$zero, $user);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                return $result->fetch_all(MYSQLI_ASSOC);
               }
 
 

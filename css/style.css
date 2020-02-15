@@ -183,6 +183,12 @@ hr.orders{
     max-height: 159px;
 }
 
-/*#btn-event{
-    margin-bottom: 5%;
-}*/
+.badge {
+    position: absolute !important;
+    top: -5px  !important;
+    /* right: -10px !important; */
+    /* padding: 5px 10px  !important; */
+    border-radius: 50% !important; 
+    background-color: red !important;
+    color: white !important;
+  }

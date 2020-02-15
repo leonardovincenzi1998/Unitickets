@@ -30,7 +30,7 @@
         <?php foreach($templateParams["categorie"] as $categoria): ?> 
         <div id="cardPadding" class="col-md-4">
             <div class="card" id="cartehome">
-                <img src="<?php echo $categoria["image_url"]?>" alt="Categoria <?php echo $categoria["category_name"];?>" class="card-imd-top">
+                <img src="<?php echo UPLOAD_DIR.$categoria["image_url"]?>" alt="Categoria <?php echo $categoria["category_name"];?>" class="card-imd-top">
                 <div class="card-body">
                     <h4 class="card-title"><?php echo $categoria["category_name"]; ?></h4>
                     <p class="card-text"><?php echo $categoria["description"]; ?></p>
