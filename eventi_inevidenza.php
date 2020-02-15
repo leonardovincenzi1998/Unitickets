@@ -44,12 +44,12 @@
 
                     ?>
 
-                    <form action="" method="post">
+                    <form action="cart_evidenza.php" method="post">
                         <input type="hidden" name="id_evento" value="<?php echo $events["event_id"];?>">
                         <input type="hidden" name="nome_evento" value="<?php echo $events["event_name"];?>">
                         <input type="hidden" name="prezzo_evento" value="<?php echo $events["ticket_price"];?>">
                         <input type="hidden" name="qtà_evento" value="1">
-                        <button id="btn-event" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#cartModalLabel">Aggiungi al carrello</button>
+                        <button id="btn-event" type="submit" name="aggiungi_al_carrello" class="btn btn-outline-primary">Aggiungi al carrello</button>
                         <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#_<?php echo $infomodal;?>">Dettagli</button>
                     </form>
                     <div id="_<?php echo $infomodal;?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">

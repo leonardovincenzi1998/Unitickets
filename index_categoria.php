@@ -2,7 +2,8 @@
 require_once("bootstrap.php");
 require_once 'access/functions.php';
 sec_session_start();                   //mi serve per vedere navbar giusta
-
+   $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+   // var_dump($actual_link);
 // var_dump($_SESSION);  //per debug, mostra variabili di sessione istanziate al login
 // if(isset($_POST['open_cart'])){
 

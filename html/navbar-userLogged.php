@@ -1,3 +1,4 @@
+<?php require_once 'appunti_url.php'; ?>
 <nav class="navbar navbar-light navbar-expand sticky-top">
 <div class="container-fluid">
     <a class="navbar-brand"  style="color: #d5d5d5" href="index.php">Unitickets</a>
@@ -70,11 +71,27 @@
                                 <td headers="quantità_bigl"><?php echo($product['quantity']); ?></td>
                                 <td headers="totale"><?php echo number_format($product['quantity'] * $product['price'], 2); ?></td>
                                 <td headers="btn_remove">
+                                  <?php $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                                  if($actual_link == $evid) { ?>
+                                    <!-- <form action="cart.php?idcategoria=<?php //echo $_GET['idcategoria']; ?>" method="post"> -->
+                                    <form action="cart_evidenza.php" method="post">
+                                        <input type="hidden" name="remove_elem" value="1"></input>
+                                        <input type="hidden" name="id_remove_element" value="<?php echo $product['id']; ?>"></input>
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                    </form>
+                                  <?php } else if($actual_link == $home){ ?>
+                                    <form action="cart_home.php" method="post">
+                                        <input type="hidden" name="remove_elem" value="1"></input>
+                                        <input type="hidden" name="id_remove_element" value="<?php echo $product['id']; ?>"></input>
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                    </form>
+                                  <?php } else { ?>
                                     <form action="cart.php?idcategoria=<?php echo $_GET['idcategoria']; ?>" method="post">
                                         <input type="hidden" name="remove_elem" value="1"></input>
                                         <input type="hidden" name="id_remove_element" value="<?php echo $product['id']; ?>"></input>
                                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
                                     </form>
+                                  <?php } ?>
                                 </td>
                             </tr>
                             <?php

@@ -16,7 +16,8 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-  <?php require_once 'include_navbar.php'; ?>
+  <?php require_once 'include_navbar.php';
+  require_once 'appunti_url.php';?>
 
   <?php require($templateParams["nome"]); ?>
   <!--Contatti-->
