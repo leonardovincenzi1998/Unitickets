@@ -20,7 +20,7 @@ html, body {
 }
 
 .nav-link{
-    font-size: 1.1rem !important;
+    font-size: 1rem !important;
 }
 
 .nav-link:hover{
@@ -37,8 +37,6 @@ footer{
     color: #d5d5d5;
     padding-top: 2rem;
 }
-
-
 
 #slides{
     margin-left: 15%;
@@ -174,7 +172,6 @@ hr.orders{
 
     .carousel-inner img{
         height: 65%;
-
     }
 }
 
@@ -182,7 +179,6 @@ hr.orders{
     min-height: 360px;
     max-width: 350px;
 }
-
 
 .card{
     margin: 10px;

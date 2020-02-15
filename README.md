@@ -9,8 +9,8 @@ Importanza: !!
 <!-- *) la registrazione sembra non andare, dice che è avvenuta correttamente ma quando provo ad accedere dice che la password è sbagliata FALZO -->
 <!-- *) nei “i miei dati” il bottone “modifica dati” si deve chiamare “salva modifiche”, senno non si capisce FATTO -->
 <!-- *) Ogni tanto c’è scorrimento orizzontale nei “riquadri” che contengono gli eventi -->
-*) aggiungo al carrello e non mi chiede la quantità, un po’ tanto minimale
-*) il tuo ordine numero X è bruttino, dovrebbe esserci scritto il tuo ordine contenente .. RAGIONEVOLE LASCIARE ANCHE COSì
+<!-- *) aggiungo al carrello e non mi chiede la quantità, un po’ tanto minimale -->
+<!-- *) il tuo ordine numero X è bruttino, dovrebbe esserci scritto il tuo ordine contenente .. RAGIONEVOLE LASCIARE ANCHE COSì -->
 *) ci sono dei problemi di codifica, trovo dei caratteri strani
 <!-- *) Sono dentro all’organizzatore e quando clicco su “modifica” per l’evento dei dogo data e ora sono vuoti e sono in rosso e dice che rimane un posto, se chiudo dice che i biglietti rimasti sono zero, qualcosina forse non va lì -->
 
