@@ -124,6 +124,6 @@ else if($_GET['error']=="mail") { ?>
 <script type="text/javascript">
     // show the alert
     setTimeout(function() {
-        $(".alert-dismissible").alert('close');
+        $(".alert-dismissible").slideUp();
     }, 2000);
 </script>

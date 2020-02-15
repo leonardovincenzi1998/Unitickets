@@ -109,6 +109,6 @@ if(!empty($_GET['error'])){
 <script type="text/javascript">
     // show the alert
     setTimeout(function() {
-        $(".alert-dismissible").alert('close');
+        $(".alert-dismissible").slideUp();
     }, 2000);
 </script>
