@@ -20,7 +20,7 @@ html, body {
 }
 
 .nav-link{
-    font-size: 1rem !important;
+    font-size: 0.9rem !important;
 }
 
 .nav-link:hover{
@@ -97,9 +97,6 @@ hr.light-100{
     border-top: 1px solid #3f3f3f;
 }
 
-#btn-event, #btn-info{
-    margin-top: 2em;
-}
 
 #events{
     margin-top: 5%;
@@ -159,6 +156,12 @@ hr.orders{
         padding-top: 2%;
         padding-bottom: 5%;
     }
+
+    #nomeQuantità, #selectQuantity{
+        margin-bottom: 5%;
+    }
+
+
 }
 
 @media only screen and (min-width: 600px){
@@ -198,4 +201,10 @@ hr.orders{
     border-radius: 50% !important; 
     background-color: red !important;
     color: white !important;
-  }
+}
+
+#selectQuantity{
+max-width: 60px;
+display: inline;
+}
+

@@ -24,7 +24,7 @@
     foreach($templateParams["categorie"] as $categoria):
         $infomodal++;
     ?>
-    <div id="orgEvent" class="col-lg-4">
+    <div id="orgEvent" class="col-xl-4">
         <div class="card text-center">
             <div class="card-header" >
                 <h4 class="card-title"><?php echo $categoria["event_name"]; ?></h4>
@@ -47,21 +47,33 @@
                         <th id="Prezzo" scope="row">Prezzo</th>
                         <td headers="Prezzo" id="costoBiglietto" class="text-right"><?php echo $categoria["ticket_price"]; ?> <i class="fa fa-euro"></i></td>
                     </tr>
+                    <tr>
+                        <th id="Dettagli" scope="row">Dettagli</th>
+                        <td headers="Dettagli" id="bottoneDettagli" class="text-right">
+                            <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#_<?php echo $infomodal; ?>">Dettagli</button> 
+                        </td>
+                    </tr>
                 </table>
-
+                
                 <?php
                 $cat = $categoria["category_id"];
                 $evento = $categoria['event_id'];
-                
                 ?>
                 
                 <form action="cart.php?idcategoria=<?php echo $cat;?>&id_evento=<?php echo $evento;?>" method="post">
                         <input type="hidden" name="id_evento" value="<?php echo $categoria["event_id"];?>">
                         <input type="hidden" name="nome_evento" value="<?php echo $categoria["event_name"];?>">
                         <input type="hidden" name="prezzo_evento" value="<?php echo $categoria["ticket_price"];?>">
-                        <input type="hidden" name="qtà_evento" value="1">
+                        <!-- <input type="hidden" name="qtà_evento" value="1"> -->
+                        
+                        <label id="nomeQuantità" for="selectQuantity">Q.tà</label>
+                        <select class="form-control" id="selectQuantity" name="qtà_evento">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
                         <button id="btn-event" type="submit" name="aggiungi_al_carrello" class="btn btn-outline-primary">Aggiungi al carrello</button>
-                        <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#_<?php echo $infomodal; ?>">Dettagli</button> 
                 </form>
                 
                 <div id="_<?php echo $infomodal; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
