@@ -25,7 +25,7 @@
                             <td headers="Luogo" id="nomeLuogo" class="text-right"><?php echo $events["event_place"]; ?></td>
                         </tr>
                         <tr>
-                            <th id="Data" scope="row">Data</th>
+                            <th id="Data" scope="row">Data e ora</th>
                             <td headers="Data" id="dataEv" class="text-right"><?php echo $events["event_date"]; ?></td>
                         </tr>
                         <tr>
@@ -38,19 +38,21 @@
                         </tr>
                     </table>
 
-                    <?php
-
-
-
-                    ?>
-
                     <form action="cart_evidenza.php" method="post">
                         <input type="hidden" name="id_evento" value="<?php echo $events["event_id"];?>">
                         <input type="hidden" name="nome_evento" value="<?php echo $events["event_name"];?>">
                         <input type="hidden" name="prezzo_evento" value="<?php echo $events["ticket_price"];?>">
-                        <input type="hidden" name="qtà_evento" value="1">
+                        <div class="text-center">
+                            <button id="infoButton" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#_<?php echo $infomodal; ?>">Vedi dettagli evento</button>
+                        </div>
+                        <label id="nomeQuantità" for="selectQuantity">Q.tà</label>
+                        <select class="form-control" id="selectQuantity" name="qtà_evento">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
                         <button id="btn-event" type="submit" name="aggiungi_al_carrello" class="btn btn-outline-primary">Aggiungi al carrello</button>
-                        <button id="btn-info" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#_<?php echo $infomodal;?>">Dettagli</button>
                     </form>
                     <div id="_<?php echo $infomodal;?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">

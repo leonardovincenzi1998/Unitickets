@@ -175,9 +175,9 @@ $templateParams["eventi"]= $dbh->getAdminEvents();
                         <input type="hidden" id="idevento" name="idevento" value="<?php echo $evento["event_id"] ?>" />
                         <input type="hidden" id="idorganizzatore" name="idorganizzatore" value="<?php echo $evento["organizer_id"] ?>" />
                     </table>
-                    <button id="btn-event" type="submit" name="action" class="btn btn-success" value="Accetta" >Accetta evento</button>
-                    <button id="btn-event" type="submit" name="action" class="btn btn-danger" value="Rifiuta">Rifiuta evento</button>
-                    <button id="btn-event" type="submit" name="action" class="btn btn-primary" value="Evidenza">Accetta e in evidenza</button>
+                    <button id="btn-admin" type="submit" name="action" class="btn btn-success" value="Accetta" >Accetta evento</button>
+                    <button id="btn-admin" type="submit" name="action" class="btn btn-danger" value="Rifiuta">Rifiuta evento</button>
+                    <button id="btn-admin" type="submit" name="action" class="btn btn-primary" value="Evidenza">Accetta e in evidenza</button>
                     </form>
                 </div>
             </div>
