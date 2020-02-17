@@ -13,7 +13,7 @@ if ($_POST['action'] == 'Accetta') {
 
     $approvato="Approvato";
     $in_evidenza=0;
-    $descrizione="Il tuo evento ". $templateParams["nomeevento"] ." e' stato Accettato";
+    $descrizione="Il tuo evento ". $templateParams["nomeevento"] ." è stato Accettato";
     $templateParams["update"]= $dbh->AdminApproved($approvato, $in_evidenza, $_POST['idevento']);
     $templateParams["notificaorg"]= $dbh->Admin_Action($descrizione,$_POST['idorganizzatore']);
 
@@ -22,7 +22,7 @@ if ($_POST['action'] == 'Accetta') {
 
     $approvato="Rifiutato";
     $in_evidenza=0;
-    $descrizione="Il tuo evento ". $templateParams["nomeevento"] ."' e' stato Rifiutato";
+    $descrizione="Il tuo evento ". $templateParams["nomeevento"] ."' è stato Rifiutato";
     $templateParams["update"]= $dbh->AdminApproved($approvato, $in_evidenza, $_POST['idevento']);
     $templateParams["notificaorg"]= $dbh->Admin_Action($descrizione,$_POST['idorganizzatore']);
 
@@ -30,11 +30,9 @@ if ($_POST['action'] == 'Accetta') {
 
     $approvato="In evidenza";
     $in_evidenza=1;
-    $descrizione="Il tuo evento ". $templateParams["nomeevento"] ." e' In Evidenza";
+    $descrizione="Il tuo evento ". $templateParams["nomeevento"] ." è In Evidenza";
     $templateParams["update"]= $dbh->AdminApproved($approvato, $in_evidenza, $_POST['idevento']);
     $templateParams["notificaorg"]= $dbh->Admin_Action($descrizione,$_POST['idorganizzatore']);
 }
 
 ?>
-
-
