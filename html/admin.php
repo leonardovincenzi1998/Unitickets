@@ -10,13 +10,13 @@
     <!-- <script> src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"</script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Admin</title>
+    <title>Unitickets - Admin</title>
     <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
   <?php require_once '../access/errore.php';
         require_once("../bootstrap.php");
-        
+
   function login_check_admin($mysqli) {
      // Verifica che tutte le variabili di sessione siano impostate correttamente
      if(isset($_SESSION['admin_id'], $_SESSION['login_string'])) {
@@ -74,7 +74,7 @@
   <?php }
 
     //var_dump($_SESSION); //ME LO STAMPA CMQ UNA VOLTA PERCHè C'è IN ERRORE.PHP ?>
-    <?php 
+    <?php
 
 
 $templateParams["eventi"]= $dbh->getAdminEvents();
@@ -134,7 +134,7 @@ $templateParams["eventi"]= $dbh->getAdminEvents();
         </div>
     <!--Eventi vecchio admin-->
     <?php $cont=-1; ?>
-    <?php foreach($templateParams["eventi"] as $evento): 
+    <?php foreach($templateParams["eventi"] as $evento):
         $cont++; ?>
         <div id="orgEvent" class="col-md-4">
             <div class="card text-center">
@@ -152,7 +152,7 @@ $templateParams["eventi"]= $dbh->getAdminEvents();
                             <td headers="Luogo" id="nomeLuogo"><?php echo $evento["event_place"] ?></td>
                         </tr>
                         <tr>
-                            <th id="Data" scope="row">Data</th>
+                            <th id="Data" scope="row">Data e ora</th>
                             <td headers="Data" id="dataEv"><?php echo $evento["event_date"] ?></td>
                         </tr>
                         <tr>
@@ -171,7 +171,7 @@ $templateParams["eventi"]= $dbh->getAdminEvents();
                             <th id="desc" scope="row">Descrizione</th>
                             <td headers="desc" id="descrizione"><?php echo $evento["descriptions"] ?></td>
                         </tr>
-                        <?php 
+                        <?php
                             if($evento["img"]==""){
                                 $img="Non presente";
                             } else {
@@ -192,9 +192,9 @@ $templateParams["eventi"]= $dbh->getAdminEvents();
                     </form>
                 </div>
             </div>
-        </div>     
+        </div>
     <?php endforeach; ?>
-    
+
     </div>
     </div>
     <!--Footer-->
@@ -266,7 +266,7 @@ $(document).ready(function(){
 
    $.ajax({
     url:"insert_cat.php",
-    method:"POST",  
+    method:"POST",
     data:$('#add_category').serialize(),
     beforeSend:function(){
      $('#insert').val("Inserting");
@@ -286,4 +286,3 @@ $(document).ready(function(){
  });
 });
 </script>
-

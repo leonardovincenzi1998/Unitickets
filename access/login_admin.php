@@ -12,6 +12,7 @@
   <script type="text/javascript" src="forms.js"></script>
   </head>
   <body>
+    <title>Login Admin</title>
     <?php require_once 'errore.php' ?>
   <div class="container justify-content-center col-md-4">
       <hr class="upRegister">

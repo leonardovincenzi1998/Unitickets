@@ -11,7 +11,7 @@
   <link href="../css/style.css" type="text/css" rel="stylesheet">
   <script type="text/javascript" src="sha512.js"></script>
   <script type="text/javascript" src="forms.js"></script>
-  <title>Registrazione</title>
+  <title>Unitickets - Registrazione</title>
 </head>
 <body>
   <?php include 'errore.php'; ?>

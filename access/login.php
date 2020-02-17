@@ -20,6 +20,7 @@
   ?>
   <!-- <form action="process_login.php" method="post" name="login_form"> -->
 <body>
+  <title>Unitickets - Login</title>
 <div class="container justify-content-center col-md-4">
   <hr class="upRegister">
   <!-- <h2 class="text-center">Login</h2> -->
