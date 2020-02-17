@@ -168,8 +168,19 @@ $templateParams["eventi"]= $dbh->getAdminEvents();
                             <td headers="Prezzo" id="costoBiglietto"><?php echo $evento["ticket_price"] ?><i class="fa fa-euro"></i></td>
                         </tr>
                         <tr>
-                            <th id="Prezzo" scope="row">Descrizione</th>
-                            <td headers="Prezzo" id="costoBiglietto"><?php echo $evento["descriptions"] ?></td>
+                            <th id="desc" scope="row">Descrizione</th>
+                            <td headers="desc" id="descrizione"><?php echo $evento["descriptions"] ?></td>
+                        </tr>
+                        <?php 
+                            if($evento["img"]==""){
+                                $img="Non presente";
+                            } else {
+                                $img=$evento["img"];
+                            }
+                        ?>
+                        <tr>
+                            <th id="img" scope="row">Immagine</th>
+                            <td headers="img" id="immagine"><?php echo $img; ?></td>
                         </tr>
                         <form action="../evento_admin.php" method="POST">
                         <input type="hidden" id="idevento" name="idevento" value="<?php echo $evento["event_id"] ?>" />
